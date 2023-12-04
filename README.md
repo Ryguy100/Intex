@@ -3,7 +3,7 @@
 <h4>Database instructions</h4>
 <ol>
   <li>
-    Create a new, empty file called "database.env"
+    Create a new, empty file called ".env"
   </li>
   <li>
     Run the "npm install" command. This will install all of the dependencies needed.
