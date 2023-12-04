@@ -3,8 +3,8 @@ require("knex")({
   connection: {
     host: "localhost",
     user: "postgres",
-    password: YOUR_PASSWORD,
-    database: YOUR_DATABASE,
+    password: "Jewish66",
+    database: "intex",
     port: 5432,
   },
 });

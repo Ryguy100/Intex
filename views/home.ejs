@@ -5,11 +5,48 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Home</title>
+    <style>
+      body {
+        margin: 0;
+        font-family: Arial, sans-serif;
+      }
+
+      nav {
+        background-color: #333;
+        overflow: hidden;
+      }
+
+      nav a {
+        float: left;
+        display: block;
+        color: white;
+        text-align: center;
+        padding: 14px 16px;
+        text-decoration: none;
+      }
+
+      nav a:hover {
+        background-color: #ddd;
+        color: black;
+      }
+    </style>
+    <script>
+      let username = "<%= user %>";
+      if (username != "") {
+        username = "<%= user %>";
+        alert(`Welcome, ${username}`);
+      }
+    </script>
   </head>
   <body>
-    <a href="/">Home</a>
-    <a href="/survey">Survey</a>
-    <a href="/login">Login</a>
-    this is the home of intex
+    <nav>
+      <a href="/">Home</a>
+      <a href="/survey">Take the Survey</a>
+      <a href="#contact">Contact</a>
+      <% if(user != "") { %>
+      <a href="/login" class="login-btn">Login</a>
+
+      <% } %>
+    </nav>
   </body>
 </html>
