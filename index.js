@@ -6,7 +6,8 @@ const PORT = process.env.PORT || 5500;
 
 app.set("view engine", "ejs");
 app.use(express.urlencoded({ extended: true }));
-app.use(express.static(__dirname + "/"));
+app.use(express.static("assets"));
+
 
 const knex = require("knex")({
   client: "pg",
