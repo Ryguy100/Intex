@@ -4,49 +4,44 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/css/bootstrap.min.css" />
+    <script href="/js/bootstrap.bundle.js"></script>
     <title>Home</title>
     <style>
       body {
+        font-family: "Arial", sans-serif;
+        background-color: #f5f5f5;
         margin: 0;
-        font-family: Arial, sans-serif;
-      }
-
-      nav {
-        background-color: #333;
-        overflow: hidden;
-      }
-
-      nav a {
-        float: left;
-        display: block;
-        color: white;
+        padding: 20px;
         text-align: center;
-        padding: 14px 16px;
-        text-decoration: none;
       }
 
-      nav a:hover {
-        background-color: #ddd;
-        color: black;
+      a {
+        text-decoration: none;
+        padding: 10px 20px;
+        margin: 10px;
+        border-radius: 5px;
+        font-weight: bold;
+        color: #fff;
+        background-color: #3498db;
+        transition: background-color 0.3s;
+        display: inline-block;
+      }
+
+      a:hover {
+        background-color: #2980b9;
+      }
+
+      h1 {
+        color: #2c3e50;
       }
     </style>
-    <script>
-      let username = "<%= user %>";
-      if (username != "") {
-        username = "<%= user %>";
-        alert(`Welcome, ${username}`);
-      }
-    </script>
   </head>
   <body>
-    <nav>
-      <a href="/">Home</a>
-      <a href="/survey">Take the Survey</a>
-      <a href="#contact">Contact</a>
-      <% if(user != "") { %>
-      <a href="/login" class="login-btn">Login</a>
-
-      <% } %>
-    </nav>
+    <h1>Welcome to the Fun World of Intex!</h1>
+    <a href="/">Home</a>
+    <a href="/survey">Survey</a>
+    <a href="/login">Login</a>
+    this is the home of intex
   </body>
 </html>
