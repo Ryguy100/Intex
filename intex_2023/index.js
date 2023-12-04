@@ -2,7 +2,7 @@ const express = require("express");
 let app = express();
 let path = require("path");
 
-const PORT = 5500;
+const PORT = process.env.PORT || 5500;
 
 app.set("view engine", "ejs");
 app.use(express.urlencoded({ extended: true }));

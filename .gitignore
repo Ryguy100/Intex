@@ -1,6 +1,9 @@
 # Database
 config/database.js
 
+# All .zip files
+*.zip
+
 # Logs
 logs
 *.log
