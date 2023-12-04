@@ -3,12 +3,19 @@
 <h4>Database instructions</h4>
 <ol>
   <li>
-    Create a new, empty file called "database.js"
+    Create a new, empty file called "database.env"
   </li>
   <li>
-    Copy all the code from "database_example.js" into the newly created "database.js" file
+    Run the "npm install" command. This will install all of the dependencies needed.
   </li>
   <li>
-    Replace all the connections with your own database credentials
+    Input the data in this format into the "database.env" file:
+    <code>
+      RDS_HOSTNAME = 'localhost'
+      RDS_USERNAME = 'postgres'
+      RDS_PASSWORD = YOUR_PASSWORD
+      RDS_DB_NAME = YOUR_DB_NAME
+      RDS_PORT = 5432
+    </code>
   </li>
 </ol>

@@ -4,6 +4,8 @@ let path = require("path");
 
 const PORT = process.env.PORT || 5500;
 
+require('dotenv').config();
+
 app.set("view engine", "ejs");
 app.use(express.urlencoded({ extended: true }));
 app.use(express.static("assets"));
@@ -11,11 +13,11 @@ app.use(express.static("assets"));
 const knex = require("knex")({
   client: "pg",
   connection: {
-    host: "localhost",
-    user: "postgres",
-    password: "Jewish66",
-    database: "intex",
-    port: 5432,
+    host: process.env.RDS_HOSTNAME,
+    user: process.env.RDS_USERNAME,
+    password: process.env.RDS_PASSWORD,
+    database: process.env.RDS_DB_NAME,
+    port: process.env.RDS_PORT,
   },
 });
 
