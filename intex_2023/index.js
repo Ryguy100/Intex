@@ -27,4 +27,8 @@ app.get("/survey", (req, res) => {
   res.render("survey");
 });
 
+app.get("/login", (req, res) => {
+  res.render("login");
+});
+
 app.listen(PORT, () => console.log("Application has started"));
