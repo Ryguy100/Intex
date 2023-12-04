@@ -23,4 +23,8 @@ app.get("/", (req, res) => {
   res.render("home");
 });
 
+app.get("/survey", (req, res) => {
+  res.render("survey");
+});
+
 app.listen(PORT, () => console.log("Application has started"));
