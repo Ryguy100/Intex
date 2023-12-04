@@ -8,7 +8,6 @@ app.set("view engine", "ejs");
 app.use(express.urlencoded({ extended: true }));
 app.use(express.static("assets"));
 
-
 const knex = require("knex")({
   client: "pg",
   connection: {
@@ -64,7 +63,7 @@ app.get("/login", async (req, res) => {
 
 app.post("/login", (req, res) => {
   if (isUserInArray(req.body.username, req.body.password, aUsers) == true) {
-    res.redirect("/", { user: currentUsername });
+    res.redirect("/");
     console.log("Success. Welcome " + currentUsername);
   } else {
     res.redirect("/");
