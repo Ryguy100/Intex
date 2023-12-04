@@ -28,40 +28,38 @@ app.get("/survey", (req, res) => {
   res.render("survey");
 });
 
-app.get("/login", (req, res) => {
-  res.render("login");
-});
+let aUsers = [];
 
-app.post("/login", (req, res) => {
-  let aUsers = [];
-  knex
+function isUserInArray(u, p, array) {
+  for (let i = 0; i < array.length; i++) {
+    if (array[i].name == u && array[i].pass == p) {
+      return true; // User found in the array
+    }
+  }
+  return false; // User not found in the array
+}
+
+app.get("/login", async (req, res) => {
+  await knex
     .select()
     .from("users")
     .then((result) => {
       for (let i = 0; i < result.length; i++) {
+        aUsers = [];
         aUsers.push({ name: result[i].username, pass: result[i].password });
       }
     });
+  console.log(aUsers);
+  res.render("login");
+});
 
-  function isUserInArray(username, password, array) {
-    for (let i = 0; i < array.length; i++) {
-      if (array[i].name === username && array[i].pass === password) {
-        return true; // User found in the array
-      }
-    }
-    return false; // User not found in the array
-  }
-
-  if (isUserInArray(req.body.username, req.body.password, aUsers)) {
-    res.redirect("home", () => {
-      console.log(`Logged in as ${req.body.username}`);
-      alert("login success");
-    });
+app.post("/login", (req, res) => {
+  if (isUserInArray(req.body.username, req.body.password, aUsers) == true) {
+    res.redirect("/");
+    console.log("Success");
   } else {
-    res.redirect("home", () => {
-      console.log("Failed to authenticate");
-      alert("login failure");
-    });
+    res.redirect("/");
+    console.log("Failed");
   }
 });
 
@@ -82,7 +80,7 @@ app.post("/register", (req, res) => {
       is_admin: false,
     })
     .then((results) => {
-      res.redirect("login");
+      res.redirect("/");
     });
 });
 
