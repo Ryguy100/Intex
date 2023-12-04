@@ -7,125 +7,263 @@
     <title>Survey</title>
   </head>
   <body>
+    <!-- Navigation Bar -->
     <div>
       <a href="/">Home</a>
       <a href="/survey">Survey</a>
       <a href="/login">Login</a>
     </div>
 
+    <!-- SURVEY FORM -->
+
     <form>
+      <!-- Question 1 -->
+
       <label for="age">Age:</label><br />
-      <input type="text" id="age" name="age" /><br />
+      <input
+        type="number"
+        id="age"
+        name="age"
+        min="0"
+        max="130"
+        required
+      /><br /><br />
+
+      <!-- Question 2 -->
 
       <label for="gender">Gender:</label><br />
-      <select id="gender" name="gender">
+      <select id="gender" name="gender" required>
         <option value="male">Male</option>
         <option value="female">Female</option>
-        <option value="other">Other</option></select
+        <option value="non-binary">Non-Binary</option>
+        <option value="declinetosay">Deline to Say</option>
+      </select>
       ><br />
+      <br />
+
+      <!-- Question 3 -->
 
       <label for="relationshipStatus">Relationship Status:</label><br />
-      <input
+      <select
         type="text"
         id="relationshipStatus"
         name="relationshipStatus"
-      /><br />
+        required
+      >
+        <option value="single">Single</option>
+        <option value="relationship">In a relationship</option>
+        <option value="married">Married</option>
+        <option value="divorced">Divorced</option>
+      </select>
+      <br />
+      <br />
+
+      <!-- Question 4 -->
 
       <label for="occupationStatus">Occupation Status:</label><br />
-      <input type="text" id="occupationStatus" name="occupationStatus" /><br />
+      <select type="text" id="occupationStatus" name="occupationStatus">
+        <option value="University Student">University Student</option>
+        <option value="Private">Private</option>
+        <option value="School, University">School, University</option>
+        <option value="Retired">Retired</option></select
+      ><br /><br />
 
-      <label for="affiliatedOrganizations">Affiliated Organizations:</label
+      <!-- Question 5 -->
+
+      <label for="organizationType"
+        >What type of organizations are you affiliated with?</label
       ><br />
-      <input
-        type="text"
-        id="affiliatedOrganizations"
-        name="affiliatedOrganizations"
-      /><br />
+      <select type="text" id="organizationType" name="organizationType">
+        <option value="University">University</option>
+        <option value="School Student">School Student</option>
+        <option value="Salaried Worker">Salaried Worker</option>
+        <option value="Goverment">Retired</option>
+      </select>
+      <br /><br />
+
+      <!-- Question 6 -->
 
       <label for="useSocialMedia">Do you use social media?</label><br />
       <select id="useSocialMedia" name="useSocialMedia">
         <option value="yes">Yes</option>
         <option value="no">No</option></select
-      ><br />
+      ><br /><br />
 
-      <label for="socialMediaPlatforms"
+      <!-- <label for="socialMediaPlatforms"
         >What social media platforms do you commonly use?</label
       ><br />
       <input
         type="text"
         id="socialMediaPlatforms"
         name="socialMediaPlatforms"
-      /><br />
+      /><br /> -->
+
+      <!-- Question 7 -->
+
+      <label>What social media platforms do you use?</label>
+
+      <input
+        type="checkbox"
+        id="instagram"
+        name="socialMediaPlatforms"
+        value="instagram"
+      />
+      <label for="instagram">Instagram</label>
+
+      <input
+        type="checkbox"
+        id="facebook"
+        name="socialMediaPlatforms"
+        value="facebook"
+      />
+      <label for="facebook">Facebook</label>
+
+      <input
+        type="checkbox"
+        id="youtube"
+        name="socialMediaPlatforms"
+        value="youtube"
+      />
+      <label for="youtube">youtube</label>
+
+      <input
+        type="checkbox"
+        id="discord"
+        name="socialMediaPlatforms"
+        value="discord"
+      />
+      <label for="discord">discord</label>
+
+      <input
+        type="checkbox"
+        id="twitter"
+        name="socialMediaPlatforms"
+        value="twitter"
+      />
+      <label for="twitter">twitter</label>
+
+      <input
+        type="checkbox"
+        id="pinterest"
+        name="socialMediaPlatforms"
+        value="pinterest"
+      />
+      <label for="pinterest">pinterest</label>
+
+      <input
+        type="checkbox"
+        id="reddit"
+        name="socialMediaPlatforms"
+        value="reddit"
+      />
+      <label for="reddit">reddit</label>
+
+      <input
+        type="checkbox"
+        id="snapchat"
+        name="socialMediaPlatforms"
+        value="snapchat"
+      />
+      <label for="snapchat">snapchat</label>
+
+      <br /><br />
+
+      <!-- Question 8 -->
 
       <label for="averageTimeOnSocialMedia"
         >What is the average time you spend on social media every day?</label
       ><br />
-      <input
-        type="text"
-        id="averageTimeOnSocialMedia"
-        name="averageTimeOnSocialMedia"
-      /><br />
+      <select id="averageTimeOnSocialMedia" name="averageTimeOnSocialMedia">
+        <option value="Less than an hour">Less than an hour</option>
+        <option value="Betweer">Between 1 and 2 hours</option>
+        <option value="">Between 2 and 3 hours</option>
+        <option value="Less than an hour">Between 3 and 4 hours</option>
+        <option value="More than 5 hours">Between 4 and 5 hours</option>
+        <option value="More than 5 hours">More than 5 hours</option>
+      </select>
+
+      <br /><br />
+
+      <!-- Question 9 -->
 
       <label for="purposelessSocialMedia"
         >How often do you find yourself using social media without a specific
         purpose?</label
       ><br />
       <select id="purposelessSocialMedia" name="purposelessSocialMedia">
-        <option value="rarely">Rarely</option>
-        <option value="occasionally">Occasionally</option>
-        <option value="frequently">Frequently</option>
-        <option value="always">Always</option></select
-      ><br />
+        <option value="1">1 Never</option>
+        <option value="2">2 Rarely</option>
+        <option value="3">3 Occasionally</option>
+        <option value="4">4 Frequently</option>
+        <option value="5">5 Always</option></select
+      ><br /><br />
+
+      <!--Question 10--->
 
       <label for="distractedBySocialMedia"
         >How often do you get distracted by social media when you are busy doing
         something?</label
       ><br />
       <select id="distractedBySocialMedia" name="distractedBySocialMedia">
-        <option value="rarely">Rarely</option>
-        <option value="occasionally">Occasionally</option>
-        <option value="frequently">Frequently</option>
-        <option value="always">Always</option></select
-      ><br />
+        <option value="1">1 Never</option>
+        <option value="2">2 Rarely</option>
+        <option value="3">3 Occasionally</option>
+        <option value="4">4 Frequently</option>
+        <option value="5">5 Always</option></select
+      ><br /><br />
+
+      <!--Question 11--->
 
       <label for="restlessWithoutSocialMedia"
         >Do you feel restless if you haven’t used social media in a
         while?</label
       ><br />
       <select id="restlessWithoutSocialMedia" name="restlessWithoutSocialMedia">
-        <option value="yes">Yes</option>
-        <option value="no">No</option></select
-      ><br />
+        <option value="1">1 Never</option>
+        <option value="2">2 Rarely</option>
+        <option value="3">3 Occasionally</option>
+        <option value="4">4 Frequently</option>
+        <option value="5">5 Always</option></select
+      ><br /><br />
+
+      <!--Question 12--->
 
       <label for="easilyDistracted">How easily distracted are you?</label><br />
       <select id="easilyDistracted" name="easilyDistracted">
-        <option value="notAtAll">Not at all</option>
-        <option value="slightly">Slightly</option>
-        <option value="moderately">Moderately</option>
-        <option value="very">Very</option>
-        <option value="extremely">Extremely</option></select
-      ><br />
+        <option value="1">1 Not at all</option>
+        <option value="2">2 Slightly</option>
+        <option value="3">4 Moderately</option>
+        <option value="4">5 Very</option>
+        <option value="5">6 Extremely</option></select
+      ><br /><br />
+
+      <!--Question 13--->
 
       <label for="botheredByWorries"
         >How much are you bothered by worries?</label
       ><br />
       <select id="botheredByWorries" name="botheredByWorries">
-        <option value="notAtAll">Not at all</option>
-        <option value="slightly">Slightly</option>
-        <option value="moderately">Moderately</option>
-        <option value="very">Very</option>
-        <option value="extremely">Extremely</option></select
-      ><br />
+        <option value="1">1 Not at all</option>
+        <option value="2">2 Slightly</option>
+        <option value="3">4 Moderately</option>
+        <option value="4">5 Very</option>
+        <option value="5">6 Extremely</option></select
+      ><br /><br />
+
+      <!--Question 14--->
 
       <label for="difficultToConcentrate"
         >Do you find it difficult to concentrate on things?</label
       ><br />
       <select id="difficultToConcentrate" name="difficultToConcentrate">
-        <option value="rarely">Rarely</option>
-        <option value="occasionally">Occasionally</option>
-        <option value="frequently">Frequently</option>
-        <option value="always">Always</option></select
-      ><br />
+        <option value="1">1 Never</option>
+        <option value="2">2 Rarely</option>
+        <option value="3">3 Occasionally</option>
+        <option value="4">4 Frequently</option>
+        <option value="5">5 Always</option></select
+      ><br /><br />
+
+      <!--Question 15--->
 
       <label for="compareToOthersOnSocialMedia"
         >How often do you compare yourself to other successful people through
@@ -136,21 +274,32 @@
         name="compareToOthersOnSocialMedia"
       >
         <br />
-        <option value="rarely">Rarely</option>
-        <option value="occasionally">Occasionally</option>
-        <option value="frequently">Frequently</option>
-        <option value="always">Always</option></select
-      ><br />
+        <option value="1">1 Never</option>
+        <option value="2">2 Rarely</option>
+        <option value="3">3 Occasionally</option>
+        <option value="4">4 Frequently</option>
+        <option value="5">5 Always</option></select
+      ><br /><br />
+
+      <!-- Question 16 -->
 
       <label for="feelingsAboutSocialMediaComparisons"
         >Following the previous question, how do you feel about these
         comparisons, generally speaking?</label
       ><br />
-      <input
-        type="text"
+      <select
         id="feelingsAboutSocialMediaComparisons"
         name="feelingsAboutSocialMediaComparisons"
-      /><br />
+      >
+        <br />
+        <option value="1">1 Horrible</option>
+        <option value="2">2 Bad</option>
+        <option value="3">3 Ok</option>
+        <option value="4">4 Good</option>
+        <option value="5">5 Amazing</option></select
+      ><br /><br />
+
+      <!--Question 17--->
 
       <label for="seekValidationOnSocialMedia"
         >How often do you look to seek validation from features of social
@@ -161,41 +310,51 @@
         name="seekValidationOnSocialMedia"
       >
         <br />
-        <option value="rarely">Rarely</option>
-        <option value="occasionally">Occasionally</option>
-        <option value="frequently">Frequently</option>
-        <option value="always">Always</option></select
-      ><br />
+        <option value="1">1 Never</option>
+        <option value="2">2 Rarely</option>
+        <option value="3">3 Occasionally</option>
+        <option value="4">4 Frequently</option>
+        <option value="5">5 Always</option></select
+      ><br /><br />
+
+      <!--Question 18--->
 
       <label for="feelDepressedOrDown"
         >How often do you feel depressed or down?</label
       ><br />
       <select id="feelDepressedOrDown" name="feelDepressedOrDown">
-        <option value="rarely">Rarely</option>
-        <option value="occasionally">Occasionally</option>
-        <option value="frequently">Frequently</option>
-        <option value="always">Always</option></select
-      ><br />
+        <option value="1">1 Never</option>
+        <option value="2">2 Rarely</option>
+        <option value="3">3 Occasionally</option>
+        <option value="4">4 Frequently</option>
+        <option value="5">5 Always</option></select
+      ><br /><br />
+
+      <!--Question 19--->
 
       <label for="interestFluctuation"
         >How frequently does your interest in daily activities fluctuate?</label
       ><br />
       <select id="interestFluctuation" name="interestFluctuation">
-        <option value="rarely">Rarely</option>
-        <option value="occasionally">Occasionally</option>
-        <option value="frequently">Frequently</option>
-        <option value="always">Always</option></select
-      ><br />
+        <option value="1">1 Never</option>
+        <option value="2">2 Rarely</option>
+        <option value="3">3 Occasionally</option>
+        <option value="4">4 Frequently</option>
+        <option value="5">5 Always</option></select
+      ><br /><br />
+
+      <!--Question 20--->
 
       <label for="sleepIssues"
         >How often do you face issues regarding sleep?</label
       ><br />
       <select id="sleepIssues" name="sleepIssues">
-        <option value="rarely">Rarely</option>
-        <option value="occasionally">Occasionally</option>
-        <option value="frequently">Frequently</option>
-        <option value="always">Always</option></select
-      ><br />
+        <option value="1">1 Never</option>
+        <option value="2">2 Rarely</option>
+        <option value="3">3 Occasionally</option>
+        <option value="4">4 Frequently</option>
+        <option value="5">5 Always</option></select
+      ><br /><br />
 
       <button type="submit">Submit</button>
     </form>
