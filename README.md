@@ -9,7 +9,7 @@
     Run the "npm install" command. This will install all of the dependencies needed.
   </li>
   <li>
-    Input the data in this format:
+    Input the data in this format into the "database.env" file:
     <code>
       RDS_HOSTNAME = 'localhost'
       RDS_USERNAME = 'postgres'
