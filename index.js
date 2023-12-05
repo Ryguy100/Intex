@@ -67,14 +67,15 @@ app.get("/login", async (req, res) => {
       aUsers = [];
       for (let i = 0; i < result.length; i++) {
         aUsers.push({
+          id: result[i].user_id,
           name: result[i].username,
+          email: result[i].email,
           pass: result[i].password,
           isadmin: result[i].is_admin,
         });
       }
     });
 
-  console.log(aUsers.length);
   console.log(aUsers);
   res.render("login");
 });
@@ -122,10 +123,60 @@ app.get("/data", (req, res) => {
   res.render("data", { user: res.locals.user });
 });
 
+app.get("/users", (req, res) => {
+  knex
+    .select()
+    .from("users")
+    .then((result) => {
+      res.render("users", { user: res.locals.user, users: result });
+    });
+});
+
 app.get("/logout", (req, res) => {
   // Clear user data from the session
   req.session.user = undefined;
   res.redirect("/");
+});
+
+// Edit a user
+
+app.get("/edit/:userid", (req, res) => {
+  knex
+    .select()
+    .from("users")
+    .where("user_id", req.params.userid)
+    .then((result) => {
+      console.log(result);
+      res.render("editaccount", { user: result });
+    });
+});
+
+app.post("/edit/:userid", async (req, res) => {
+  await knex("users").where("user_id", res.locals.user.id).update({
+    username: req.body.username,
+    email: req.body.email,
+    password: req.body.password,
+  });
+
+  const updatedUser = await knex("users")
+    .where({ user_id: res.locals.user.id })
+    .first();
+
+  req.session.user = updatedUser;
+
+  res.redirect("/");
+});
+
+// Delete a user
+
+app.get("/delete/:userid", (req, res) => {
+  let deleteMessage = { Message: "Deleted" };
+  knex("users")
+    .where("user_id", req.params.userid)
+    .del()
+    .then((result) => {
+      res.redirect("/users");
+    });
 });
 
 app.listen(PORT, () => console.log("Application has started"));
