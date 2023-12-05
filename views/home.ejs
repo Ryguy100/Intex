@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/css/bootstrap.min.css" />
+    <script href="/js/bootstrap.bundle.js"></script>
+    <link rel="stylesheet" href="/css/styles.css" />
+    <title>Home</title>
+  </head>
+  <body>
+    <nav>
+      <a href="/">Home</a>
+      <a href="/survey">Survey</a>
+      <a href="/dashboard">Dashboard</a>
+      <% if(user) { %>
+        <div id="login-link" class="dropdown">
+          <button class="dropbtn">Hello, <%= user.name%></button>
+          <div class="dropdown-content">
+            <a href="/editaccount"><form method="get" action="edit/<%= user.id %>/"><button type="submit">Edit Account</button></form></a>
+            <!-- <a href="/editaccount">Edit Account</a> -->
+            <a href="/logout">Logout</a>
+          </div>
+        </div>
+      </div>
+      <% } else { %>
+      <a id="login-link" href="/login">Log In</a>
+      <% } %>
+    </nav>
+
+    <div class="main">
+      <% if (user) { %>
+      <h1>Welcome, <%= user.name %></h1>
+      <p>Your username is <%= user.name %></p>
+      <% } else { %>
+      <h1>Welcome, Guest</h1>
+      <p>Feel free to explore our website!</p>
+      <% } %>
+    </div>
+  </body>
+</html>

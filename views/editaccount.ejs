@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Edit Account</title>
+    <link rel="stylesheet" href="/css/bootstrap.min.css" />
+    <script href="/js/bootstrap.bundle.js"></script>
+    <link rel="stylesheet" href="/css/styles.css" />
+  </head>
+  <body>
+    <nav>
+      <a href="/">Home</a>
+      <a href="/survey">Survey</a>
+      <a href="/dashboard">Dashboard</a>
+      <% if(user) { %>
+      <div id="login-link" class="dropdown">
+        <button class="dropbtn">Hello, <%= user[0].username %></button>
+        <div class="dropdown-content">
+          <a href="/editaccount">Edit Account</a>
+          <a href="/logout">Logout</a>
+        </div>
+      </div>
+
+      <% } else { %>
+      <a id="login-link" href="/login">Log In</a>
+      <% } %>
+    </nav>
+
+    <div class="main">
+      <form method="post" action="/edit/<%= user[0].user_id %>">
+        <h3>Edit your account, <%= user[0].username %></h3>
+        <label>Username</label>
+        <input
+          type="text"
+          name="username"
+          maxlength="29"
+          value="<%= user[0].username %>"
+          required
+        /><br /><br />
+        <label>Email</label>
+        <input
+          type="text"
+          name="email"
+          maxlength="199"
+          value="<%= user[0].email %>"
+          required
+        /><br /><br />
+        <label>Password</label>
+        <input
+          type="password"
+          name="password"
+          maxlength="3"
+          value="<%= user[0].password %>"
+        /><br /><br />
+        <button type="submit">Submit</button>
+      </form>
+    </div>
+  </body>
+</html>

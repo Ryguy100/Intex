@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Edit Users</title>
+    <link rel="stylesheet" href="/css/bootstrap.min.css" />
+    <script href="/js/bootstrap.bundle.js"></script>
+    <link rel="stylesheet" href="/css/styles.css" />
+  </head>
+  <body>
+    <nav>
+      <a href="/">Home</a>
+      <a href="/survey">Survey</a>
+      <a href="/dashboard">Dashboard</a>
+      <% if(user) { %>
+      <div id="login-link" class="dropdown">
+        <button class="dropbtn">Hello, <%= user.name %></button>
+        <div class="dropdown-content">
+          <a href="/editaccount">Edit Account</a>
+          <a href="/logout">Logout</a>
+        </div>
+      </div>
+      <% } else { %>
+      <a id="login-link" href="/login">Log In</a>
+      <% } %>
+    </nav>
+
+    <!--ADD A CHECKBOX to IS_ADMIN -->
+
+    <div class="main">
+      <table>
+        <thead>
+          <th>Name</th>
+          <th>Email</th>
+          <th>Admin?</th>
+        </thead>
+        <% for (let i=0; i<users.length; i++) { %>
+          <tr>
+            <td><%= users[i].username%></td>
+            <td><%= users[i].email%></td>
+            <td><%= users[i].is_admin%></td>
+            <td><form method="get" action="/edit/<%= users[i].user_id%>"><button type="submit">Edit</button></form></td>
+            <td><form method="get" action="/delete/<%= users[i].user_id%>"><button type="submit">Delete</button></form></td>
+          </tr>
+          <% } %>
+      </table>
+    </div>
+  </body>
+</html>
