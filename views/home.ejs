@@ -6,18 +6,29 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="/css/bootstrap.min.css" />
     <script href="/js/bootstrap.bundle.js"></script>
+    <link rel="stylesheet" href="/css/styles.css" />
     <title>Home</title>
   </head>
   <body>
-    <h1>Welcome to the Fun World of Intex!</h1>
-    <a href="/">Home</a>
-    <a href="/survey">Survey</a>
-    <a href="/login">Login</a>
-    <% if(user.isadmin == true) { %>
-    <a href="/data">See Data</a>
-    <% } %> this is the home of intex
+    <nav>
+      <a href="/">Home</a>
+      <a href="/survey">Survey</a>
+      <a href="/dashboard">Dashboard</a>
+      <% if(user) { %>
+      <a id="login-link" href="/logout">Logout</a>
+      <% } else { %>
+      <a id="login-link" href="/login">Log In</a>
+      <% } %>
+    </nav>
 
-    <h1>Welcome, <%= user.name %> <%= user.isadmin%></h1>
-    <p>Your password is <%= user.pass %></p>
+    <div class="main">
+      <% if (user) { %>
+      <h1>Welcome, <%= user.name %></h1>
+      <p>Your username is <%= user.username %></p>
+      <% } else { %>
+      <h1>Welcome, Guest</h1>
+      <p>Feel free to explore our website!</p>
+      <% } %>
+    </div>
   </body>
 </html>

@@ -4,10 +4,22 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
+    <title>Data</title>
+    <link rel="stylesheet" href="/css/styles.css" />
   </head>
   <body>
     <!-- <iframe src="/files/smudata.csv" width="100%" height="400"></iframe> -->
+
+    <nav>
+      <a href="/">Home</a>
+      <a href="/survey">Survey</a>
+      <a href="/dashboard">Dashboard</a>
+      <% if(user) { %>
+      <a id="login-link" href="/logout">Logout</a>
+      <% } else { %>
+      <a id="login-link" href="/login">Log In</a>
+      <% } %>
+    </nav>
 
     <h1>Embedded CSV Viewer</h1>
 

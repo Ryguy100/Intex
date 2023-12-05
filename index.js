@@ -35,32 +35,28 @@ app.use(
 
 const authenticateUser = (req, res, next) => {
   if (req.session && req.session.user) {
-    return next();
-  } else {
-    res.redirect("/login");
+    // If the user is authenticated, pass the user data to the next middleware
+    res.locals.user = req.session.user;
   }
+  // Continue to the next middleware even if the user is not authenticated
+  next();
 };
 
-app.get("/", authenticateUser, (req, res) => {
-  res.render("home", { user: req.session.user });
+app.use(authenticateUser);
+
+app.get("/", (req, res) => {
+  res.render("home", { user: res.locals.user });
 });
 
 app.get("/survey", (req, res) => {
-  res.render("survey");
+  res.render("survey", { user: res.locals.user });
+});
+
+app.get("/dashboard", (req, res) => {
+  res.render("dashboard", { user: res.locals.user });
 });
 
 let aUsers = [];
-
-// function isUserInArray(u, p, array) {
-//   for (let i = 0; i < array.length; i++) {
-//     if (array[i].name == u && array[i].pass == p) {
-//       currentUsername = u;
-//       isAdmin = array[i].is_admin;
-//       return true; // User found in the array
-//     }
-//   }
-//   return false; // User not found in the array
-// }
 
 app.get("/login", async (req, res) => {
   await knex
@@ -98,18 +94,10 @@ app.post("/login", (req, res) => {
     // Alternatively, you can redirect to a login page with an error message
     // res.redirect('/login?error=Authentication failed');
   }
-
-  // if (isUserInArray(req.body.username, req.body.password, aUsers) == true) {
-  //   res.redirect("/");
-  //   console.log("Success. Welcome " + currentUsername);
-  // } else {
-  //   res.redirect("/");
-  //   console.log("Failed");
-  // }
 });
 
 app.get("/register", (req, res) => {
-  res.render("register");
+  req.session.user = res.render("register");
 });
 
 app.post("/register", (req, res) => {
@@ -130,11 +118,13 @@ app.post("/register", (req, res) => {
 });
 
 app.get("/data", (req, res) => {
-  res.render("data");
+  res.render("data", { user: res.locals.user });
 });
 
-app.get("/signout", (req, res) => {
-  res.render("/signout");
+app.get("/logout", (req, res) => {
+  // Clear user data from the session
+  req.session.user = undefined;
+  res.redirect("/");
 });
 
 app.listen(PORT, () => console.log("Application has started"));
