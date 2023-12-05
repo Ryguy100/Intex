@@ -15,7 +15,14 @@
       <a href="/survey">Survey</a>
       <a href="/dashboard">Dashboard</a>
       <% if(user) { %>
-      <a id="login-link" href="/logout">Logout</a>
+        <div id="login-link" class="dropdown">
+          <button class="dropbtn">Hello, <%= user.name%></button>
+          <div class="dropdown-content">
+            <a href="/editaccount">Edit Account</a>
+            <a href="/logout">Logout</a>
+          </div>
+        </div>
+      </div>
       <% } else { %>
       <a id="login-link" href="/login">Log In</a>
       <% } %>
