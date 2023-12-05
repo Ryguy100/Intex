@@ -13,6 +13,11 @@
     <a href="/">Home</a>
     <a href="/survey">Survey</a>
     <a href="/login">Login</a>
-    this is the home of intex
+    <% if(user.isadmin == true) { %>
+    <a href="/data">See Data</a>
+    <% } %> this is the home of intex
+
+    <h1>Welcome, <%= user.name %> <%= user.isadmin%></h1>
+    <p>Your password is <%= user.pass %></p>
   </body>
 </html>
