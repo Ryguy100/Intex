@@ -103,8 +103,8 @@ app.get("/register", (req, res) => {
 });
 
 app.post("/register", (req, res) => {
-  let username = req.body.username;
-  let email = req.body.email;
+  let username = req.body.username.toLowerCase();
+  let email = req.body.email.toLowerCase();
   let password = req.body.password;
 
   knex("users")
@@ -115,7 +115,7 @@ app.post("/register", (req, res) => {
       is_admin: false,
     })
     .then((results) => {
-      res.redirect("/");
+      res.redirect("/login");
     });
 });
 
@@ -135,7 +135,7 @@ app.get("/users", (req, res) => {
 app.get("/logout", (req, res) => {
   // Clear user data from the session
   req.session.user = undefined;
-  res.redirect("/");
+  res.render("logout");
 });
 
 // Edit a user
@@ -147,22 +147,26 @@ app.get("/edit/:userid", (req, res) => {
     .where("user_id", req.params.userid)
     .then((result) => {
       console.log(result);
-      res.render("editaccount", { user: result });
+      res.render("editaccount", { user: result, admin: res.locals.user });
     });
 });
 
 app.post("/edit/:userid", async (req, res) => {
-  await knex("users").where("user_id", res.locals.user.id).update({
-    username: req.body.username,
-    email: req.body.email,
+  await knex("users").where("user_id", req.params.userid).update({
+    username: req.body.username.toLowerCase(),
+    email: req.body.email.toLowerCase(),
     password: req.body.password,
+    is_admin: req.body.isadmin,
   });
 
-  const updatedUser = await knex("users")
-    .where({ user_id: res.locals.user.id })
-    .first();
+  if (req.params.userid == res.locals.user.id) {
+    let updatedUser = await knex("users")
+      .where({ user_id: req.params.userid })
+      .first();
 
-  req.session.user = updatedUser;
+    req.session.user = updatedUser;
+    req.session.user.name = updatedUser.username;
+  }
 
   res.redirect("/");
 });

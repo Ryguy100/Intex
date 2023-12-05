@@ -17,7 +17,10 @@
         <div id="login-link" class="dropdown">
           <button class="dropbtn">Hello, <%= user.name%></button>
           <div class="dropdown-content">
-            <a href="/editaccount">Edit Account</a>
+            <a href="/editaccount"><form method="get" action="edit/<%= user.id %>/"><button style="border: none; background-color: white;" type="submit">Edit Account</button></form></a>
+            <% if (user.isadmin) { %>
+              <a href="/users">Edit Users</a>
+              <% } %>
             <a href="/logout">Logout</a>
           </div>
         </div>

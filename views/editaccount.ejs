@@ -16,9 +16,21 @@
       <a href="/dashboard">Dashboard</a>
       <% if(user) { %>
       <div id="login-link" class="dropdown">
-        <button class="dropbtn">Hello, <%= user[0].username %></button>
+        <button class="dropbtn">Hello, <%= admin.name %></button>
         <div class="dropdown-content">
-          <a href="/editaccount">Edit Account</a>
+          <a href="/editaccount"
+            ><form method="get" action="/edit/<%= admin.id %>">
+              <button
+                style="border: none; background-color: white"
+                type="submit"
+              >
+                Edit Account
+              </button>
+            </form></a
+          >
+          <% if (admin.isadmin) { %>
+          <a href="/users">Edit Users</a>
+          <% } %>
           <a href="/logout">Logout</a>
         </div>
       </div>
@@ -30,9 +42,10 @@
 
     <div class="main">
       <form method="post" action="/edit/<%= user[0].user_id %>">
-        <h3>Edit your account, <%= user[0].username %></h3>
+        <h3>Edit Account Info for <%= user[0].username %></h3>
         <label>Username</label>
         <input
+          STYLE="text-transform:lowercase"
           type="text"
           name="username"
           maxlength="29"
@@ -41,6 +54,7 @@
         /><br /><br />
         <label>Email</label>
         <input
+          STYLE="text-transform:lowercase"
           type="text"
           name="email"
           maxlength="199"
@@ -54,6 +68,15 @@
           maxlength="3"
           value="<%= user[0].password %>"
         /><br /><br />
+        <!-- <% if (admin.isadmin) { %> -->
+        <label>Is Admin?</label>
+        <td>
+          <input type="checkbox" id="isadmin" name="isadmin" <%=
+          user[0].is_admin ? 'checked' : '' %> <%= admin.isadmin ? '' :
+          'disabled'%>>
+        </td>
+        <br /><br />
+        <!-- <% } %> -->
         <button type="submit">Submit</button>
       </form>
     </div>
