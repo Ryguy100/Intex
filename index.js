@@ -183,4 +183,8 @@ app.get("/delete/:userid", (req, res) => {
     });
 });
 
+app.get("/test", (req, res) => {
+  res.render("test", { user: res.locals.user });
+});
+
 app.listen(PORT, () => console.log("Application has started"));

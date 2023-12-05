@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+    />
+
+    <title>Document</title>
+    <style>
+      /* Custom styles for a white Bootstrap navigation bar with a subtle shadow */
+      body {
+        background-color: #f8f9fa;
+      }
+
+      .sleek-header {
+        background: linear-gradient(
+          to right,
+          #4caf50,
+          #2196f3
+        ); /* Gradient background */
+        color: #ffffff; /* Text color */
+        text-align: center;
+        padding: 100px 0; /* Adjust padding as needed */
+      }
+
+      .login-card {
+        background-color: #ffffff; /* White background */
+        border-radius: 10px; /* Rounded edges */
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Soft shadow */
+        padding: 20px; /* Adjust padding as needed */
+        margin: 20px auto; /* Center the card */
+        max-width: 400px; /* Set a maximum width for the card */
+      }
+
+      .container {
+        max-width: 40%;
+      }
+
+      .sample-text {
+        text-align: center;
+        padding: 50px 0; /* Adjust padding as needed */
+      }
+
+      .sleek-button {
+        margin-top: 20px; /* Adjust margin as needed */
+      }
+
+      .form-group {
+        margin-bottom: 20px;
+      }
+
+      .navbar {
+        z-index: 1000;
+        background-color: #ffffff;
+        box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+      }
+
+      .navbar-dark .navbar-nav .nav-link {
+        color: #343a40; /* Dark text color */
+      }
+
+      .navbar-dark .navbar-toggler-icon {
+        background-color: #343a40; /* Dark color for the toggler icon */
+      }
+
+      .navbar-dark .navbar-toggler {
+        border-color: #343a40; /* Dark color for the toggler border */
+      }
+
+      /* Align items to the left */
+      .navbar-nav {
+        margin-right: auto;
+      }
+
+      /* Styles for the account dropdown menu */
+      .account-dropdown {
+        position: relative;
+      }
+
+      .account-dropdown .dropdown-toggle::after {
+        display: none; /* Hide the default dropdown indicator */
+      }
+
+      .account-dropdown .dropdown-menu {
+        right: 0;
+        left: auto;
+      }
+
+      /* Custom styles for links inside the dropdown menu */
+      .account-dropdown .dropdown-item {
+        color: #343a40;
+        text-decoration: none;
+        padding: 0.5rem 1rem;
+      }
+
+      .account-dropdown .dropdown-item:hover {
+        background-color: #f8f9fa;
+      }
+    </style>
+  </head>
+  <body>
+    <nav class="navbar navbar-expand-lg navbar-dark">
+      <a class="navbar-brand" href="#">White Navbar</a>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav">
+          <li class="nav-item">
+            <a class="nav-link" href="/">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/dashboard">Dashboard</a>
+          </li>
+        </ul>
+      </div>
+      <% if(user) { %>
+
+      <div class="account-dropdown">
+        <button
+          class="btn btn-link dropdown-toggle"
+          type="button"
+          id="accountDropdown"
+          data-toggle="dropdown"
+          aria-haspopup="true"
+          aria-expanded="false"
+        >
+          My Account
+        </button>
+        <div class="dropdown-menu" aria-labelledby="accountDropdown">
+          <a class="dropdown-item" href="/editaccount"
+            ><form method="get" action="edit/<%= user.id %>/">
+              <button
+                style="border: none; background-color: white"
+                type="submit"
+              >
+                Edit Account
+              </button>
+            </form></a
+          >
+          <% if (user.isadmin) { %>
+          <a class="dropdown-item" href="/users">Edit Users</a>
+          <% } %>
+          <div class="dropdown-divider"></div>
+          <a class="dropdown-item" href="/logout">Logout</a>
+        </div>
+      </div>
+
+      <% } else { %>
+
+      <div class="account-dropdown">
+        <button
+          class="btn btn-link dropdown-toggle"
+          type="button"
+          id="accountDropdown"
+          data-toggle="dropdown"
+          aria-haspopup="true"
+          aria-expanded="false"
+        >
+          <a href="/login">Login</a>
+        </button>
+        <div class="dropdown-menu" aria-labelledby="accountDropdown">
+          <a class="dropdown-item" href="/login">Login</a>
+          <a class="dropdown-item" href="/register">Register</a>
+        </div>
+      </div>
+
+      <% } %>
+    </nav>
+
+    <div class="sleek-header">
+      <h1>Sleek Header</h1>
+      <p>Add your additional text or content here.</p>
+      <a href="#" class="btn btn-primary sleek-button">Take the survey</a>
+    </div>
+
+    <div class="sample-text">
+      <h2>Sample Text Below Header</h2>
+      <p>
+        This is some sample text. You can add more content, images, or other
+        elements here to create your page layout.
+      </p>
+    </div>
+
+    <div class="login-card">
+      <h2>Login</h2>
+      <form>
+        <div class="form-group">
+          <label for="username">Username:</label>
+          <input
+            type="text"
+            class="form-control"
+            id="username"
+            placeholder="Enter your username"
+          />
+        </div>
+        <div class="form-group">
+          <label for="password">Password:</label>
+          <input
+            type="password"
+            class="form-control"
+            id="password"
+            placeholder="Enter your password"
+          />
+        </div>
+        <button type="submit" class="btn btn-primary">Login</button>
+      </form>
+    </div>
+
+    <div
+      class="tableauPlaceholder"
+      id="viz1701801671482"
+      style="position: relative"
+    >
+      <noscript
+        ><a href="#"
+          ><img
+            alt="Dashboard 1 "
+            src="https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;41&#47;415AirbnbDashboard_17011368912600&#47;Dashboard1&#47;1_rss.png"
+            style="border: none" /></a></noscript
+      ><object class="tableauViz" style="display: none">
+        <param name="host_url" value="https%3A%2F%2Fpublic.tableau.com%2F" />
+        <param name="embed_code_version" value="3" />
+        <param name="site_root" value="" />
+        <param
+          name="name"
+          value="415AirbnbDashboard_17011368912600&#47;Dashboard1"
+        />
+        <param name="tabs" value="no" />
+        <param name="toolbar" value="yes" />
+        <param
+          name="static_image"
+          value="https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;41&#47;415AirbnbDashboard_17011368912600&#47;Dashboard1&#47;1.png"
+        />
+        <param name="animate_transition" value="yes" />
+        <param name="display_static_image" value="yes" />
+        <param name="display_spinner" value="yes" />
+        <param name="display_overlay" value="yes" />
+        <param name="display_count" value="yes" />
+        <param name="language" value="en-US" />
+      </object>
+    </div>
+    <script type="text/javascript">
+      var divElement = document.getElementById("viz1701801671482");
+      var vizElement = divElement.getElementsByTagName("object")[0];
+      if (divElement.offsetWidth > 800) {
+        vizElement.style.width = "1000px";
+        vizElement.style.height = "827px";
+      } else if (divElement.offsetWidth > 500) {
+        vizElement.style.width = "1000px";
+        vizElement.style.height = "827px";
+      } else {
+        vizElement.style.width = "100%";
+        vizElement.style.height = "1277px";
+      }
+      var scriptElement = document.createElement("script");
+      scriptElement.src =
+        "https://public.tableau.com/javascripts/api/viz_v1.js";
+      vizElement.parentNode.insertBefore(scriptElement, vizElement);
+    </script>
+
+    <div class="container">
+      <form>
+        <!-- Question 1 -->
+        <div class="form-group">
+          <label for="age">Age:</label>
+          <input
+            type="number"
+            class="form-control"
+            id="age"
+            name="age"
+            min="0"
+            max="130"
+            required
+          />
+        </div>
+
+        <!-- Question 2 -->
+        <div class="form-group">
+          <label for="gender">Gender:</label>
+          <select class="form-control" id="gender" name="gender" required>
+            <option value="Male">Male</option>
+            <option value="Female">Female</option>
+            <option value="N-B">Non-Binary</option>
+            <option value="Prefer not to say">Prefer Not to Say</option>
+          </select>
+        </div>
+
+        <!-- Question 3 -->
+        <div class="form-group">
+          <label for="relationshipStatus">Relationship Status:</label>
+          <select
+            class="form-control"
+            id="relationshipStatus"
+            name="relationshipStatus"
+            required
+          >
+            <option value="single">Single</option>
+            <option value="relationship">In a relationship</option>
+            <option value="married">Married</option>
+            <option value="divorced">Divorced</option>
+          </select>
+        </div>
+
+        <!-- Question 4 -->
+        <div class="form-group">
+          <label for="occupationStatus">Occupation Status:</label>
+          <select
+            class="form-control"
+            id="occupationStatus"
+            name="occupationStatus"
+          >
+            <option value="University Student">University Student</option>
+            <option value="Private">Private</option>
+            <option value="School, University">School, University</option>
+            <option value="Retired">Retired</option>
+          </select>
+        </div>
+
+        <!-- Question 5 -->
+        <div class="form-group">
+          <label for="restlessWithoutSocialMedia"
+            >Do you feel restless if you haven’t used social media in a
+            while?</label
+          >
+          <select
+            class="form-control"
+            id="restlessWithoutSocialMedia"
+            name="restlessWithoutSocialMedia"
+          >
+            <option value="1">1 Never</option>
+            <option value="2">2 Rarely</option>
+            <option value="3">3 Occasionally</option>
+            <option value="4">4 Frequently</option>
+            <option value="5">5 Always</option>
+          </select>
+        </div>
+
+        <!-- Question 6 -->
+        <div class="form-group">
+          <label for="question1">How would you rate this question?</label>
+          <input
+            type="range"
+            class="form-control-range"
+            id="question1"
+            name="question1"
+            min="1"
+            max="5"
+            step="1"
+            value="3"
+          />
+        </div>
+
+        <!-- Add more questions as needed -->
+
+        <button type="submit" class="btn btn-primary">Submit</button>
+      </form>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+  </body>
+</html>
