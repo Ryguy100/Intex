@@ -47,4 +47,5 @@ node_modules/
 # Zip files
 *.zip
 
+# Ignore mac file
 .DS_Store
