@@ -41,6 +41,7 @@
             <td><%= users[i].username%></td>
             <td><%= users[i].email%></td>
             <td><%= users[i].is_admin%></td>
+            <td><input type="checkbox" checked></td>
             <td><form method="get" action="/edit/<%= users[i].user_id%>"><button type="submit">Edit</button></form></td>
             <td><form method="get" action="/delete/<%= users[i].user_id%>"><button type="submit">Delete</button></form></td>
           </tr>
