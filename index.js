@@ -14,8 +14,8 @@ const knex = require("knex")({
   connection: {
     host: "localhost",
     user: "postgres",
-    password: "Jewish66",
-    database: "intex",
+    password: "Cr98973422",
+    database: "Intex",
     port: 5432,
   },
 });
