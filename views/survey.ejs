@@ -27,6 +27,11 @@
           <li class="nav-item">
             <a class="nav-link" href="/survey">Survey</a>
           </li>
+          <% if (user) { if (user.isadmin) { %>
+          <li class="nav-item">
+            <a class="nav-link" href="/data">See Data</a>
+          </li>
+          <% } } %>
         </ul>
       </div>
 
@@ -85,6 +90,10 @@
     </nav>
 
     <!-- SURVEY FORM -->
+
+    <div class="sleek-header">
+      <h1>Mental Health Survey</h1>
+    </div>
 
     <div class="container">
       <form>

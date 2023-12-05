@@ -26,6 +26,11 @@
           <li class="nav-item">
             <a class="nav-link" href="/survey">Survey</a>
           </li>
+          <% if (user) { if (user.isadmin) { %>
+          <li class="nav-item">
+            <a class="nav-link" href="/data">See Data</a>
+          </li>
+          <% } } %>
         </ul>
       </div>
       <% if(user) { %>
@@ -42,20 +47,10 @@
           My Account
         </button>
         <div class="dropdown-menu" aria-labelledby="accountDropdown">
-          <a class="dropdown-item" href="/editaccount"
-            ><form method="get" action="edit/<%= user.id %>/">
-              <button
-                style="border: none; background-color: white"
-                type="submit"
-              >
-                Edit Account
-              </button>
-            </form></a
-          >
           <% if (user.isadmin) { %>
           <a class="dropdown-item" href="/users">Edit Users</a>
-          <% } %>
           <div class="dropdown-divider"></div>
+          <% } %>
           <a class="dropdown-item" href="/logout">Logout</a>
         </div>
       </div>
@@ -82,34 +77,45 @@
       <% } %>
     </nav>
 
-    <div class="main">
+    <div class="sleek-header">
+      <h1>Edit Account for <%= user[0].username %></h1>
+    </div>
+
+    <div class="edit-card">
       <form method="post" action="/edit/<%= user[0].user_id %>">
-        <h3>Edit Account Info for <%= user[0].username %></h3>
-        <label>Username</label>
-        <input
-          STYLE="text-transform:lowercase"
-          type="text"
-          name="username"
-          maxlength="29"
-          value="<%= user[0].username %>"
-          required
-        /><br /><br />
-        <label>Email</label>
-        <input
-          STYLE="text-transform:lowercase"
-          type="text"
-          name="email"
-          maxlength="199"
-          value="<%= user[0].email %>"
-          required
-        /><br /><br />
-        <label>Password</label>
-        <input
-          type="password"
-          name="password"
-          maxlength="3"
-          value="<%= user[0].password %>"
-        /><br /><br />
+        <div class="form-group">
+          <label>Username</label><br />
+          <input
+            STYLE="text-transform:lowercase"
+            type="text"
+            name="username"
+            maxlength="29"
+            value="<%= user[0].username %>"
+            required
+          />
+        </div>
+        <div class="form-group">
+          <label>Email</label><br />
+          <input
+            STYLE="text-transform:lowercase"
+            type="text"
+            name="email"
+            maxlength="199"
+            value="<%= user[0].email %>"
+            required
+          />
+        </div>
+        <div class="form-group">
+          <label>Password</label><br />
+          <input
+            type="password"
+            name="password"
+            maxlength="3"
+            value="<%= user[0].password %>"
+          />
+        </div>
+
+        <br />
         <!-- <% if (admin.isadmin) { %> -->
         <label>Is Admin?</label>
         <td>
@@ -119,9 +125,10 @@
         </td>
         <br /><br />
         <!-- <% } %> -->
-        <button type="submit">Submit</button>
+        <button class="btn btn-primary" type="submit">Save Changes</button>
       </form>
     </div>
+
     <!--Scripts for the Bootstrap-->
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>

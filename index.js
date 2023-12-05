@@ -135,7 +135,7 @@ app.get("/users", (req, res) => {
 app.get("/logout", (req, res) => {
   // Clear user data from the session
   req.session.user = undefined;
-  res.render("logout");
+  res.render("logout", { user: res.locals.user });
 });
 
 // Edit a user
