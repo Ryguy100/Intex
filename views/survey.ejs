@@ -4,384 +4,482 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="/css/bootstrap.min" />
-    <script href="/js/bootstrap.bundle.js"></script>
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+    />
     <link rel="stylesheet" href="/css/styles.css" />
     <title>Survey</title>
   </head>
   <body>
     <!-- Navigation Bar -->
-    <nav>
-      <a href="/">Home</a>
-      <a href="/survey">Survey</a>
-      <a href="/dashboard">Dashboard</a>
+
+    <nav class="navbar navbar-expand-lg navbar-dark">
+      <a class="navbar-brand" href="#">Provo City</a>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav">
+          <li class="nav-item">
+            <a class="nav-link" href="/">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/dashboard">Dashboard</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/survey">Survey</a>
+          </li>
+        </ul>
+      </div>
+
       <% if(user) { %>
-        <div id="login-link" class="dropdown">
-          <button class="dropbtn">Hello, <%= user.name%></button>
-          <div class="dropdown-content">
-            <a href="/editaccount"><form method="get" action="edit/<%= user.id %>/"><button style="border: none; background-color: white;" type="submit">Edit Account</button></form></a>
-            <% if (user.isadmin) { %>
-              <a href="/users">Edit Users</a>
-              <% } %>
-            <a href="/logout">Logout</a>
-          </div>
+
+      <div class="account-dropdown">
+        <button
+          class="btn btn-link dropdown-toggle"
+          type="button"
+          id="accountDropdown"
+          data-toggle="dropdown"
+          aria-haspopup="true"
+          aria-expanded="false"
+        >
+          My Account
+        </button>
+        <div class="dropdown-menu" aria-labelledby="accountDropdown">
+          <a class="dropdown-item" href="/editaccount"
+            ><form method="get" action="edit/<%= user.id %>/">
+              <button
+                style="border: none; background-color: white"
+                type="submit"
+              >
+                Edit Account
+              </button>
+            </form></a
+          >
+          <% if (user.isadmin) { %>
+          <a class="dropdown-item" href="/users">Edit Users</a>
+          <% } %>
+          <div class="dropdown-divider"></div>
+          <a class="dropdown-item" href="/logout">Logout</a>
         </div>
       </div>
+
       <% } else { %>
-      <a id="login-link" href="/login">Log In</a>
+
+      <div class="account-dropdown">
+        <button
+          class="btn btn-link dropdown-toggle"
+          type="button"
+          id="accountDropdown"
+          data-toggle="dropdown"
+          aria-haspopup="true"
+          aria-expanded="false"
+        >
+          <a href="/login">Login</a>
+        </button>
+        <div class="dropdown-menu" aria-labelledby="accountDropdown">
+          <a class="dropdown-item" href="/login">Login</a>
+          <a class="dropdown-item" href="/register">Register</a>
+        </div>
+      </div>
+
       <% } %>
     </nav>
 
     <!-- SURVEY FORM -->
 
-    <div class="main">
+    <div class="container">
       <form>
         <!-- Question 1 -->
 
-        <label for="age">Age:</label><br />
-        <input
-          type="number"
-          id="age"
-          name="age"
-          min="0"
-          max="130"
-          required
-        /><br /><br />
+        <div class="form-group">
+          <label for="age">Age:</label>
+          <input
+            type="number"
+            class="form-control"
+            id="age"
+            name="age"
+            min="0"
+            max="130"
+            required
+          />
+        </div>
 
         <!-- Question 2 -->
 
-        <label for="gender">Gender:</label><br />
-        <select id="gender" name="gender" required>
-          <option value="Male">Male</option>
-          <option value="Female">Female</option>
-          <option value="N-B">Non-Binary</option>
-          <option value="Prefer not to say">Prefer Not to Say</option>
-        </select>
-        ><br />
-        <br />
+        <div class="form-group">
+          <label for="gender">Gender:</label>
+          <select class="form-control" id="gender" name="gender" required>
+            <option value="Male">Male</option>
+            <option value="Female">Female</option>
+            <option value="N-B">Non-Binary</option>
+            <option value="Prefer not to say">Prefer Not to Say</option>
+          </select>
+        </div>
 
         <!-- Question 3 -->
 
-        <label for="relationshipStatus">Relationship Status:</label><br />
-        <select
-          type="text"
-          id="relationshipStatus"
-          name="relationshipStatus"
-          required
-        >
-          <option value="single">Single</option>
-          <option value="relationship">In a relationship</option>
-          <option value="married">Married</option>
-          <option value="divorced">Divorced</option>
-        </select>
-        <br />
-        <br />
+        <div class="form-group">
+          <label for="relationshipStatus">Relationship Status:</label>
+          <select
+            class="form-control"
+            id="relationshipStatus"
+            name="relationshipStatus"
+            required
+          >
+            <option value="single">Single</option>
+            <option value="relationship">In a relationship</option>
+            <option value="married">Married</option>
+            <option value="divorced">Divorced</option>
+          </select>
+        </div>
 
         <!-- Question 4 -->
 
-        <label for="occupationStatus">Occupation Status:</label><br />
-        <select type="text" id="occupationStatus" name="occupationStatus">
-          <option value="University Student">University Student</option>
-          <option value="Private">Private</option>
-          <option value="School, University">School, University</option>
-          <option value="Retired">Retired</option></select
-        ><br /><br />
+        <div class="form-group">
+          <label for="occupationStatus">Occupation Status:</label>
+          <select
+            class="form-control"
+            id="occupationStatus"
+            name="occupationStatus"
+          >
+            <option value="University Student">University Student</option>
+            <option value="Private">Private</option>
+            <option value="School, University">School, University</option>
+            <option value="Retired">Retired</option>
+          </select>
+        </div>
 
         <!-- Question 5 -->
 
-        <label for="organizationType"
-          >What type of organizations are you affiliated with?</label
-        ><br />
-        <select type="text" id="organizationType" name="organizationType">
-          <option value="University">University</option>
-          <option value="School Student">School Student</option>
-          <option value="Salaried Worker">Salaried Worker</option>
-          <option value="Goverment">Retired</option>
-        </select>
-        <br /><br />
+        <div class="form-group">
+          <label for="restlessWithoutSocialMedia"
+            >Do you feel restless if you haven’t used social media in a
+            while?</label
+          >
+          <select
+            class="form-control"
+            id="restlessWithoutSocialMedia"
+            name="restlessWithoutSocialMedia"
+          >
+            <option value="1">1 Never</option>
+            <option value="2">2 Rarely</option>
+            <option value="3">3 Occasionally</option>
+            <option value="4">4 Frequently</option>
+            <option value="5">5 Always</option>
+          </select>
+        </div>
 
         <!-- Question 6 -->
+        <div class="form-group">
+          <label for="question1">How would you rate this question?</label>
+          <input
+            type="range"
+            class="form-control-range"
+            id="question1"
+            name="question1"
+            min="1"
+            max="5"
+            step="1"
+            value="3"
+          />
+        </div>
 
-        <label for="useSocialMedia">Do you use social media?</label><br />
-        <select id="useSocialMedia" name="useSocialMedia">
-          <option value="yes">Yes</option>
-          <option value="no">No</option></select
-        ><br /><br />
+        <!-- Question 7-->
 
-        <!-- <label for="socialMediaPlatforms"
-          >What social media platforms do you commonly use?</label
-        ><br />
-        <input
-          type="text"
-          id="socialMediaPlatforms"
-          name="socialMediaPlatforms"
-        /><br /> -->
+        <div class="form-group">
+          <label
+            >What social media platforms do you use? Select all that
+            apply</label
+          ><br />
 
-        <!-- Question 7 -->
+          <input
+            type="checkbox"
+            id="instagram"
+            name="socialMediaPlatforms"
+            value="instagram"
+          />
+          <label for="instagram">Instagram</label><br />
+          <input
+            type="checkbox"
+            id="facebook"
+            name="socialMediaPlatforms"
+            value="facebook"
+          />
+          <label for="facebook">Facebook</label><br />
 
-        <label>What social media platforms do you use?</label>
+          <input
+            type="checkbox"
+            id="youtube"
+            name="socialMediaPlatforms"
+            value="youtube"
+          />
+          <label for="youtube">youtube</label><br />
 
-        <input
-          type="checkbox"
-          id="instagram"
-          name="socialMediaPlatforms"
-          value="instagram"
-        />
-        <label for="instagram">Instagram</label>
+          <input
+            type="checkbox"
+            id="discord"
+            name="socialMediaPlatforms"
+            value="discord"
+          />
+          <label for="discord">discord</label><br />
 
-        <input
-          type="checkbox"
-          id="facebook"
-          name="socialMediaPlatforms"
-          value="facebook"
-        />
-        <label for="facebook">Facebook</label>
+          <input
+            type="checkbox"
+            id="twitter"
+            name="socialMediaPlatforms"
+            value="twitter"
+          />
+          <label for="twitter">twitter</label><br />
 
-        <input
-          type="checkbox"
-          id="youtube"
-          name="socialMediaPlatforms"
-          value="youtube"
-        />
-        <label for="youtube">youtube</label>
+          <input
+            type="checkbox"
+            id="pinterest"
+            name="socialMediaPlatforms"
+            value="pinterest"
+          />
+          <label for="pinterest">pinterest</label><br />
 
-        <input
-          type="checkbox"
-          id="discord"
-          name="socialMediaPlatforms"
-          value="discord"
-        />
-        <label for="discord">discord</label>
+          <input
+            type="checkbox"
+            id="reddit"
+            name="socialMediaPlatforms"
+            value="reddit"
+          />
+          <label for="reddit">reddit</label><br />
 
-        <input
-          type="checkbox"
-          id="twitter"
-          name="socialMediaPlatforms"
-          value="twitter"
-        />
-        <label for="twitter">twitter</label>
-
-        <input
-          type="checkbox"
-          id="pinterest"
-          name="socialMediaPlatforms"
-          value="pinterest"
-        />
-        <label for="pinterest">pinterest</label>
-
-        <input
-          type="checkbox"
-          id="reddit"
-          name="socialMediaPlatforms"
-          value="reddit"
-        />
-        <label for="reddit">reddit</label>
-
-        <input
-          type="checkbox"
-          id="snapchat"
-          name="socialMediaPlatforms"
-          value="snapchat"
-        />
-        <label for="snapchat">snapchat</label>
-
-        <br /><br />
+          <input
+            type="checkbox"
+            id="snapchat"
+            name="socialMediaPlatforms"
+            value="snapchat"
+          />
+          <label for="snapchat">snapchat</label>
+        </div>
 
         <!-- Question 8 -->
 
-        <label for="averageTimeOnSocialMedia"
-          >What is the average time you spend on social media every day?</label
-        ><br />
-        <select id="averageTimeOnSocialMedia" name="averageTimeOnSocialMedia">
-          <option value="Less than an hour">Less than an hour</option>
-          <option value="Betweer">Between 1 and 2 hours</option>
-          <option value="">Between 2 and 3 hours</option>
-          <option value="Less than an hour">Between 3 and 4 hours</option>
-          <option value="More than 5 hours">Between 4 and 5 hours</option>
-          <option value="More than 5 hours">More than 5 hours</option>
-        </select>
-
-        <br /><br />
+        <div class="form-group">
+          <label for="averageTimeOnSocialMedia"
+            >What is the average time you spend on social media every
+            day?</label
+          ><br />
+          <select id="averageTimeOnSocialMedia" name="averageTimeOnSocialMedia">
+            <option value="Less than an hour">Less than an hour</option>
+            <option value="Betweer">Between 1 and 2 hours</option>
+            <option value="">Between 2 and 3 hours</option>
+            <option value="Less than an hour">Between 3 and 4 hours</option>
+            <option value="More than 5 hours">Between 4 and 5 hours</option>
+            <option value="More than 5 hours">More than 5 hours</option>
+          </select>
+        </div>
 
         <!-- Question 9 -->
 
-        <label for="purposelessSocialMedia"
-          >How often do you find yourself using social media without a specific
-          purpose?</label
-        ><br />
-        <select id="purposelessSocialMedia" name="purposelessSocialMedia">
-          <option value="1">1 Never</option>
-          <option value="2">2 Rarely</option>
-          <option value="3">3 Occasionally</option>
-          <option value="4">4 Frequently</option>
-          <option value="5">5 Always</option></select
-        ><br /><br />
+        <div class="form-group">
+          <label for="purposelessSocialMedia"
+            >How often do you find yourself using social media without a
+            specific purpose?</label
+          ><br />
+          <select id="purposelessSocialMedia" name="purposelessSocialMedia">
+            <option value="1">1 Never</option>
+            <option value="2">2 Rarely</option>
+            <option value="3">3 Occasionally</option>
+            <option value="4">4 Frequently</option>
+            <option value="5">5 Always</option>
+          </select>
+        </div>
 
-        <!--Question 10--->
+        <!-- Question 10 -->
 
-        <label for="distractedBySocialMedia"
-          >How often do you get distracted by social media when you are busy
-          doing something?</label
-        ><br />
-        <select id="distractedBySocialMedia" name="distractedBySocialMedia">
-          <option value="1">1 Never</option>
-          <option value="2">2 Rarely</option>
-          <option value="3">3 Occasionally</option>
-          <option value="4">4 Frequently</option>
-          <option value="5">5 Always</option></select
-        ><br /><br />
+        <div class="form-group">
+          <label for="distractedBySocialMedia"
+            >How often do you get distracted by social media when you are busy
+            doing something?</label
+          ><br />
+          <select id="distractedBySocialMedia" name="distractedBySocialMedia">
+            <option value="1">1 Never</option>
+            <option value="2">2 Rarely</option>
+            <option value="3">3 Occasionally</option>
+            <option value="4">4 Frequently</option>
+            <option value="5">5 Always</option>
+          </select>
+        </div>
 
-        <!--Question 11--->
+        <!-- Question 11 -->
 
-        <label for="restlessWithoutSocialMedia"
-          >Do you feel restless if you haven’t used social media in a
-          while?</label
-        ><br />
-        <select
-          id="restlessWithoutSocialMedia"
-          name="restlessWithoutSocialMedia"
-        >
-          <option value="1">1 Never</option>
-          <option value="2">2 Rarely</option>
-          <option value="3">3 Occasionally</option>
-          <option value="4">4 Frequently</option>
-          <option value="5">5 Always</option></select
-        ><br /><br />
+        <div class="form-group">
+          <label for="restlessWithoutSocialMedia"
+            >Do you feel restless if you haven’t used social media in a
+            while?</label
+          ><br />
+          <select
+            id="restlessWithoutSocialMedia"
+            name="restlessWithoutSocialMedia"
+          >
+            <option value="1">1 Never</option>
+            <option value="2">2 Rarely</option>
+            <option value="3">3 Occasionally</option>
+            <option value="4">4 Frequently</option>
+            <option value="5">5 Always</option>
+          </select>
+        </div>
 
-        <!--Question 12--->
+        <!-- Question 12 -->
 
-        <label for="easilyDistracted">How easily distracted are you?</label
-        ><br />
-        <select id="easilyDistracted" name="easilyDistracted">
-          <option value="1">1 Not at all</option>
-          <option value="2">2 Slightly</option>
-          <option value="3">4 Moderately</option>
-          <option value="4">5 Very</option>
-          <option value="5">6 Extremely</option></select
-        ><br /><br />
+        <div class="form-group">
+          <label for="easilyDistracted">How easily distracted are you?</label
+          ><br />
+          <select id="easilyDistracted" name="easilyDistracted">
+            <option value="1">1 Not at all</option>
+            <option value="2">2 Slightly</option>
+            <option value="3">4 Moderately</option>
+            <option value="4">5 Very</option>
+            <option value="5">6 Extremely</option>
+          </select>
+        </div>
 
-        <!--Question 13--->
+        <!-- Question 13 -->
 
-        <label for="botheredByWorries"
-          >How much are you bothered by worries?</label
-        ><br />
-        <select id="botheredByWorries" name="botheredByWorries">
-          <option value="1">1 Not at all</option>
-          <option value="2">2 Slightly</option>
-          <option value="3">4 Moderately</option>
-          <option value="4">5 Very</option>
-          <option value="5">6 Extremely</option></select
-        ><br /><br />
+        <div class="form-group">
+          <label for="botheredByWorries"
+            >How much are you bothered by worries?</label
+          ><br />
+          <select id="botheredByWorries" name="botheredByWorries">
+            <option value="1">1 Not at all</option>
+            <option value="2">2 Slightly</option>
+            <option value="3">4 Moderately</option>
+            <option value="4">5 Very</option>
+            <option value="5">6 Extremely</option>
+          </select>
+        </div>
 
-        <!--Question 14--->
+        <!-- Question 14 -->
 
-        <label for="difficultToConcentrate"
-          >Do you find it difficult to concentrate on things?</label
-        ><br />
-        <select id="difficultToConcentrate" name="difficultToConcentrate">
-          <option value="1">1 Never</option>
-          <option value="2">2 Rarely</option>
-          <option value="3">3 Occasionally</option>
-          <option value="4">4 Frequently</option>
-          <option value="5">5 Always</option></select
-        ><br /><br />
+        <div class="form-group">
+          <label for="difficultToConcentrate"
+            >Do you find it difficult to concentrate on things?</label
+          ><br />
+          <select id="difficultToConcentrate" name="difficultToConcentrate">
+            <option value="1">1 Never</option>
+            <option value="2">2 Rarely</option>
+            <option value="3">3 Occasionally</option>
+            <option value="4">4 Frequently</option>
+            <option value="5">5 Always</option>
+          </select>
+        </div>
 
-        <!--Question 15--->
+        <!-- Question 15 -->
 
-        <label for="compareToOthersOnSocialMedia"
-          >How often do you compare yourself to other successful people through
-          the use of social media?</label
-        ><br />
-        <select
-          id="compareToOthersOnSocialMedia"
-          name="compareToOthersOnSocialMedia"
-        >
-          <br />
-          <option value="1">1 Never</option>
-          <option value="2">2 Rarely</option>
-          <option value="3">3 Occasionally</option>
-          <option value="4">4 Frequently</option>
-          <option value="5">5 Always</option></select
-        ><br /><br />
+        <div class="form-group">
+          <label for="compareToOthersOnSocialMedia"
+            >How often do you compare yourself to other successful people
+            through the use of social media?</label
+          ><br />
+          <select
+            id="compareToOthersOnSocialMedia"
+            name="compareToOthersOnSocialMedia"
+          >
+            <br />
+            <option value="1">1 Never</option>
+            <option value="2">2 Rarely</option>
+            <option value="3">3 Occasionally</option>
+            <option value="4">4 Frequently</option>
+            <option value="5">5 Always</option>
+          </select>
+        </div>
 
         <!-- Question 16 -->
 
-        <label for="feelingsAboutSocialMediaComparisons"
-          >Following the previous question, how do you feel about these
-          comparisons, generally speaking?</label
-        ><br />
-        <select
-          id="feelingsAboutSocialMediaComparisons"
-          name="feelingsAboutSocialMediaComparisons"
-        >
-          <br />
-          <option value="1">1 Horrible</option>
-          <option value="2">2 Bad</option>
-          <option value="3">3 Ok</option>
-          <option value="4">4 Good</option>
-          <option value="5">5 Amazing</option></select
-        ><br /><br />
+        <div class="form-group">
+          <label for="feelingsAboutSocialMediaComparisons"
+            >Following the previous question, how do you feel about these
+            comparisons, generally speaking?</label
+          ><br />
+          <select
+            id="feelingsAboutSocialMediaComparisons"
+            name="feelingsAboutSocialMediaComparisons"
+          >
+            <br />
+            <option value="1">1 Horrible</option>
+            <option value="2">2 Bad</option>
+            <option value="3">3 Ok</option>
+            <option value="4">4 Good</option>
+            <option value="5">5 Amazing</option>
+          </select>
+        </div>
 
-        <!--Question 17--->
+        <!-- Question 17 -->
 
-        <label for="seekValidationOnSocialMedia"
-          >How often do you look to seek validation from features of social
-          media?</label
-        ><br />
-        <select
-          id="seekValidationOnSocialMedia"
-          name="seekValidationOnSocialMedia"
-        >
-          <br />
-          <option value="1">1 Never</option>
-          <option value="2">2 Rarely</option>
-          <option value="3">3 Occasionally</option>
-          <option value="4">4 Frequently</option>
-          <option value="5">5 Always</option></select
-        ><br /><br />
+        <div class="form-group">
+          <label for="seekValidationOnSocialMedia"
+            >How often do you look to seek validation from features of social
+            media?</label
+          ><br />
+          <select
+            id="seekValidationOnSocialMedia"
+            name="seekValidationOnSocialMedia"
+          >
+            <br />
+            <option value="1">1 Never</option>
+            <option value="2">2 Rarely</option>
+            <option value="3">3 Occasionally</option>
+            <option value="4">4 Frequently</option>
+            <option value="5">5 Always</option>
+          </select>
+        </div>
 
-        <!--Question 18--->
+        <!-- Question 18 -->
 
-        <label for="feelDepressedOrDown"
-          >How often do you feel depressed or down?</label
-        ><br />
-        <select id="feelDepressedOrDown" name="feelDepressedOrDown">
-          <option value="1">1 Never</option>
-          <option value="2">2 Rarely</option>
-          <option value="3">3 Occasionally</option>
-          <option value="4">4 Frequently</option>
-          <option value="5">5 Always</option></select
-        ><br /><br />
+        <div class="form-group">
+          <label for="feelDepressedOrDown"
+            >How often do you feel depressed or down?</label
+          ><br />
+          <select id="feelDepressedOrDown" name="feelDepressedOrDown">
+            <option value="1">1 Never</option>
+            <option value="2">2 Rarely</option>
+            <option value="3">3 Occasionally</option>
+            <option value="4">4 Frequently</option>
+            <option value="5">5 Always</option>
+          </select>
+        </div>
 
-        <!--Question 19--->
+        <!-- Question 19 -->
 
-        <label for="interestFluctuation"
-          >How frequently does your interest in daily activities
-          fluctuate?</label
-        ><br />
-        <select id="interestFluctuation" name="interestFluctuation">
-          <option value="1">1 Never</option>
-          <option value="2">2 Rarely</option>
-          <option value="3">3 Occasionally</option>
-          <option value="4">4 Frequently</option>
-          <option value="5">5 Always</option></select
-        ><br /><br />
+        <div class="form-group">
+          <label for="interestFluctuation"
+            >How frequently does your interest in daily activities
+            fluctuate?</label
+          ><br />
+          <select id="interestFluctuation" name="interestFluctuation">
+            <option value="1">1 Never</option>
+            <option value="2">2 Rarely</option>
+            <option value="3">3 Occasionally</option>
+            <option value="4">4 Frequently</option>
+            <option value="5">5 Always</option>
+          </select>
+        </div>
 
-        <!--Question 20--->
+        <!-- Question 20 -->
 
-        <label for="sleepIssues"
-          >How often do you face issues regarding sleep?</label
-        ><br />
-        <select id="sleepIssues" name="sleepIssues">
-          <option value="1">1 Never</option>
-          <option value="2">2 Rarely</option>
-          <option value="3">3 Occasionally</option>
-          <option value="4">4 Frequently</option>
-          <option value="5">5 Always</option></select
-        ><br /><br />
+        <div class="form-group">
+          <label for="sleepIssues"
+            >How often do you face issues regarding sleep?</label
+          ><br />
+          <select id="sleepIssues" name="sleepIssues">
+            <option value="1">1 Never</option>
+            <option value="2">2 Rarely</option>
+            <option value="3">3 Occasionally</option>
+            <option value="4">4 Frequently</option>
+            <option value="5">5 Always</option>
+          </select>
+        </div>
 
-        <button type="submit">Submit</button>
+        <button type="submit" class="btn btn-primary">Submit</button>
       </form>
     </div>
+
+    <!--Scripts for the Bootstrap-->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
   </body>
 </html>

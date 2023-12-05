@@ -77,7 +77,7 @@ app.get("/login", async (req, res) => {
     });
 
   console.log(aUsers);
-  res.render("login");
+  res.render("login", { user: res.locals.user });
 });
 
 app.post("/login", (req, res) => {
@@ -99,7 +99,7 @@ app.post("/login", (req, res) => {
 });
 
 app.get("/register", (req, res) => {
-  req.session.user = res.render("register");
+  req.session.user = res.render("register", { user: res.locals.user });
 });
 
 app.post("/register", (req, res) => {

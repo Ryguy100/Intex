@@ -1,71 +1,142 @@
-body {
-  font-family: "Arial", sans-serif;
-  margin: 0;
-  padding: 0;
-  background-color: #f4f4f4;
-}
-
-nav {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  background-color: #333;
-  padding: 10px;
-}
-
-nav a {
-  color: #fff;
-  text-decoration: none;
-  font-weight: bold;
-  padding: 0.5rem;
-}
-
-nav a:hover {
-  color: #ffcc00;
-}
-
-/* Dropdown styles */
-.dropdown {
-  position: relative;
-  display: inline-block;
-}
-
-.dropbtn {
-  background-color: #333;
-  color: #fff;
-  padding: 10px;
-  border: none;
-  cursor: pointer;
-}
-
-.dropdown-content {
-  display: none;
-  position: absolute;
-  background-color: #f9f9f9;
-  min-width: 160px;
-  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
-  z-index: 1;
-}
-
-.dropdown-content a {
-  color: #333;
-  padding: 12px 16px;
-  text-decoration: none;
-  display: block;
-}
-
-.dropdown-content a:hover {
-  background-color: #ddd;
-}
-
-.dropdown:hover .dropdown-content {
-  display: block;
-}
-
-#login-link {
-  margin-left: auto; /* Push the login link to the right by consuming all available space */
-}
-
 .main {
   padding: 1rem;
+}
+
+body {
+  background-color: #f8f9fa;
+}
+
+.sleek-header {
+  top: 0;
+  left: 0;
+  width: 100%;
+  padding: 4rem;
+  text-align: center;
+  color: white;
+  font-size: 24px;
+  background: linear-gradient(45deg, #ff6b6b, #ffe066, #6c5ce7, #48dbfb);
+  background-size: 600% 600%;
+  animation: gradientAnimation 15s ease infinite;
+}
+
+.bg-wave {
+  top: 0;
+  left: 0;
+  width: 100%;
+  padding: 4rem;
+  font-size: 24px;
+  background: linear-gradient(45deg, #0f5644, #6347b0, #68648a, #353536);
+  background-size: 600% 600%;
+  animation: gradientAnimation 20s ease infinite;
+}
+
+@keyframes gradientAnimation {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+.login-card {
+  background-color: #ffffff; /* White background */
+  border-radius: 10px; /* Rounded edges */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Soft shadow */
+  padding: 20px; /* Adjust padding as needed */
+  margin: 20px auto; /* Center the card */
+  max-width: 400px; /* Set a maximum width for the card */
+}
+
+.container {
+  max-width: 40%;
+}
+
+.sample-text {
+  text-align: center;
+  padding: 50px 0; /* Adjust padding as needed */
+}
+
+.sleek-button {
+  margin-top: 20px; /* Adjust margin as needed */
+}
+
+.form-group {
+  margin-bottom: 20px;
+}
+
+.navbar {
+  z-index: 1000;
+  background-color: #ffffff;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+}
+
+.navbar-dark .navbar-nav .nav-link {
+  color: #343a40; /* Dark text color */
+}
+
+.navbar-dark .navbar-toggler-icon {
+  background-color: #343a40; /* Dark color for the toggler icon */
+}
+
+.navbar-dark .navbar-toggler {
+  border-color: #343a40; /* Dark color for the toggler border */
+}
+
+/* Align items to the left */
+.navbar-nav {
+  margin-right: auto;
+}
+
+/* Styles for the account dropdown menu */
+.account-dropdown {
+  position: relative;
+}
+
+.account-dropdown .dropdown-toggle::after {
+  display: none; /* Hide the default dropdown indicator */
+}
+
+.account-dropdown .dropdown-menu {
+  right: 0;
+  left: auto;
+}
+
+/* Custom styles for links inside the dropdown menu */
+.account-dropdown .dropdown-item {
+  color: #343a40;
+  text-decoration: none;
+  padding: 0.5rem 1rem;
+}
+
+.account-dropdown .dropdown-item:hover {
+  background-color: #f8f9fa;
+}
+
+.tableauPlaceholder {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh; /* Adjust the height as needed */
+}
+
+.tableau-embed {
+  width: 80%; /* Adjust the width as needed */
+  padding: 3rem; /* Adjust the height as needed */
+  border: none; /* Remove border */
+}
+
+/* Additional styles for responsiveness */
+@media (max-width: 768px) {
+  .tableau-embed {
+    width: 100%;
+    height: 60vh;
+  }
+}
+
+.container {
+  padding: 3rem;
 }
