@@ -92,6 +92,8 @@ app.post("/survey", async (req, res) => {
 
   console.log(req.body.socialMediaPlatforms);
 
+  aPlatforms = req.body.socialMediaPlatforms;
+
   await knex("responses")
     .insert({
       time_stamp: survey_time_stamp,
@@ -117,6 +119,33 @@ app.post("/survey", async (req, res) => {
     .then((results) => {
       res.redirect("/");
     });
+
+  iLatestID = 0;
+
+  await knex
+    .select()
+    .from("responses")
+    .then((result) => {
+      iLatestID = result[result.length - 1].response_id;
+    });
+
+  console.log(iLatestID);
+
+  if (aPlatforms.length > 0) {
+    for (let i = 0; i < aPlatforms.length; i++) {
+      await knex("social_media_responses").insert({
+        social_media_id: aPlatforms[i],
+        uses_platform: "Yes",
+        response_id: iLatestID,
+      });
+    }
+  } else {
+    await knex("social_media_responses").insert({
+      social_media_id: 0,
+      uses_platform: "No",
+      response_id: iLatestID,
+    });
+  }
 });
 
 app.get("/dashboard", (req, res) => {
