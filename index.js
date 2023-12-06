@@ -90,6 +90,10 @@ app.post("/survey", async (req, res) => {
   let survey_issues = req.body.sleepIssues;
   let survey_origin = "Provo";
 
+  if (req.body.usesSocialMedia == "Yes") {
+    knex("");
+  }
+
   await knex("responses")
     .insert({
       time_stamp: survey_time_stamp,
