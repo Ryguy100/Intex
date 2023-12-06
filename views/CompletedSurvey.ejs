@@ -4,6 +4,7 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="refresh" content="5; url=/" />
     <link rel="stylesheet" href="/scss/custom.css">
     <link rel="stylesheet" href="/css/styles.css" />
     <title>Home</title>
@@ -87,28 +88,13 @@
     </nav>
 
     <!-- Main Area -->
-
-    <div class="sleek-header">
-      <h1>Provo City Mental Health Survey</h1>
-      <p>Add your additional text or content here.</p>
-      <a href="/survey" class="btn btn-primary sleek-button">Take the survey</a>
+<div class="sample-text">
+    <div class="main">
+      <p>You have successfully completed the survey.</p>
+      <p>Redirecting to the home page...</p>
     </div>
-
-    <div class="sample-text">
-      <div class="main">
-        <% if (user) { %>
-        <h1>Welcome, <%= user.name %></h1>
-        <p>Your username is <%= user.name %></p>
-        <% } else { %>
-        <h1>Welcome, Guest</h1>
-        <p>Feel free to explore our website!</p>
-        <% } %>
-      </div>
-      <h2>About the Survey</h2>
-      <p>
-        This is some sample text. You can add more content, images, or other
-        elements here to create your page layout. Survey!
-      </p>
+  </div>
+    
     </div>
 
     <!--Scripts for the Bootstrap-->
