@@ -273,7 +273,7 @@
             type="checkbox"
             id="instagram"
             name="socialMediaPlatforms"
-            value="instagram"
+            value="3"
             class="form-check-input checkbox-group"
           />
           <label for="instagram">Instagram</label><br />
@@ -281,7 +281,7 @@
             type="checkbox"
             id="facebook"
             name="socialMediaPlatforms"
-            value="facebook"
+            value="1"
             class="form-check-input checkbox-group"
           />
           <label for="facebook">Facebook</label><br />
@@ -289,7 +289,7 @@
             type="checkbox"
             id="youtube"
             name="socialMediaPlatforms"
-            value="youtube"
+            value="4"
             class="form-check-input checkbox-group"
           />
           <label for="youtube">Youtube</label><br />
@@ -297,7 +297,7 @@
             type="checkbox"
             id="discord"
             name="socialMediaPlatforms"
-            value="discord"
+            value="5"
             class="form-check-input checkbox-group"
           />
           <label for="discord">Discord</label><br />
@@ -305,7 +305,7 @@
             type="checkbox"
             id="twitter"
             name="socialMediaPlatforms"
-            value="twitter"
+            value="2"
             class="form-check-input checkbox-group"
           />
           <label for="twitter">Twitter</label><br />
@@ -314,7 +314,7 @@
             type="checkbox"
             id="pinterest"
             name="socialMediaPlatforms"
-            value="pinterest"
+            value="7"
             class="form-check-input checkbox-group"
           />
           <label for="pinterest">Pinterest</label><br />
@@ -323,7 +323,7 @@
             type="checkbox"
             id="reddit"
             name="socialMediaPlatforms"
-            value="reddit"
+            value="6"
             class="form-check-input checkbox-group"
           />
           <label for="reddit">Reddit</label>
@@ -332,19 +332,19 @@
             type="checkbox"
             id="snapchat"
             name="socialMediaPlatforms"
-            value="snapchat"
+            value="8"
             class="form-check-input checkbox-group"
           />
           <label for="snapchat">Snapchat</label>
           <br />
           <input
             type="checkbox"
-            id="snapchat"
+            id="tiktok"
             name="socialMediaPlatforms"
-            value="None"
+            value="9"
             class="form-check-input checkbox-group"
           />
-          <label for="snapchat">None</label>
+          <label for="tiktok">Tiktok</label>
           <div class="invalid-feedback">
             You must answer this question before submitting.
           </div>
@@ -1316,14 +1316,20 @@
             "submit",
             (event) => {
               if (!form.checkValidity()) {
-                if (($("#usesSocialMedia").value = "Yes")) {
-                  if ($(".checkbox-group:checked").length == 0) {
+                let social_media_buttons = document.getElementsbyName("usesSocialMedia");
+                for (let i=0; i < social_media_buttons.length; i++) {
+                  if (social_media_buttons[i].value == "Yes") {
+                    if ($(".checkbox-group:checked").length == 0) {
+                      event.preventDefault();
+                      event.stopPropagation();
+                    }
+                  } else {
                     event.preventDefault();
                     event.stopPropagation();
                   }
                 }
               }
-
+    
               form.classList.add("was-validated");
             },
             false
