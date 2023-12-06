@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Logout</title>
-    <link rel="stylesheet" href="/scss/custom.css">
+    <link rel="stylesheet" href="/scss/custom.css" />
     <link rel="stylesheet" href="/css/styles.css" />
   </head>
   <body>
@@ -35,17 +35,23 @@
           aria-haspopup="true"
           aria-expanded="false"
         >
-          <a href="/login">Login</a>
+          <a href="/login">Log In</a>
         </button>
         <div class="dropdown-menu" aria-labelledby="accountDropdown">
-          <a class="dropdown-item" href="/login">Login</a>
+          <a class="dropdown-item" href="/login">Log In</a>
           <a class="dropdown-item" href="/register">Register</a>
         </div>
       </div>
     </nav>
-    <div class="main">
-      <h3>You have signed out</h3>
-      <h4>Return to <a href="/">Home</a></h4>
+
+    <!--Text to say that you have logged out-->
+
+    <div class="sample-text">
+      <div class="main">
+        <h1>You have Logged Out</h1>
+      </div>
+      <a href="/home" class="btn btn-primary sleek-button">Return to Home</a>
+      <a href="/login" class="btn btn-primary sleek-button">Log In</a>
     </div>
     <!--Scripts for the Bootstrap-->
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
