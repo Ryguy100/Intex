@@ -4,10 +4,11 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link
+    <!-- <link
       rel="stylesheet"
       href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
-    />
+    /> -->
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
     <link rel="stylesheet" href="/css/styles.css" />
     <title>Survey</title>
   </head>
@@ -87,11 +88,10 @@
     <!-- SURVEY FORM -->
 
     <div class="container">
-      <form>
+      <form class="form-floating">
         <!-- Question 1 -->
 
-        <div class="form-group">
-          <label for="age">Age:</label>
+        <div class="form-floating form-group">
           <input
             type="number"
             class="form-control"
@@ -99,53 +99,59 @@
             name="age"
             min="0"
             max="130"
+            placeholder="Age"
             required
           />
+          <label for="age">Age</label>
         </div>
 
         <!-- Question 2 -->
 
-        <div class="form-group">
-          <label for="gender">Gender:</label>
+        <div class="form-floating form-group">
+          
           <select class="form-control" id="gender" name="gender" required>
+            <option value="" disabled selected>Select an option</option>
             <option value="Male">Male</option>
             <option value="Female">Female</option>
             <option value="N-B">Non-Binary</option>
             <option value="Prefer not to say">Prefer Not to Say</option>
           </select>
+          <label for="gender">Gender</label>
         </div>
 
         <!-- Question 3 -->
 
-        <div class="form-group">
-          <label for="relationshipStatus">Relationship Status:</label>
+        <div class="form-group form-floating">
           <select
             class="form-control"
             id="relationshipStatus"
             name="relationshipStatus"
             required
           >
+            <option value="" disabled selected>Select an option</option>
             <option value="single">Single</option>
             <option value="relationship">In a relationship</option>
             <option value="married">Married</option>
             <option value="divorced">Divorced</option>
           </select>
+          <label for="relationshipStatus">Relationship Status</label>
         </div>
 
         <!-- Question 4 -->
 
-        <div class="form-group">
-          <label for="occupationStatus">Occupation Status:</label>
+        <div class="form-group form-floating">
           <select
             class="form-control"
             id="occupationStatus"
             name="occupationStatus"
           >
+            <option value="" disabled selected>Select an option</option>
             <option value="University Student">University Student</option>
             <option value="Private">Private</option>
             <option value="School, University">School, University</option>
             <option value="Retired">Retired</option>
           </select>
+          <label for="occupationStatus">Occupation Status</label>
         </div>
 
         <!-- Question 5 -->
@@ -160,6 +166,7 @@
             id="restlessWithoutSocialMedia"
             name="restlessWithoutSocialMedia"
           >
+            <option value="" disabled selected>Select an option</option>
             <option value="1">1 Never</option>
             <option value="2">2 Rarely</option>
             <option value="3">3 Occasionally</option>
