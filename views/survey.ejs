@@ -1303,8 +1303,9 @@
             "submit",
             (event) => {
               if (!form.checkValidity()) {
-                let social_media_buttons = document.getElementsbyName("usesSocialMedia");
-                for (let i=0; i < social_media_buttons.length; i++) {
+                let social_media_buttons =
+                  document.getElementsbyName("usesSocialMedia");
+                for (let i = 0; i < social_media_buttons.length; i++) {
                   if (social_media_buttons[i].value == "Yes") {
                     if ($(".checkbox-group:checked").length == 0) {
                       
@@ -1317,7 +1318,7 @@
                   }
                 }
               }
-    
+
               form.classList.add("was-validated");
             },
             false
