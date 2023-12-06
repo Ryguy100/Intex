@@ -92,6 +92,7 @@
             required
           />
         </div>
+        <br>
         <div>
           <label>Email</label><br />
           <input
@@ -104,6 +105,7 @@
             required
           />
         </div>
+        <br>
         <div>
           <label>Password</label><br />
           <input
@@ -114,8 +116,7 @@
             value="<%= user[0].password %>"
           />
         </div>
-
-        <br />
+        <br/>
         <!-- <% if (admin.isadmin) { %> -->
         <label>Is Admin?</label>
         <td>
@@ -123,7 +124,7 @@
           user[0].is_admin ? 'checked' : '' %> <%= admin.isadmin ? '' :
           'disabled'%>>
         </td>
-        <br /><br />
+        <br/><br />
         <!-- <% } %> -->
         <button class="btn btn-primary" type="submit">Save Changes</button>
       </form>
