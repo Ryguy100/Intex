@@ -30,6 +30,16 @@ body {
   animation: gradientAnimation 20s ease infinite;
 }
 
+.bg-wave-edit {
+  top: 0;
+  left: 0;
+  width: 100%;
+  padding: 4rem;
+  background: linear-gradient(45deg, #0f5644, #6347b0, #68648a, #353536);
+  background-size: 600% 600%;
+  animation: gradientAnimation 20s ease infinite;
+}
+
 @keyframes gradientAnimation {
   0% {
     background-position: 0% 50%;
@@ -46,6 +56,15 @@ body {
   background-color: #ffffff; /* White background */
   border-radius: 10px; /* Rounded edges */
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Soft shadow */
+  padding: 20px; /* Adjust padding as needed */
+  margin: 20px auto; /* Center the card */
+  max-width: 400px; /* Set a maximum width for the card */
+}
+
+.edit-card {
+  background-color: #f8f9fa; /* White background */
+  border-radius: 10px; /* Rounded edges */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05); /* Soft shadow */
   padding: 20px; /* Adjust padding as needed */
   margin: 20px auto; /* Center the card */
   max-width: 400px; /* Set a maximum width for the card */

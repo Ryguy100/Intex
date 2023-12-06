@@ -28,39 +28,6 @@
           </li>
         </ul>
       </div>
-      <% if(user) { %>
-
-      <div class="account-dropdown">
-        <button
-          class="btn btn-link dropdown-toggle"
-          type="button"
-          id="accountDropdown"
-          data-toggle="dropdown"
-          aria-haspopup="true"
-          aria-expanded="false"
-        >
-          My Account
-        </button>
-        <div class="dropdown-menu" aria-labelledby="accountDropdown">
-          <a class="dropdown-item" href="/editaccount"
-            ><form method="get" action="edit/<%= user.id %>/">
-              <button
-                style="border: none; background-color: white"
-                type="submit"
-              >
-                Edit Account
-              </button>
-            </form></a
-          >
-          <% if (user.isadmin) { %>
-          <a class="dropdown-item" href="/users">Edit Users</a>
-          <% } %>
-          <div class="dropdown-divider"></div>
-          <a class="dropdown-item" href="/logout">Logout</a>
-        </div>
-      </div>
-
-      <% } else { %>
 
       <div class="account-dropdown">
         <button
@@ -78,8 +45,6 @@
           <a class="dropdown-item" href="/register">Register</a>
         </div>
       </div>
-
-      <% } %>
     </nav>
     <div class="main">
       <h3>You have signed out</h3>
