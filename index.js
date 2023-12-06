@@ -164,7 +164,7 @@ app.post("/survey", async (req, res) => {
   }
   
   app.get("/CompletedSurvey", (req, res) => {
-    res.render("Completedsurvey", { user: res.locals.user });
+    res.render("CompletedSurvey", { user: res.locals.user });
   });
 
     res.redirect("/CompletedSurvey")
