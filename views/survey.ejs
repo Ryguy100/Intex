@@ -183,7 +183,7 @@
           <label for="usesSocialMedia">Do you use social media?</label>
           <div class="form-check">
             <input class="form-check-input" type="radio" name="usesSocialMedia"
-            id="usesSocialMedia" value="1" required / >
+            id="usesSocialMedia" value="Yes" required>
             <label class="form-check-label" for="usesSocialMedia">Yes</label>
           </div>
           <div class="form-check">
@@ -192,7 +192,7 @@
               type="radio"
               name="usesSocialMedia"
               id="usesSocialMedia"
-              value="2"
+              value="No"
             />
             <label class="form-check-label" for="usesSocialMedia">No</label>
             <div class="invalid-feedback">
@@ -1245,6 +1245,7 @@
       (() => {
         "use strict";
 
+        
         // Fetch all the forms we want to apply custom Bootstrap validation styles to
         const forms = document.querySelectorAll(".needs-validation");
 
@@ -1254,12 +1255,12 @@
             "submit",
             (event) => {
               if (!form.checkValidity()) {
-                event.preventDefault();
-                event.stopPropagation();
-              }
-
-              if ($(".checkbox-group:checked").length < 1) {
-                event.preventDefault(); // Prevent form submission
+                if ($('#usesSocialMedia').value = 'Yes') {
+                  if ($('.checkbox-group:checked').length == 0) {
+                    event.preventDefault();
+                    event.stopPropagation();
+                  }
+                }
               }
 
               form.classList.add("was-validated");
