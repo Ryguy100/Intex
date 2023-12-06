@@ -97,8 +97,6 @@
       <form
         class="form-floating col-md-5 mx-auto my-5 needs-validation"
         id="surveyForm"
-        method="post"
-        action="/survey"
         novalidate
       >
         <!-- Question 1 -->
@@ -1080,22 +1078,11 @@
               class="form-check-input"
               type="radio"
               name="feelDepressedOrDown"
-              id="feelDepressedOrDown"
+              id="feelDepressedOrDown1"
               value="1"
               required
             />
-            <label class="form-check-label" for="restlessWithoutSocialMedia"
-              >1 - Never</label
-            >
-            <input
-              class="form-check-input"
-              type="radio"
-              name="feelDepressedOrDown"
-              id="feelDepressedOrDown"
-              value="1"
-              required
-            />
-            <label class="form-check-label" for="feelDepressedOrDown"
+            <label class="form-check-label" for="feelDepressedOrDown1"
               >1 - Never</label
             >
           </div>
@@ -1104,10 +1091,10 @@
               class="form-check-input"
               type="radio"
               name="feelDepressedOrDown"
-              id="feelDepressedOrDown"
+              id="feelDepressedOrDown2"
               value="2"
             />
-            <label class="form-check-label" for="feelDepressedOrDown"
+            <label class="form-check-label" for="feelDepressedOrDown2"
               >2 - Rarely</label
             >
           </div>
@@ -1116,11 +1103,11 @@
               class="form-check-input"
               type="radio"
               name="feelDepressedOrDown"
-              id="feelDepressedOrDown"
+              id="feelDepressedOrDown3"
               value="3"
               required
             />
-            <label class="form-check-label" for="feelDepressedOrDown"
+            <label class="form-check-label" for="feelDepressedOrDown3"
               >3 - Sometimes</label
             >
           </div>
@@ -1129,10 +1116,10 @@
               class="form-check-input"
               type="radio"
               name="feelDepressedOrDown"
-              id="feelDepressedOrDown"
+              id="feelDepressedOrDown4"
               value="4"
             />
-            <label class="form-check-label" for="feelDepressedOrDown"
+            <label class="form-check-label" for="feelDepressedOrDown4"
               >4 - Often</label
             >
           </div>
@@ -1141,10 +1128,10 @@
               class="form-check-input"
               type="radio"
               name="feelDepressedOrDown"
-              id="feelDepressedOrDown"
+              id="feelDepressedOrDown5"
               value="5"
             />
-            <label class="form-check-label" for="feelDepressedOrDown"
+            <label class="form-check-label" for="feelDepressedOrDown5"
               >5 - Always</label
             >
             <div class="invalid-feedback">
@@ -1320,6 +1307,7 @@
                 for (let i=0; i < social_media_buttons.length; i++) {
                   if (social_media_buttons[i].value == "Yes") {
                     if ($(".checkbox-group:checked").length == 0) {
+                      
                       event.preventDefault();
                       event.stopPropagation();
                     }
