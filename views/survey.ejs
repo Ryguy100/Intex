@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="/scss/custom.css">
+    <link rel="stylesheet" href="/scss/custom.css" />
     <link rel="stylesheet" href="/css/styles.css" />
     <title>Survey</title>
   </head>
@@ -93,7 +93,12 @@
     </div>
 
     <div class="container-sm my-2">
-      <form class="form-floating col-md-5 mx-auto my-5" id="surveyForm">
+      <form
+        class="form-floating col-md-5 mx-auto my-5"
+        id="surveyForm"
+        method="post"
+        action="/survey"
+      >
         <!-- Question 1 -->
 
         <div class="form-floating form-group">
@@ -113,7 +118,6 @@
         <!-- Question 2 -->
 
         <div class="form-floating form-group">
-          
           <select class="form-control" id="gender" name="gender" required>
             <option value="" disabled selected>Select an option</option>
             <option value="Male">Male</option>
@@ -165,24 +169,41 @@
             >Do you use social media?</label
           >
           <div class="form-check">
-            <input class="form-check-input" type="radio" name="restlessWithoutSocialMedia" id="restlessWithoutSocialMedia" value="1">
-            <label class="form-check-label" for="restlessWithoutSocialMedia">Yes</label>
+            <input
+              class="form-check-input"
+              type="radio"
+              name="restlessWithoutSocialMedia"
+              id="restlessWithoutSocialMedia"
+              value="1"
+            />
+            <label class="form-check-label" for="restlessWithoutSocialMedia"
+              >Yes</label
+            >
           </div>
           <div class="form-check">
-            <input class="form-check-input" type="radio" name="restlessWithoutSocialMedia" id="restlessWithoutSocialMedia" value="2">
-            <label class="form-check-label" for="restlessWithoutSocialMedia">No</label>
+            <input
+              class="form-check-input"
+              type="radio"
+              name="restlessWithoutSocialMedia"
+              id="restlessWithoutSocialMedia"
+              value="2"
+            />
+            <label class="form-check-label" for="restlessWithoutSocialMedia"
+              >No</label
+            >
           </div>
         </div>
-
-        
 
         <!-- Question 6 -->
 
         <!-- Question 7-->
 
         <div class="form-group">
-          <label>What social media platforms do you use? Select all that apply</label>
-          <br>
+          <label
+            >What social media platforms do you use? Select all that
+            apply</label
+          >
+          <br />
           <input
             type="checkbox"
             id="instagram"
@@ -234,7 +255,7 @@
             value="reddit"
           />
           <label for="reddit">Reddit</label>
-          <br>
+          <br />
           <input
             type="checkbox"
             id="snapchat"
@@ -242,21 +263,28 @@
             value="snapchat"
           />
           <label for="snapchat">Snapchat</label>
-          <br>
+          <br />
           <input
-          type="checkbox"
-          id="snapchat"
-          name="socialMediaPlatforms"
-          value="None"
-        />
-        <label for="snapchat">None</label>
+            type="checkbox"
+            id="snapchat"
+            name="socialMediaPlatforms"
+            value="None"
+          />
+          <label for="snapchat">None</label>
         </div>
 
         <!-- Question 8 -->
 
         <div class="form-group">
-          <label for="averageTimeOnSocialMedia">What is the average time you spend on social media every day?</label>
-          <select class="form-control" id="averageTimeOnSocialMedia" name="averageTimeOnSocialMedia">
+          <label for="averageTimeOnSocialMedia"
+            >What is the average time you spend on social media every
+            day?</label
+          >
+          <select
+            class="form-control"
+            id="averageTimeOnSocialMedia"
+            name="averageTimeOnSocialMedia"
+          >
             <option value="" disabled selected>Select an option</option>
             <option value="Less than an hour">Less than an hour</option>
             <option value="Betweer">Between 1 and 2 hours</option>
@@ -266,369 +294,856 @@
             <option value="More than 5 hours">More than 5 hours</option>
           </select>
         </div>
-        <br>
+        <br />
 
         <!-- 1. How often do you find yourself using social media without a specific purpose? -->
         <div class="form-group">
           <label for="purposelessSocialMedia">
-            1. How often do you find yourself using social media without a specific purpose?
-          </label>    
-          <br>
-          <br>     
+            1. How often do you find yourself using social media without a
+            specific purpose?
+          </label>
+          <br />
+          <br />
           <div class="form-check">
-            <input class="form-check-input" type="radio" name="purposelessSocialMedia" id="purposelessSocialMedia" value="1">
-            <label class="form-check-label" for="purposelessSocialMedia">1 - Never</label>
+            <input
+              class="form-check-input"
+              type="radio"
+              name="purposelessSocialMedia"
+              id="purposelessSocialMedia"
+              value="1"
+            />
+            <label class="form-check-label" for="purposelessSocialMedia"
+              >1 - Never</label
+            >
           </div>
           <div class="form-check">
-            <input class="form-check-input" type="radio" name="purposelessSocialMedia" id="purposelessSocialMedia" value="2">
-            <label class="form-check-label" for="purposelessSocialMedia">2 - Rarely</label>
+            <input
+              class="form-check-input"
+              type="radio"
+              name="purposelessSocialMedia"
+              id="purposelessSocialMedia"
+              value="2"
+            />
+            <label class="form-check-label" for="purposelessSocialMedia"
+              >2 - Rarely</label
+            >
           </div>
           <div class="form-check">
-            <input class="form-check-input" type="radio" name="purposelessSocialMedia" id="purposelessSocialMedia" value="3">
-            <label class="form-check-label" for="purposelessSocialMedia">3 - Sometimes</label>
+            <input
+              class="form-check-input"
+              type="radio"
+              name="purposelessSocialMedia"
+              id="purposelessSocialMedia"
+              value="3"
+            />
+            <label class="form-check-label" for="purposelessSocialMedia"
+              >3 - Sometimes</label
+            >
           </div>
           <div class="form-check">
-            <input class="form-check-input" type="radio" name="purposelessSocialMedia" id="purposelessSocialMedia" value="4">
-            <label class="form-check-label" for="purposelessSocialMedia">4 - Often</label>
+            <input
+              class="form-check-input"
+              type="radio"
+              name="purposelessSocialMedia"
+              id="purposelessSocialMedia"
+              value="4"
+            />
+            <label class="form-check-label" for="purposelessSocialMedia"
+              >4 - Often</label
+            >
           </div>
           <div class="form-check">
-            <input class="form-check-input" type="radio" name="purposelessSocialMedia" id="purposelessSocialMedia" value="5">
-            <label class="form-check-label" for="purposelessSocialMedia">5 - Always</label>
+            <input
+              class="form-check-input"
+              type="radio"
+              name="purposelessSocialMedia"
+              id="purposelessSocialMedia"
+              value="5"
+            />
+            <label class="form-check-label" for="purposelessSocialMedia"
+              >5 - Always</label
+            >
           </div>
         </div>
-        <br>
+        <br />
 
         <!-- 2. How often do you get distracted by social media when you are busy doing something? -->
         <div class="form-group">
           <label for="distractedBySocialMedia">
-            2. How often do you get distracted by social media when you are busy doing something?
+            2. How often do you get distracted by social media when you are busy
+            doing something?
           </label>
-          <br>    
-          <br>    
+          <br />
+          <br />
           <div class="form-check">
-            <input class="form-check-input" type="radio" name="distractedBySocialMedia" id="distractedBySocialMedia" value="1">
-            <label class="form-check-label" for="distractedBySocialMedia">1 - Never</label>
+            <input
+              class="form-check-input"
+              type="radio"
+              name="distractedBySocialMedia"
+              id="distractedBySocialMedia"
+              value="1"
+            />
+            <label class="form-check-label" for="distractedBySocialMedia"
+              >1 - Never</label
+            >
           </div>
           <div class="form-check">
-            <input class="form-check-input" type="radio" name="distractedBySocialMedia" id="distractedBySocialMedia" value="2">
-            <label class="form-check-label" for="distractedBySocialMedia">2 - Rarely</label>
+            <input
+              class="form-check-input"
+              type="radio"
+              name="distractedBySocialMedia"
+              id="distractedBySocialMedia"
+              value="2"
+            />
+            <label class="form-check-label" for="distractedBySocialMedia"
+              >2 - Rarely</label
+            >
           </div>
           <div class="form-check">
-            <input class="form-check-input" type="radio" name="distractedBySocialMedia" id="distractedBySocialMedia" value="3">
-            <label class="form-check-label" for="distractedBySocialMedia">3 - Sometimes</label>
+            <input
+              class="form-check-input"
+              type="radio"
+              name="distractedBySocialMedia"
+              id="distractedBySocialMedia"
+              value="3"
+            />
+            <label class="form-check-label" for="distractedBySocialMedia"
+              >3 - Sometimes</label
+            >
           </div>
           <div class="form-check">
-            <input class="form-check-input" type="radio" name="distractedBySocialMedia" id="distractedBySocialMedia" value="4">
-            <label class="form-check-label" for="distractedBySocialMedia">4 - Often</label>
+            <input
+              class="form-check-input"
+              type="radio"
+              name="distractedBySocialMedia"
+              id="distractedBySocialMedia"
+              value="4"
+            />
+            <label class="form-check-label" for="distractedBySocialMedia"
+              >4 - Often</label
+            >
           </div>
           <div class="form-check">
-            <input class="form-check-input" type="radio" name="distractedBySocialMedia" id="distractedBySocialMedia" value="5">
-            <label class="form-check-label" for="distractedBySocialMedia">5 - Always</label>
+            <input
+              class="form-check-input"
+              type="radio"
+              name="distractedBySocialMedia"
+              id="distractedBySocialMedia"
+              value="5"
+            />
+            <label class="form-check-label" for="distractedBySocialMedia"
+              >5 - Always</label
+            >
           </div>
         </div>
-        <br>
+        <br />
 
         <!-- 3. How restless do you feel if you haven’t used social media in a while? -->
         <div class="form-group">
           <label for="restlessWithoutSocialMedia">
-            3. How restless do you feel if you haven’t used social media in a while?
+            3. How restless do you feel if you haven’t used social media in a
+            while?
           </label>
-          <br> 
-          <br>       
+          <br />
+          <br />
           <div class="form-check">
-            <input class="form-check-input" type="radio" name="restlessWithoutSocialMedia" id="restlessWithoutSocialMedia" value="1">
-            <label class="form-check-label" for="restlessWithoutSocialMedia">1 - Not restless at all</label>
+            <input
+              class="form-check-input"
+              type="radio"
+              name="restlessWithoutSocialMedia"
+              id="restlessWithoutSocialMedia"
+              value="1"
+            />
+            <label class="form-check-label" for="restlessWithoutSocialMedia"
+              >1 - Not restless at all</label
+            >
           </div>
           <div class="form-check">
-            <input class="form-check-input" type="radio" name="restlessWithoutSocialMedia" id="restlessWithoutSocialMedia" value="2">
-            <label class="form-check-label" for="restlessWithoutSocialMedia" >2 - Slightly restless</label>
+            <input
+              class="form-check-input"
+              type="radio"
+              name="restlessWithoutSocialMedia"
+              id="restlessWithoutSocialMedia"
+              value="2"
+            />
+            <label class="form-check-label" for="restlessWithoutSocialMedia"
+              >2 - Slightly restless</label
+            >
           </div>
           <div class="form-check">
-            <input class="form-check-input" type="radio" name="restlessWithoutSocialMedia" id="restlessWithoutSocialMedia" value="3">
-            <label class="form-check-label" for="restlessWithoutSocialMedia"  >3 - Moderately restless</label>
+            <input
+              class="form-check-input"
+              type="radio"
+              name="restlessWithoutSocialMedia"
+              id="restlessWithoutSocialMedia"
+              value="3"
+            />
+            <label class="form-check-label" for="restlessWithoutSocialMedia"
+              >3 - Moderately restless</label
+            >
           </div>
           <div class="form-check">
-            <input class="form-check-input" type="radio" name="restlessWithoutSocialMedia" id="restlessWithoutSocialMedia" value="4">
-            <label class="form-check-label" for="restlessWithoutSocialMedia" >4 - Very restless</label>
+            <input
+              class="form-check-input"
+              type="radio"
+              name="restlessWithoutSocialMedia"
+              id="restlessWithoutSocialMedia"
+              value="4"
+            />
+            <label class="form-check-label" for="restlessWithoutSocialMedia"
+              >4 - Very restless</label
+            >
           </div>
           <div class="form-check">
-            <input class="form-check-input" type="radio" name="restlessWithoutSocialMedia" id="restlessWithoutSocialMedia" value="5">
-            <label class="form-check-label" for="restlessWithoutSocialMedia" >5 - Extremely restless</label>
+            <input
+              class="form-check-input"
+              type="radio"
+              name="restlessWithoutSocialMedia"
+              id="restlessWithoutSocialMedia"
+              value="5"
+            />
+            <label class="form-check-label" for="restlessWithoutSocialMedia"
+              >5 - Extremely restless</label
+            >
           </div>
         </div>
-        <br>
+        <br />
 
         <!-- 4. How easily distracted are you? -->
         <div class="form-group">
           <label for="easilyDistracted">
             4. How easily distracted are you?
           </label>
-          <br> 
-          <br>       
+          <br />
+          <br />
           <div class="form-check">
-            <input class="form-check-input" type="radio" name="easilyDistracted" id="easilyDistracted" value="1">
-            <label class="form-check-label" for="easilyDistracted" >1 - Not easily distracted</label>
+            <input
+              class="form-check-input"
+              type="radio"
+              name="easilyDistracted"
+              id="easilyDistracted"
+              value="1"
+            />
+            <label class="form-check-label" for="easilyDistracted"
+              >1 - Not easily distracted</label
+            >
           </div>
           <div class="form-check">
-            <input class="form-check-input" type="radio" name="easilyDistracted" id="easilyDistracted" value="2">
-            <label class="form-check-label" for="easilyDistracted" >2 - Slightly easily distracted</label>
+            <input
+              class="form-check-input"
+              type="radio"
+              name="easilyDistracted"
+              id="easilyDistracted"
+              value="2"
+            />
+            <label class="form-check-label" for="easilyDistracted"
+              >2 - Slightly easily distracted</label
+            >
           </div>
           <div class="form-check">
-            <input class="form-check-input" type="radio" name="easilyDistracted" id="easilyDistracted" value="3">
-            <label class="form-check-label" for="easilyDistracted"  >3 - Moderately easily distracted</label>
+            <input
+              class="form-check-input"
+              type="radio"
+              name="easilyDistracted"
+              id="easilyDistracted"
+              value="3"
+            />
+            <label class="form-check-label" for="easilyDistracted"
+              >3 - Moderately easily distracted</label
+            >
           </div>
           <div class="form-check">
-            <input class="form-check-input" type="radio" name="easilyDistracted" id="easilyDistracted" value="4">
-            <label class="form-check-label" for="easilyDistracted" >4 - Very easily distracted</label>
+            <input
+              class="form-check-input"
+              type="radio"
+              name="easilyDistracted"
+              id="easilyDistracted"
+              value="4"
+            />
+            <label class="form-check-label" for="easilyDistracted"
+              >4 - Very easily distracted</label
+            >
           </div>
           <div class="form-check">
-            <input class="form-check-input" type="radio" name="easilyDistracted" id="easilyDistracted" value="5">
-            <label class="form-check-label" for="easilyDistracted" >5 - Extremely easily distracted</label>
+            <input
+              class="form-check-input"
+              type="radio"
+              name="easilyDistracted"
+              id="easilyDistracted"
+              value="5"
+            />
+            <label class="form-check-label" for="easilyDistracted"
+              >5 - Extremely easily distracted</label
+            >
           </div>
         </div>
-        <br>
+        <br />
 
         <!-- 5. How much are you bothered by worries? -->
         <div class="form-group">
           <label for="botheredByWorries">
             5. How much are you bothered by worries?
           </label>
-          <br>   
-          <br>     
+          <br />
+          <br />
           <div class="form-check">
-            <input class="form-check-input" type="radio" name="botheredByWorries" id="botheredByWorries" value="1">
-            <label class="form-check-label" for="botheredByWorries">1 - Not bothered</label>
+            <input
+              class="form-check-input"
+              type="radio"
+              name="botheredByWorries"
+              id="botheredByWorries"
+              value="1"
+            />
+            <label class="form-check-label" for="botheredByWorries"
+              >1 - Not bothered</label
+            >
           </div>
           <div class="form-check">
-            <input class="form-check-input" type="radio" name="botheredByWorries" id="botheredByWorries" value="2">
-            <label class="form-check-label" for="botheredByWorries">2 - Slightly bothered</label>
+            <input
+              class="form-check-input"
+              type="radio"
+              name="botheredByWorries"
+              id="botheredByWorries"
+              value="2"
+            />
+            <label class="form-check-label" for="botheredByWorries"
+              >2 - Slightly bothered</label
+            >
           </div>
           <div class="form-check">
-            <input class="form-check-input" type="radio" name="botheredByWorries" id="botheredByWorries" value="3">
-            <label class="form-check-label" for="botheredByWorries">3 - Moderately bothered</label>
+            <input
+              class="form-check-input"
+              type="radio"
+              name="botheredByWorries"
+              id="botheredByWorries"
+              value="3"
+            />
+            <label class="form-check-label" for="botheredByWorries"
+              >3 - Moderately bothered</label
+            >
           </div>
           <div class="form-check">
-            <input class="form-check-input" type="radio" name="botheredByWorries" id="botheredByWorries" value="4">
-            <label class="form-check-label" for="botheredByWorries">4 - Very bothered</label>
+            <input
+              class="form-check-input"
+              type="radio"
+              name="botheredByWorries"
+              id="botheredByWorries"
+              value="4"
+            />
+            <label class="form-check-label" for="botheredByWorries"
+              >4 - Very bothered</label
+            >
           </div>
           <div class="form-check">
-            <input class="form-check-input" type="radio" name="botheredByWorries" id="botheredByWorries" value="5">
-            <label class="form-check-label" for="botheredByWorries">5 - Extremely bothered</label>
+            <input
+              class="form-check-input"
+              type="radio"
+              name="botheredByWorries"
+              id="botheredByWorries"
+              value="5"
+            />
+            <label class="form-check-label" for="botheredByWorries"
+              >5 - Extremely bothered</label
+            >
           </div>
         </div>
-        <br>
+        <br />
 
         <!-- 6. How often do you find it difficult to concentrate on things? -->
         <div class="form-group">
           <label for="difficultToConcentrate">
             6. How often do you find it difficult to concentrate on things?
           </label>
-          <br>     
-          <br>   
+          <br />
+          <br />
           <div class="form-check">
-            <input class="form-check-input" type="radio" name="difficultToConcentrate" id="difficultToConcentrate" value="1">
-            <label class="form-check-label" for="difficultToConcentrate" >1 - Never</label>
+            <input
+              class="form-check-input"
+              type="radio"
+              name="difficultToConcentrate"
+              id="difficultToConcentrate"
+              value="1"
+            />
+            <label class="form-check-label" for="difficultToConcentrate"
+              >1 - Never</label
+            >
           </div>
-          <div class="form-check  ">
-            <input class="form-check-input" type="radio" name="difficultToConcentrate" id="difficultToConcentrate" value="2">
-            <label class="form-check-label" for="difficultToConcentrate" >2 - Rarely</label>
+          <div class="form-check">
+            <input
+              class="form-check-input"
+              type="radio"
+              name="difficultToConcentrate"
+              id="difficultToConcentrate"
+              value="2"
+            />
+            <label class="form-check-label" for="difficultToConcentrate"
+              >2 - Rarely</label
+            >
           </div>
-          <div class="form-check  ">
-            <input class="form-check-input" type="radio" name="difficultToConcentrate" id="difficultToConcentrate" value="3">
-            <label class="form-check-label" for="difficultToConcentrate"  >3 - Sometimes</label>
+          <div class="form-check">
+            <input
+              class="form-check-input"
+              type="radio"
+              name="difficultToConcentrate"
+              id="difficultToConcentrate"
+              value="3"
+            />
+            <label class="form-check-label" for="difficultToConcentrate"
+              >3 - Sometimes</label
+            >
           </div>
-          <div class="form-check  ">
-            <input class="form-check-input" type="radio" name="difficultToConcentrate" id="difficultToConcentrate" value="4">
-            <label class="form-check-label" for="difficultToConcentrate" >4 - Often</label>
+          <div class="form-check">
+            <input
+              class="form-check-input"
+              type="radio"
+              name="difficultToConcentrate"
+              id="difficultToConcentrate"
+              value="4"
+            />
+            <label class="form-check-label" for="difficultToConcentrate"
+              >4 - Often</label
+            >
           </div>
-          <div class="form-check  ">
-            <input class="form-check-input" type="radio" name="difficultToConcentrate" id="difficultToConcentrate" value="5">
-            <label class="form-check-label" for="difficultToConcentrate" >5 - Always</label>
+          <div class="form-check">
+            <input
+              class="form-check-input"
+              type="radio"
+              name="difficultToConcentrate"
+              id="difficultToConcentrate"
+              value="5"
+            />
+            <label class="form-check-label" for="difficultToConcentrate"
+              >5 - Always</label
+            >
           </div>
         </div>
-        <br>
+        <br />
 
         <!-- 7. How often do you compare yourself to other successful people through the use of social media? -->
         <div class="form-group">
           <label for="compareToOthersOnSocialMedia">
-            7. How often do you compare yourself to other successful people through the use of social media?
+            7. How often do you compare yourself to other successful people
+            through the use of social media?
           </label>
-          <br>  
-          <br>      
+          <br />
+          <br />
           <div class="form-check">
-            <input class="form-check-input" type="radio" name="compareToOthersOnSocialMedia" id="compareToOthersOnSocialMedia" value="1">
-            <label class="form-check-label" for="compareToOthersOnSocialMedia" >1 - Never</label>
+            <input
+              class="form-check-input"
+              type="radio"
+              name="compareToOthersOnSocialMedia"
+              id="compareToOthersOnSocialMedia"
+              value="1"
+            />
+            <label class="form-check-label" for="compareToOthersOnSocialMedia"
+              >1 - Never</label
+            >
           </div>
           <div class="form-check">
-            <input class="form-check-input" type="radio" name="compareToOthersOnSocialMedia" id="compareToOthersOnSocialMedia" value="2">
-            <label class="form-check-label" for="compareToOthersOnSocialMedia" >2 - Rarely</label>
+            <input
+              class="form-check-input"
+              type="radio"
+              name="compareToOthersOnSocialMedia"
+              id="compareToOthersOnSocialMedia"
+              value="2"
+            />
+            <label class="form-check-label" for="compareToOthersOnSocialMedia"
+              >2 - Rarely</label
+            >
           </div>
           <div class="form-check">
-            <input class="form-check-input" type="radio" name="compareToOthersOnSocialMedia" id="compareToOthersOnSocialMedia" value="3">
-            <label class="form-check-label" for="compareToOthersOnSocialMedia"  >3 - Sometimes</label>
+            <input
+              class="form-check-input"
+              type="radio"
+              name="compareToOthersOnSocialMedia"
+              id="compareToOthersOnSocialMedia"
+              value="3"
+            />
+            <label class="form-check-label" for="compareToOthersOnSocialMedia"
+              >3 - Sometimes</label
+            >
           </div>
           <div class="form-check">
-            <input class="form-check-input" type="radio" name="compareToOthersOnSocialMedia" id="compareToOthersOnSocialMedia" value="4">
-            <label class="form-check-label" for="compareToOthersOnSocialMedia" >4 - Often</label>
+            <input
+              class="form-check-input"
+              type="radio"
+              name="compareToOthersOnSocialMedia"
+              id="compareToOthersOnSocialMedia"
+              value="4"
+            />
+            <label class="form-check-label" for="compareToOthersOnSocialMedia"
+              >4 - Often</label
+            >
           </div>
           <div class="form-check">
-            <input class="form-check-input" type="radio" name="compareToOthersOnSocialMedia" id="compareToOthersOnSocialMedia" value="5">
-            <label class="form-check-label" for="compareToOthersOnSocialMedia" >5 - Always</label>
+            <input
+              class="form-check-input"
+              type="radio"
+              name="compareToOthersOnSocialMedia"
+              id="compareToOthersOnSocialMedia"
+              value="5"
+            />
+            <label class="form-check-label" for="compareToOthersOnSocialMedia"
+              >5 - Always</label
+            >
           </div>
         </div>
-        <br>
+        <br />
 
         <!-- 8. Following the previous question, how do you feel about these comparisons, generally speaking? -->
         <div class="form-group">
           <label for="feelingsAboutSocialMediaComparisons">
-            8. Following the previous question, how do you feel about these comparisons, generally speaking?
+            8. Following the previous question, how do you feel about these
+            comparisons, generally speaking?
           </label>
-          <br> 
-          <br>       
+          <br />
+          <br />
           <div class="form-check">
-            <input class="form-check-input" type="radio" name="feelingsAboutSocialMediaComparisons" id="feelingsAboutSocialMediaComparisons" value="1">
-            <label class="form-check-label" for="feelingsAboutSocialMediaComparisons" >1 - Very Good</label>
+            <input
+              class="form-check-input"
+              type="radio"
+              name="feelingsAboutSocialMediaComparisons"
+              id="feelingsAboutSocialMediaComparisons"
+              value="1"
+            />
+            <label
+              class="form-check-label"
+              for="feelingsAboutSocialMediaComparisons"
+              >1 - Very Good</label
+            >
           </div>
           <div class="form-check">
-            <input class="form-check-input" type="radio" name="feelingsAboutSocialMediaComparisons" id="feelingsAboutSocialMediaComparisons" value="2">
-            <label class="form-check-label" for="feelingsAboutSocialMediaComparisons" >2 - Good</label>
+            <input
+              class="form-check-input"
+              type="radio"
+              name="feelingsAboutSocialMediaComparisons"
+              id="feelingsAboutSocialMediaComparisons"
+              value="2"
+            />
+            <label
+              class="form-check-label"
+              for="feelingsAboutSocialMediaComparisons"
+              >2 - Good</label
+            >
           </div>
           <div class="form-check">
-            <input class="form-check-input" type="radio" name="feelingsAboutSocialMediaComparisons" id="feelingsAboutSocialMediaComparisons" value="3">
-            <label class="form-check-label" for="feelingsAboutSocialMediaComparisons"  >3 - Neutral</label>
+            <input
+              class="form-check-input"
+              type="radio"
+              name="feelingsAboutSocialMediaComparisons"
+              id="feelingsAboutSocialMediaComparisons"
+              value="3"
+            />
+            <label
+              class="form-check-label"
+              for="feelingsAboutSocialMediaComparisons"
+              >3 - Neutral</label
+            >
           </div>
           <div class="form-check">
-            <input class="form-check-input" type="radio" name="feelingsAboutSocialMediaComparisons" id="feelingsAboutSocialMediaComparisons" value="4">
-            <label class="form-check-label" for="feelingsAboutSocialMediaComparisons" >4 - Bad</label>
+            <input
+              class="form-check-input"
+              type="radio"
+              name="feelingsAboutSocialMediaComparisons"
+              id="feelingsAboutSocialMediaComparisons"
+              value="4"
+            />
+            <label
+              class="form-check-label"
+              for="feelingsAboutSocialMediaComparisons"
+              >4 - Bad</label
+            >
           </div>
           <div class="form-check">
-            <input class="form-check-input" type="radio" name="feelingsAboutSocialMediaComparisons" id="feelingsAboutSocialMediaComparisons" value="5">
-            <label class="form-check-label" for="feelingsAboutSocialMediaComparisons" >5 - Very Bad</label>
+            <input
+              class="form-check-input"
+              type="radio"
+              name="feelingsAboutSocialMediaComparisons"
+              id="feelingsAboutSocialMediaComparisons"
+              value="5"
+            />
+            <label
+              class="form-check-label"
+              for="feelingsAboutSocialMediaComparisons"
+              >5 - Very Bad</label
+            >
           </div>
         </div>
-        <br>
+        <br />
 
         <!-- 9. How often do you look to seek validation from features of social media? -->
         <div class="form-group">
           <label for="seekValidationOnSocialMedia">
             9. How often do you look to seek validation from social media?
           </label>
-          <br> 
-          <br>       
+          <br />
+          <br />
           <div class="form-check">
-            <input class="form-check-input" type="radio" name="seekValidationOnSocialMedia" id="seekValidationOnSocialMedia" value="1">
-            <label class="form-check-label" for="seekValidationOnSocialMedia" >1 - Never</label>
+            <input
+              class="form-check-input"
+              type="radio"
+              name="seekValidationOnSocialMedia"
+              id="seekValidationOnSocialMedia"
+              value="1"
+            />
+            <label class="form-check-label" for="seekValidationOnSocialMedia"
+              >1 - Never</label
+            >
           </div>
           <div class="form-check">
-            <input class="form-check-input" type="radio" name="seekValidationOnSocialMedia" id="seekValidationOnSocialMedia" value="2">
-            <label class="form-check-label" for="seekValidationOnSocialMedia" >2 - Rarely</label>
+            <input
+              class="form-check-input"
+              type="radio"
+              name="seekValidationOnSocialMedia"
+              id="seekValidationOnSocialMedia"
+              value="2"
+            />
+            <label class="form-check-label" for="seekValidationOnSocialMedia"
+              >2 - Rarely</label
+            >
           </div>
           <div class="form-check">
-            <input class="form-check-input" type="radio" name="seekValidationOnSocialMedia" id="seekValidationOnSocialMedia" value="3">
-            <label class="form-check-label" for="seekValidationOnSocialMedia"  >3 - Sometimes</label>
+            <input
+              class="form-check-input"
+              type="radio"
+              name="seekValidationOnSocialMedia"
+              id="seekValidationOnSocialMedia"
+              value="3"
+            />
+            <label class="form-check-label" for="seekValidationOnSocialMedia"
+              >3 - Sometimes</label
+            >
           </div>
           <div class="form-check">
-            <input class="form-check-input" type="radio" name="seekValidationOnSocialMedia" id="seekValidationOnSocialMedia" value="4">
-            <label class="form-check-label" for="seekValidationOnSocialMedia" >4 - Often</label>
+            <input
+              class="form-check-input"
+              type="radio"
+              name="seekValidationOnSocialMedia"
+              id="seekValidationOnSocialMedia"
+              value="4"
+            />
+            <label class="form-check-label" for="seekValidationOnSocialMedia"
+              >4 - Often</label
+            >
           </div>
           <div class="form-check">
-            <input class="form-check-input" type="radio" name="seekValidationOnSocialMedia" id="seekValidationOnSocialMedia" value="5">
-            <label class="form-check-label" for="seekValidationOnSocialMedia" >5 - Always</label>
+            <input
+              class="form-check-input"
+              type="radio"
+              name="seekValidationOnSocialMedia"
+              id="seekValidationOnSocialMedia"
+              value="5"
+            />
+            <label class="form-check-label" for="seekValidationOnSocialMedia"
+              >5 - Always</label
+            >
           </div>
         </div>
-        <br>
+        <br />
 
         <!-- 10. How often do you feel depressed or down? -->
         <div class="form-group">
           <label for="feelDepressedOrDown">
             10. How often do you feel depressed or down?
           </label>
-          <br>  
-          <br>      
+          <br />
+          <br />
           <div class="form-check">
-            <input class="form-check-input" type="radio" name="feelDepressedOrDown" id="feelDepressedOrDown" value="1">
-            <label class="form-check-label" for="restlessWithoutSocialMedia" >1 - Never</label>
+            <input
+              class="form-check-input"
+              type="radio"
+              name="feelDepressedOrDown"
+              id="feelDepressedOrDown"
+              value="1"
+            />
+            <label class="form-check-label" for="restlessWithoutSocialMedia"
+              >1 - Never</label
+            >
           </div>
           <div class="form-check">
-            <input class="form-check-input" type="radio" name="feelDepressedOrDown" id="feelDepressedOrDown" value="2">
-            <label class="form-check-label" for="feelDepressedOrDown" >2 - Rarely</label>
+            <input
+              class="form-check-input"
+              type="radio"
+              name="feelDepressedOrDown"
+              id="feelDepressedOrDown"
+              value="2"
+            />
+            <label class="form-check-label" for="feelDepressedOrDown"
+              >2 - Rarely</label
+            >
           </div>
           <div class="form-check">
-            <input class="form-check-input" type="radio" name="feelDepressedOrDown" id="feelDepressedOrDown" value="3">
-            <label class="form-check-label" for="feelDepressedOrDown"  >3 - Sometimes</label>
+            <input
+              class="form-check-input"
+              type="radio"
+              name="feelDepressedOrDown"
+              id="feelDepressedOrDown"
+              value="3"
+            />
+            <label class="form-check-label" for="feelDepressedOrDown"
+              >3 - Sometimes</label
+            >
           </div>
           <div class="form-check">
-            <input class="form-check-input" type="radio" name="feelDepressedOrDown" id="feelDepressedOrDown" value="4">
-            <label class="form-check-label" for="feelDepressedOrDown" >4 - Often</label>
+            <input
+              class="form-check-input"
+              type="radio"
+              name="feelDepressedOrDown"
+              id="feelDepressedOrDown"
+              value="4"
+            />
+            <label class="form-check-label" for="feelDepressedOrDown"
+              >4 - Often</label
+            >
           </div>
           <div class="form-check">
-            <input class="form-check-input" type="radio" name="feelDepressedOrDown" id="feelDepressedOrDown" value="5">
-            <label class="form-check-label" for="feelDepressedOrDown" >5 - Always</label>
+            <input
+              class="form-check-input"
+              type="radio"
+              name="feelDepressedOrDown"
+              id="feelDepressedOrDown"
+              value="5"
+            />
+            <label class="form-check-label" for="feelDepressedOrDown"
+              >5 - Always</label
+            >
           </div>
         </div>
-        <br>
+        <br />
 
         <!-- 11. How frequently does your interested in daily activities fluctuate? -->
         <div class="form-group">
           <label for="interestFluctuation">
             11. How frequently does your interest in daily activities fluctuate?
           </label>
-          <br> 
-          <br>       
+          <br />
+          <br />
           <div class="form-check">
-            <input class="form-check-input" type="radio" name="interestFluctuation" id="interestFluctuation" value="1">
-            <label class="form-check-label" for="interestFluctuation" >1 - Never</label>
+            <input
+              class="form-check-input"
+              type="radio"
+              name="interestFluctuation"
+              id="interestFluctuation"
+              value="1"
+            />
+            <label class="form-check-label" for="interestFluctuation"
+              >1 - Never</label
+            >
           </div>
           <div class="form-check">
-            <input class="form-check-input" type="radio" name="interestFluctuation" id="interestFluctuation" value="2">
-            <label class="form-check-label" for="interestFluctuation" >2 - Rarely</label>
+            <input
+              class="form-check-input"
+              type="radio"
+              name="interestFluctuation"
+              id="interestFluctuation"
+              value="2"
+            />
+            <label class="form-check-label" for="interestFluctuation"
+              >2 - Rarely</label
+            >
           </div>
           <div class="form-check">
-            <input class="form-check-input" type="radio" name="interestFluctuation" id="interestFluctuation" value="3">
-            <label class="form-check-label" for="interestFluctuation"  >3 - Sometimes</label>
+            <input
+              class="form-check-input"
+              type="radio"
+              name="interestFluctuation"
+              id="interestFluctuation"
+              value="3"
+            />
+            <label class="form-check-label" for="interestFluctuation"
+              >3 - Sometimes</label
+            >
           </div>
           <div class="form-check">
-            <input class="form-check-input" type="radio" name="interestFluctuation" id="interestFluctuation" value="4">
-            <label class="form-check-label" for="interestFluctuation" >4 - Often</label>
+            <input
+              class="form-check-input"
+              type="radio"
+              name="interestFluctuation"
+              id="interestFluctuation"
+              value="4"
+            />
+            <label class="form-check-label" for="interestFluctuation"
+              >4 - Often</label
+            >
           </div>
           <div class="form-check">
-            <input class="form-check-input" type="radio" name="interestFluctuation" id="interestFluctuation" value="5">
-            <label class="form-check-label" for="interestFluctuation" >5 - Always</label>
+            <input
+              class="form-check-input"
+              type="radio"
+              name="interestFluctuation"
+              id="interestFluctuation"
+              value="5"
+            />
+            <label class="form-check-label" for="interestFluctuation"
+              >5 - Always</label
+            >
           </div>
         </div>
-        <br>
+        <br />
 
         <!-- 12. How often do you face issues regarding sleep? -->
         <div class="form-group">
           <label for="sleepIssues">
             12. How often do you face issues regarding sleep?
           </label>
-          <br> 
-          <br>       
+          <br />
+          <br />
           <div class="form-check">
-            <input class="form-check-input" type="radio" name="sleepIssues" id="sleepIssues" value="1">
-            <label class="form-check-label" for="sleepIssues" >1 - Never</label>
+            <input
+              class="form-check-input"
+              type="radio"
+              name="sleepIssues"
+              id="sleepIssues"
+              value="1"
+            />
+            <label class="form-check-label" for="sleepIssues">1 - Never</label>
           </div>
           <div class="form-check">
-            <input class="form-check-input" type="radio" name="sleepIssues" id="sleepIssues" value="2">
-            <label class="form-check-label" for="sleepIssues" >2 - Rarely</label>
+            <input
+              class="form-check-input"
+              type="radio"
+              name="sleepIssues"
+              id="sleepIssues"
+              value="2"
+            />
+            <label class="form-check-label" for="sleepIssues">2 - Rarely</label>
           </div>
           <div class="form-check">
-            <input class="form-check-input" type="radio" name="sleepIssues" id="sleepIssues" value="3">
-            <label class="form-check-label" for="sleepIssues"  >3 - Sometimes</label>
+            <input
+              class="form-check-input"
+              type="radio"
+              name="sleepIssues"
+              id="sleepIssues"
+              value="3"
+            />
+            <label class="form-check-label" for="sleepIssues"
+              >3 - Sometimes</label
+            >
           </div>
           <div class="form-check">
-            <input class="form-check-input" type="radio" name="sleepIssues" id="sleepIssues" value="4">
-            <label class="form-check-label" for="sleepIssues" >4 - Often</label>
+            <input
+              class="form-check-input"
+              type="radio"
+              name="sleepIssues"
+              id="sleepIssues"
+              value="4"
+            />
+            <label class="form-check-label" for="sleepIssues">4 - Often</label>
           </div>
           <div class="form-check">
-            <input class="form-check-input" type="radio" name="sleepIssues" id="sleepIssues" value="5">
-            <label class="form-check-label" for="sleepIssues" >5 - Always</label>
+            <input
+              class="form-check-input"
+              type="radio"
+              name="sleepIssues"
+              id="sleepIssues"
+              value="5"
+            />
+            <label class="form-check-label" for="sleepIssues">5 - Always</label>
           </div>
         </div>
-        <br>
+        <br />
 
-       <!-- End Survey Questions -->
+        <!-- End Survey Questions -->
 
         <button type="submit" class="btn btn-primary">Submit</button>
       </form>

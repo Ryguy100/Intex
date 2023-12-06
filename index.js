@@ -43,6 +43,22 @@ const authenticateUser = (req, res, next) => {
   next();
 };
 
+function generateTimestamp() {
+  const currentDate = new Date();
+
+  const year = currentDate.getFullYear();
+  const month = (currentDate.getMonth() + 1).toString().padStart(2, "0"); // Months are zero-based
+  const day = currentDate.getDate().toString().padStart(2, "0");
+
+  const hours = currentDate.getHours().toString().padStart(2, "0");
+  const minutes = currentDate.getMinutes().toString().padStart(2, "0");
+  const seconds = currentDate.getSeconds().toString().padStart(2, "0");
+
+  const timestamp = `${year}-${month}-${day} ${hours}:${minutes}:${seconds}`;
+
+  return timestamp;
+}
+
 app.use(authenticateUser);
 
 app.get("/", (req, res) => {
@@ -51,6 +67,54 @@ app.get("/", (req, res) => {
 
 app.get("/survey", (req, res) => {
   res.render("survey", { user: res.locals.user });
+});
+
+app.post("/survey", async (req, res) => {
+  let survey_time_stamp = generateTimestamp();
+  let survey_age = req.body.age;
+  let survey_gender = req.body.gender;
+  let survey_relationship = req.body.relationshipStatus;
+  let survey_occupation = req.body.occupationStatus;
+  let survey_time_spent = req.body.averageTimeOnSocialMedia;
+  let survey_non_purpose = req.body.purposelessSocialMedia;
+  let survey_frequency = req.body.distractedBySocialMedia;
+  let survey_restlessness = req.body.restlessWithoutSocialMedia;
+  let survey_easily = req.body.easilyDistracted;
+  let survey_bothered = req.body.botheredByWorries;
+  let survey_difficult = req.body.difficultToConcentrate;
+  let survey_comparison = req.body.compareToOthersOnSocialMedia;
+  let survey_feelings = req.body.feelingsAboutSocialMediaComparisons;
+  let survey_validation = req.body.seekValidationOnSocialMedia;
+  let survey_depressed = req.body.feelDepressedOrDown;
+  let survey_interest = req.body.interestFluctuation;
+  let survey_issues = req.body.sleepIssues;
+  let survey_origin = "Provo";
+
+  await knex("responses")
+    .insert({
+      time_stamp: survey_time_stamp,
+      age: survey_age,
+      gender: survey_gender,
+      relationship_status: survey_relationship,
+      occupational_status: survey_occupation,
+      time_spent: survey_time_spent,
+      non_purposeful_social_media_usage: survey_non_purpose,
+      frequency_of_social_media_distractions: survey_frequency,
+      restlessness_due_to_social_media: survey_restlessness,
+      easily_distracted: survey_easily,
+      bothered_by_worries: survey_bothered,
+      difficult_to_concentrate: survey_difficult,
+      comparison_to_successful_people: survey_comparison,
+      feel_about_comparisons: survey_feelings,
+      seek_validation: survey_validation,
+      depressed_or_down: survey_depressed,
+      interest_in_daily_activities_fluctuate: survey_interest,
+      issues_with_sleep: survey_issues,
+      origin: survey_origin,
+    })
+    .then((results) => {
+      res.redirect("/");
+    });
 });
 
 app.get("/dashboard", (req, res) => {
