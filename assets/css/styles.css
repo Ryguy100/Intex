@@ -20,10 +20,12 @@ body {
 }
 
 .bg-wave {
+  position: fixed;
   top: 0;
   left: 0;
   width: 100%;
-  padding: 4rem;
+  height: 100%;
+  padding: 6rem;
   font-size: 24px;
   background: linear-gradient(45deg, #0f5644, #6347b0, #68648a, #353536);
   background-size: 600% 600%;
@@ -155,7 +157,6 @@ body {
     height: 60vh;
   }
 }
-
 
 .survey-popup {
   position: fixed;

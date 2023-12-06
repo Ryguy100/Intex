@@ -162,7 +162,7 @@ app.post("/survey", async (req, res) => {
       organization_id: 0,
     });
   }
-res.redirect("/CompletedSurvey")
+  res.redirect("/CompletedSurvey");
 });
 
 app.get("/dashboard", (req, res) => {
