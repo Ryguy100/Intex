@@ -177,6 +177,64 @@
           </div>
         </div>
 
+        <div class="form-group">
+          <label
+            >What type of organizations are you affiliated with?</label
+          >
+          <br />
+          <input
+          type="checkbox"
+          id="N/A"
+          name="organizationAffiliations"
+          value="0"
+          class="form-check-input checkbox-group-organizations"
+        />
+        <label for="N/A">N/A</label><br />
+          <input
+            type="checkbox"
+            id="university"
+            name="organizationAffiliations"
+            value="1"
+            class="form-check-input checkbox-group-organizations"
+          />
+          <label for="university">University</label><br />
+          <input
+            type="checkbox"
+            id="school"
+            name="organizationAffiliations"
+            value="2"
+            class="form-check-input checkbox-group-organizations"
+          />
+          <label for="school">School</label><br />
+          <input
+            type="checkbox"
+            id="private"
+            name="organizationAffiliations"
+            value="3"
+            class="form-check-input checkbox-group-organizations"
+          />
+          <label for="private">Private</label><br />
+          <input
+            type="checkbox"
+            id="company"
+            name="organizationAffiliations"
+            value="4"
+            class="form-check-input checkbox-group-organizations"
+          />
+          <label for="company">Company</label><br />
+          <input
+            type="checkbox"
+            id="government"
+            name="organizationAffiliations"
+            value="5"
+            class="form-check-input checkbox-group-organizations"
+          />
+          <label for="government">Government</label><br />
+
+          <div class="invalid-feedback">
+            You must answer this question before submitting.
+          </div>
+        </div>
         <!-- Question 5 -->
 
         <div class="form-group">
@@ -1245,7 +1303,7 @@
       (() => {
         "use strict";
 
-        
+
         // Fetch all the forms we want to apply custom Bootstrap validation styles to
         const forms = document.querySelectorAll(".needs-validation");
 
