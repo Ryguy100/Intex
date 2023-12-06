@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="/scss/custom.css">
     <link rel="stylesheet" href="/css/styles.css" />
+    <script src="/js/bootstrap.bundle.min.js"></script>
     <title>Survey</title>
   </head>
   <body>
@@ -93,7 +94,7 @@
     </div>
 
     <div class="container-sm my-2">
-      <form class="form-floating col-md-5 mx-auto my-5" id="surveyForm">
+      <form class="form-floating col-md-5 mx-auto my-5 needs-validation" id="surveyForm" novalidate>
         <!-- Question 1 -->
 
         <div class="form-floating form-group">
@@ -108,13 +109,16 @@
             required
           />
           <label for="age">Age</label>
+          <div class="invalid-feedback">
+            You must answer this question before submitting.
+          </div>
         </div>
 
         <!-- Question 2 -->
 
         <div class="form-floating form-group">
           
-          <select class="form-control" id="gender" name="gender" required>
+          <select class="form-select" id="gender" name="gender" required>
             <option value="" disabled selected>Select an option</option>
             <option value="Male">Male</option>
             <option value="Female">Female</option>
@@ -122,13 +126,16 @@
             <option value="Prefer not to say">Prefer Not to Say</option>
           </select>
           <label for="gender">Gender</label>
+          <div class="invalid-feedback">
+            You must answer this question before submitting.
+          </div>
         </div>
 
         <!-- Question 3 -->
 
         <div class="form-group form-floating">
           <select
-            class="form-control"
+            class="form-select"
             id="relationshipStatus"
             name="relationshipStatus"
             required
@@ -140,15 +147,19 @@
             <option value="divorced">Divorced</option>
           </select>
           <label for="relationshipStatus">Relationship Status</label>
+          <div class="invalid-feedback">
+            You must answer this question before submitting.
+          </div>
         </div>
 
         <!-- Question 4 -->
 
         <div class="form-group form-floating">
           <select
-            class="form-control"
+            class="form-select"
             id="occupationStatus"
             name="occupationStatus"
+            required
           >
             <option value="" disabled selected>Select an option</option>
             <option value="Student">Student</option>
@@ -156,6 +167,9 @@
             <option value="Retired">Retired</option>
           </select>
           <label for="occupationStatus">Occupation Status</label>
+          <div class="invalid-feedback">
+            You must answer this question before submitting.
+          </div>
         </div>
 
         <!-- Question 5 -->
@@ -165,12 +179,15 @@
             >Do you use social media?</label
           >
           <div class="form-check">
-            <input class="form-check-input" type="radio" name="restlessWithoutSocialMedia" id="restlessWithoutSocialMedia" value="1">
+            <input class="form-check-input" type="radio" name="restlessWithoutSocialMedia" id="restlessWithoutSocialMedia" value="1" required>
             <label class="form-check-label" for="restlessWithoutSocialMedia">Yes</label>
           </div>
           <div class="form-check">
             <input class="form-check-input" type="radio" name="restlessWithoutSocialMedia" id="restlessWithoutSocialMedia" value="2">
             <label class="form-check-label" for="restlessWithoutSocialMedia">No</label>
+            <div class="invalid-feedback">
+              You must answer this question before submitting.
+            </div>
           </div>
         </div>
 
@@ -188,6 +205,7 @@
             id="instagram"
             name="socialMediaPlatforms"
             value="instagram"
+            class="form-check-input checkbox-group"
           />
           <label for="instagram">Instagram</label><br />
           <input
@@ -195,6 +213,8 @@
             id="facebook"
             name="socialMediaPlatforms"
             value="facebook"
+            class="form-check-input checkbox-group"
+
           />
           <label for="facebook">Facebook</label><br />
           <input
@@ -202,6 +222,8 @@
             id="youtube"
             name="socialMediaPlatforms"
             value="youtube"
+            class="form-check-input checkbox-group"
+
           />
           <label for="youtube">Youtube</label><br />
           <input
@@ -209,6 +231,8 @@
             id="discord"
             name="socialMediaPlatforms"
             value="discord"
+            class="form-check-input checkbox-group"
+
           />
           <label for="discord">Discord</label><br />
           <input
@@ -216,6 +240,8 @@
             id="twitter"
             name="socialMediaPlatforms"
             value="twitter"
+            class="form-check-input checkbox-group"
+
           />
           <label for="twitter">Twitter</label><br />
 
@@ -224,6 +250,8 @@
             id="pinterest"
             name="socialMediaPlatforms"
             value="pinterest"
+            class="form-check-input checkbox-group"
+
           />
           <label for="pinterest">Pinterest</label><br />
 
@@ -232,6 +260,8 @@
             id="reddit"
             name="socialMediaPlatforms"
             value="reddit"
+            class="form-check-input checkbox-group"
+
           />
           <label for="reddit">Reddit</label>
           <br>
@@ -240,6 +270,8 @@
             id="snapchat"
             name="socialMediaPlatforms"
             value="snapchat"
+            class="form-check-input checkbox-group"
+
           />
           <label for="snapchat">Snapchat</label>
           <br>
@@ -248,15 +280,20 @@
           id="snapchat"
           name="socialMediaPlatforms"
           value="None"
+          class="form-check-input checkbox-group"
+
         />
         <label for="snapchat">None</label>
+        <div class="invalid-feedback">
+          You must answer this question before submitting.
+        </div>
         </div>
 
         <!-- Question 8 -->
 
         <div class="form-group">
           <label for="averageTimeOnSocialMedia">What is the average time you spend on social media every day?</label>
-          <select class="form-control" id="averageTimeOnSocialMedia" name="averageTimeOnSocialMedia">
+          <select class="form-select" id="averageTimeOnSocialMedia" name="averageTimeOnSocialMedia" required>
             <option value="" disabled selected>Select an option</option>
             <option value="Less than an hour">Less than an hour</option>
             <option value="Betweer">Between 1 and 2 hours</option>
@@ -265,6 +302,9 @@
             <option value="More than 5 hours">Between 4 and 5 hours</option>
             <option value="More than 5 hours">More than 5 hours</option>
           </select>
+          <div class="invalid-feedback">
+            You must answer this question before submitting.
+          </div>
         </div>
         <br>
 
@@ -276,7 +316,7 @@
           <br>
           <br>     
           <div class="form-check">
-            <input class="form-check-input" type="radio" name="purposelessSocialMedia" id="purposelessSocialMedia" value="1">
+            <input class="form-check-input" type="radio" name="purposelessSocialMedia" id="purposelessSocialMedia" value="1" required>
             <label class="form-check-label" for="purposelessSocialMedia">1 - Never</label>
           </div>
           <div class="form-check">
@@ -294,6 +334,9 @@
           <div class="form-check">
             <input class="form-check-input" type="radio" name="purposelessSocialMedia" id="purposelessSocialMedia" value="5">
             <label class="form-check-label" for="purposelessSocialMedia">5 - Always</label>
+            <div class="invalid-feedback">
+              You must answer this question before submitting.
+            </div>
           </div>
         </div>
         <br>
@@ -306,7 +349,7 @@
           <br>    
           <br>    
           <div class="form-check">
-            <input class="form-check-input" type="radio" name="distractedBySocialMedia" id="distractedBySocialMedia" value="1">
+            <input class="form-check-input" type="radio" name="distractedBySocialMedia" id="distractedBySocialMedia" value="1" required>
             <label class="form-check-label" for="distractedBySocialMedia">1 - Never</label>
           </div>
           <div class="form-check">
@@ -324,6 +367,9 @@
           <div class="form-check">
             <input class="form-check-input" type="radio" name="distractedBySocialMedia" id="distractedBySocialMedia" value="5">
             <label class="form-check-label" for="distractedBySocialMedia">5 - Always</label>
+            <div class="invalid-feedback">
+              You must answer this question before submitting.
+            </div>
           </div>
         </div>
         <br>
@@ -336,7 +382,7 @@
           <br> 
           <br>       
           <div class="form-check">
-            <input class="form-check-input" type="radio" name="restlessWithoutSocialMedia" id="restlessWithoutSocialMedia" value="1">
+            <input class="form-check-input" type="radio" name="restlessWithoutSocialMedia" id="restlessWithoutSocialMedia" value="1" required>
             <label class="form-check-label" for="restlessWithoutSocialMedia">1 - Not restless at all</label>
           </div>
           <div class="form-check">
@@ -354,6 +400,9 @@
           <div class="form-check">
             <input class="form-check-input" type="radio" name="restlessWithoutSocialMedia" id="restlessWithoutSocialMedia" value="5">
             <label class="form-check-label" for="restlessWithoutSocialMedia" >5 - Extremely restless</label>
+            <div class="invalid-feedback">
+              You must answer this question before submitting.
+            </div>
           </div>
         </div>
         <br>
@@ -366,7 +415,7 @@
           <br> 
           <br>       
           <div class="form-check">
-            <input class="form-check-input" type="radio" name="easilyDistracted" id="easilyDistracted" value="1">
+            <input class="form-check-input" type="radio" name="easilyDistracted" id="easilyDistracted" value="1" required>
             <label class="form-check-label" for="easilyDistracted" >1 - Not easily distracted</label>
           </div>
           <div class="form-check">
@@ -384,6 +433,9 @@
           <div class="form-check">
             <input class="form-check-input" type="radio" name="easilyDistracted" id="easilyDistracted" value="5">
             <label class="form-check-label" for="easilyDistracted" >5 - Extremely easily distracted</label>
+            <div class="invalid-feedback">
+              You must answer this question before submitting.
+            </div>
           </div>
         </div>
         <br>
@@ -396,7 +448,7 @@
           <br>   
           <br>     
           <div class="form-check">
-            <input class="form-check-input" type="radio" name="botheredByWorries" id="botheredByWorries" value="1">
+            <input class="form-check-input" type="radio" name="botheredByWorries" id="botheredByWorries" value="1" required>
             <label class="form-check-label" for="botheredByWorries">1 - Not bothered</label>
           </div>
           <div class="form-check">
@@ -414,6 +466,9 @@
           <div class="form-check">
             <input class="form-check-input" type="radio" name="botheredByWorries" id="botheredByWorries" value="5">
             <label class="form-check-label" for="botheredByWorries">5 - Extremely bothered</label>
+            <div class="invalid-feedback">
+              You must answer this question before submitting.
+            </div>
           </div>
         </div>
         <br>
@@ -426,7 +481,7 @@
           <br>     
           <br>   
           <div class="form-check">
-            <input class="form-check-input" type="radio" name="difficultToConcentrate" id="difficultToConcentrate" value="1">
+            <input class="form-check-input" type="radio" name="difficultToConcentrate" id="difficultToConcentrate" value="1" required>
             <label class="form-check-label" for="difficultToConcentrate" >1 - Never</label>
           </div>
           <div class="form-check  ">
@@ -444,6 +499,9 @@
           <div class="form-check  ">
             <input class="form-check-input" type="radio" name="difficultToConcentrate" id="difficultToConcentrate" value="5">
             <label class="form-check-label" for="difficultToConcentrate" >5 - Always</label>
+            <div class="invalid-feedback">
+              You must answer this question before submitting.
+            </div>
           </div>
         </div>
         <br>
@@ -456,7 +514,7 @@
           <br>  
           <br>      
           <div class="form-check">
-            <input class="form-check-input" type="radio" name="compareToOthersOnSocialMedia" id="compareToOthersOnSocialMedia" value="1">
+            <input class="form-check-input" type="radio" name="compareToOthersOnSocialMedia" id="compareToOthersOnSocialMedia" value="1" required>
             <label class="form-check-label" for="compareToOthersOnSocialMedia" >1 - Never</label>
           </div>
           <div class="form-check">
@@ -474,6 +532,9 @@
           <div class="form-check">
             <input class="form-check-input" type="radio" name="compareToOthersOnSocialMedia" id="compareToOthersOnSocialMedia" value="5">
             <label class="form-check-label" for="compareToOthersOnSocialMedia" >5 - Always</label>
+            <div class="invalid-feedback">
+              You must answer this question before submitting.
+            </div>
           </div>
         </div>
         <br>
@@ -486,7 +547,7 @@
           <br> 
           <br>       
           <div class="form-check">
-            <input class="form-check-input" type="radio" name="feelingsAboutSocialMediaComparisons" id="feelingsAboutSocialMediaComparisons" value="1">
+            <input class="form-check-input" type="radio" name="feelingsAboutSocialMediaComparisons" id="feelingsAboutSocialMediaComparisons" value="1" required>
             <label class="form-check-label" for="feelingsAboutSocialMediaComparisons" >1 - Very Good</label>
           </div>
           <div class="form-check">
@@ -504,6 +565,9 @@
           <div class="form-check">
             <input class="form-check-input" type="radio" name="feelingsAboutSocialMediaComparisons" id="feelingsAboutSocialMediaComparisons" value="5">
             <label class="form-check-label" for="feelingsAboutSocialMediaComparisons" >5 - Very Bad</label>
+            <div class="invalid-feedback">
+              You must answer this question before submitting.
+            </div>
           </div>
         </div>
         <br>
@@ -516,7 +580,7 @@
           <br> 
           <br>       
           <div class="form-check">
-            <input class="form-check-input" type="radio" name="seekValidationOnSocialMedia" id="seekValidationOnSocialMedia" value="1">
+            <input class="form-check-input" type="radio" name="seekValidationOnSocialMedia" id="seekValidationOnSocialMedia" value="1" required>
             <label class="form-check-label" for="seekValidationOnSocialMedia" >1 - Never</label>
           </div>
           <div class="form-check">
@@ -534,6 +598,9 @@
           <div class="form-check">
             <input class="form-check-input" type="radio" name="seekValidationOnSocialMedia" id="seekValidationOnSocialMedia" value="5">
             <label class="form-check-label" for="seekValidationOnSocialMedia" >5 - Always</label>
+            <div class="invalid-feedback">
+              You must answer this question before submitting.
+            </div>
           </div>
         </div>
         <br>
@@ -546,7 +613,7 @@
           <br>  
           <br>      
           <div class="form-check">
-            <input class="form-check-input" type="radio" name="feelDepressedOrDown" id="feelDepressedOrDown" value="1">
+            <input class="form-check-input" type="radio" name="feelDepressedOrDown" id="feelDepressedOrDown" value="1" required>
             <label class="form-check-label" for="restlessWithoutSocialMedia" >1 - Never</label>
           </div>
           <div class="form-check">
@@ -564,6 +631,9 @@
           <div class="form-check">
             <input class="form-check-input" type="radio" name="feelDepressedOrDown" id="feelDepressedOrDown" value="5">
             <label class="form-check-label" for="feelDepressedOrDown" >5 - Always</label>
+            <div class="invalid-feedback">
+              You must answer this question before submitting.
+            </div>
           </div>
         </div>
         <br>
@@ -576,7 +646,7 @@
           <br> 
           <br>       
           <div class="form-check">
-            <input class="form-check-input" type="radio" name="interestFluctuation" id="interestFluctuation" value="1">
+            <input class="form-check-input" type="radio" name="interestFluctuation" id="interestFluctuation" value="1" required>
             <label class="form-check-label" for="interestFluctuation" >1 - Never</label>
           </div>
           <div class="form-check">
@@ -594,6 +664,9 @@
           <div class="form-check">
             <input class="form-check-input" type="radio" name="interestFluctuation" id="interestFluctuation" value="5">
             <label class="form-check-label" for="interestFluctuation" >5 - Always</label>
+            <div class="invalid-feedback">
+              You must answer this question before submitting.
+            </div>
           </div>
         </div>
         <br>
@@ -606,7 +679,7 @@
           <br> 
           <br>       
           <div class="form-check">
-            <input class="form-check-input" type="radio" name="sleepIssues" id="sleepIssues" value="1">
+            <input class="form-check-input" type="radio" name="sleepIssues" id="sleepIssues" value="1" required>
             <label class="form-check-label" for="sleepIssues" >1 - Never</label>
           </div>
           <div class="form-check">
@@ -624,6 +697,9 @@
           <div class="form-check">
             <input class="form-check-input" type="radio" name="sleepIssues" id="sleepIssues" value="5">
             <label class="form-check-label" for="sleepIssues" >5 - Always</label>
+            <div class="invalid-feedback">
+              You must answer this question before submitting.
+            </div>
           </div>
         </div>
         <br>
@@ -635,6 +711,30 @@
     </div>
 
     <!--Scripts for the Bootstrap-->
+    <script>
+      (() => {
+      'use strict'
+
+      // Fetch all the forms we want to apply custom Bootstrap validation styles to
+      const forms = document.querySelectorAll('.needs-validation')
+
+      // Loop over them and prevent submission
+      Array.from(forms).forEach(form => {
+        form.addEventListener('submit', event => {
+          if (!form.checkValidity()) {
+            event.preventDefault()
+            event.stopPropagation()
+          }
+
+          if ($('.checkbox-group:checked').length < 1) {
+            event.preventDefault(); // Prevent form submission
+          }
+
+          form.classList.add('was-validated')
+        }, false)
+      })
+    })()
+    </script>
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
