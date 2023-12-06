@@ -177,15 +177,7 @@
 
         <div class="form-group">
           <label>What type of organizations are you affiliated with?</label>
-          <br />
-          <input
-            type="checkbox"
-            id="N/A"
-            name="organizationAffiliations"
-            value="0"
-            class="form-check-input checkbox-group-organizations"
-          />
-          <label for="N/A">N/A</label><br />
+          <br>
           <input
             type="checkbox"
             id="university"
@@ -1303,8 +1295,7 @@
             "submit",
             (event) => {
               if (!form.checkValidity()) {
-                let social_media_buttons =
-                  document.getElementsbyName("usesSocialMedia");
+                let social_media_buttons = document.getElementsbyName("usesSocialMedia");
                 for (let i = 0; i < social_media_buttons.length; i++) {
                   if (social_media_buttons[i].value == "Yes") {
                     if ($(".checkbox-group:checked").length == 0) {
