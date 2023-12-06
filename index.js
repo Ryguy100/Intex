@@ -91,8 +91,10 @@ app.post("/survey", async (req, res) => {
   let survey_origin = "Provo";
 
   console.log(req.body.socialMediaPlatforms);
-
   aPlatforms = req.body.socialMediaPlatforms;
+
+  console.log(req.body.organizationAffiliations);
+  aOrgs = req.body.organizationAffiliations;
 
   await knex("responses")
     .insert({
@@ -144,6 +146,20 @@ app.post("/survey", async (req, res) => {
       social_media_id: 0,
       uses_platform: "No",
       response_id: iLatestID,
+    });
+  }
+
+  if (aOrgs.length > 0) {
+    for (let i = 0; i < aOrgs.length; i++) {
+      await knex("organization_responses").insert({
+        response_id: iLatestID,
+        organization_id: aOrgs[i],
+      });
+    }
+  } else {
+    await knex("organization_responses").insert({
+      response_id: iLatestID,
+      organization_id: 0,
     });
   }
 });
