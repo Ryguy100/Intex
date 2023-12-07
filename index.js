@@ -1,6 +1,7 @@
 const express = require("express");
 let app = express();
 const session = require("express-session");
+const OpenAI = require("openai");
 let path = require("path");
 
 const PORT = process.env.PORT || 5500;
@@ -10,6 +11,10 @@ require("dotenv").config();
 app.set("view engine", "ejs");
 app.use(express.urlencoded({ extended: true }));
 app.use(express.static("assets"));
+
+const openai = new OpenAI({
+  apiKey: process.env.OPENAI_API_KEY,
+});
 
 const knex = require("knex")({
   client: "pg",
@@ -25,14 +30,11 @@ const knex = require("knex")({
 
 app.use(
   session({
-    secret: "Jewish66", // Replace with a strong, random string
+    secret: "Cheese", // Replace with a strong, random string
     resave: false,
     saveUninitialized: true,
   })
 );
-
-// let isAdmin = false;
-// let currentUsername = "";
 
 const authenticateUser = (req, res, next) => {
   if (req.session && req.session.user) {
@@ -61,8 +63,22 @@ function generateTimestamp() {
 
 app.use(authenticateUser);
 
-app.get("/", (req, res) => {
-  res.render("home", { user: res.locals.user });
+let completion = "";
+
+app.get("/", async (req, res) => {
+  const chatCompletion = await openai.chat.completions.create({
+    model: "gpt-3.5-turbo",
+    messages: [
+      {
+        role: "user",
+        content: "Share a short motivational quote and who said it",
+      },
+    ],
+  });
+
+  completion = chatCompletion.choices[0].message.content;
+
+  res.render("home", { user: res.locals.user, chat: completion });
 });
 
 app.get("/survey", (req, res) => {
@@ -196,7 +212,7 @@ app.get("/login", async (req, res) => {
   res.render("login", { user: res.locals.user });
 });
 
-app.post("/login", (req, res) => {
+app.post("/login", async (req, res) => {
   const { username, password } = req.body;
 
   // Simulate user data (replace this with your actual user authentication logic)
@@ -208,10 +224,8 @@ app.post("/login", (req, res) => {
     res.redirect("/");
   } else {
     // Handle authentication failure
-    res.status(401).send("Authentication failed");
-    // Alternatively, you can redirect to a login page with an error message
-    // res.redirect('/login?error=Authentication failed');
-    res.redirect("/login");
+
+    res.redirect("/login?error=Authentication Failed");
   }
 });
 
