@@ -37,33 +37,60 @@
         }
       }
       .popup-container {
-        position: fixed;
-        bottom: 10px;
-        right: 10px;
-        /* background-color: #fff; */
-        box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
-        padding: 10px;
-        border-radius: 5px;
-        display: none;
-        max-width: 250px;
-        text-align: center;
-      }
+      position: fixed;
+      bottom: 10px;
+      right: 10px;
+      background-color: #fff;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+      padding: 10px;
+      border-radius: 5px;
+      display: block;
+      max-width: 200px;
+      text-align: center;
+      transition: all 0.3s ease-in-out;
+    }
 
-      .popup-content {
-        font-size: 16px;
-        color: #333;
-      }
+    .popup-content {
+      font-size: 14px;
+      color: #333;
+    }
 
-      .popup-button {
-        display: block;
-        margin-top: 10px;
-        padding: 8px 16px;
-        background-color: rgb(136, 0, 255);
-        color: #fff;
-        border: none;
-        border-radius: 3px;
-        cursor: pointer;
-      }
+    .popup-button {
+      display: block;
+      margin-top: 10px;
+      padding: 8px 16px;
+      background-color: #5f00b3;
+      color: #fff;
+      border: none;
+      border-radius: 3px;
+      cursor: pointer;
+    }
+
+    .popup-icon {
+      position: absolute;
+      top: 0;
+      right: 5px;
+      width: 20px;
+      height: 20px;
+      background-color: #5f00b3;
+      color: #fff;
+      border: none;
+      border-radius: 0 0 3px 3px;
+      cursor: pointer;
+      text-align: center;
+      line-height: 30px;
+      transition: all 0.3s ease-in-out;
+      transform: rotate(180deg);
+    }
+
+    .popup-icon.minimized {
+      top: -40px;
+      transform: rotate(0deg);
+    }
+
+    .popup-icon:hover {
+      background-color: #5f00b3;
+    }
     </style>
   </head>
   <body>
@@ -345,27 +372,39 @@
           Mental Health Hotline.
         </p>
         <b><p>Hotline: 1-833-456-4566</p></b>
-        <button class="popup-button" onclick="closePopup()">Close</button>
+        <button class="popup-buttton" onclick="togglePopup()"></button>
+        <div class="popup-icon" onclick="togglePopup()">&#x25BC;</div>
       </div>
     </div>
-
     <script>
-      // Show the popup after a delay
-      setTimeout(openPopup, 3000);
+      // Show the popup after a delay 
+      var isMinimized = false;
 
-      function openPopup() {
-        var popup = document.getElementById("mentalHealthPopup");
-        if (popup) {
-          popup.style.display = "block";
-        }
-      }
+// Show the popup after a delay (e.g., 3 seconds)
+setTimeout(openPopup, 3000);
 
-      function closePopup() {
-        var popup = document.getElementById("mentalHealthPopup");
-        if (popup) {
-          popup.style.display = "none";
-        }
-      }
+function openPopup() {
+  var popup = document.getElementById('mentalHealthPopup');
+  if (popup) {
+    popup.style.display = 'block';
+  }
+}
+
+function togglePopup() {
+  var popup = document.getElementById('mentalHealthPopup');
+  var icon = document.querySelector('.popup-icon');
+  if (popup && icon) {
+    if (isMinimized) {
+      popup.style.maxHeight = '400px'; // Adjust the max height as needed
+      icon.classList.remove('minimized');
+      isMinimized = false;
+    } else {
+      popup.style.maxHeight = '50px';
+      icon.classList.add('minimized');
+      isMinimized = true;
+    }
+  }
+}
     </script>
 
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>

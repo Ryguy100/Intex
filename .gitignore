@@ -49,3 +49,6 @@ node_modules/
 
 # Ignore mac file
 .DS_Store
+
+# Ignore .vscode debug folder
+.vscode/
