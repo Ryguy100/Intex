@@ -329,8 +329,8 @@
       </form>
     </div>
 
-    <div class="alert alert-secondary" role="alert" class="popup-container" id="mentalHealthPopup">
-      <div class="popup-content">
+    <div class="popup-container" id="mentalHealthPopup">
+      <div class="alert alert-secondary" role="alert" class="popup-content">
         <p>If you or someone you know is struggling, please reach out to the Mental Health Hotline.</p>
         <p>Hotline: 1-833-456-4566</p>
         <button class="popup-button" onclick="closePopup()">Close</button>
@@ -339,7 +339,7 @@
   
     <script>
       // Show the popup after a delay 
-      setTimeout(openPopup, 3000);
+      setTimeout(openPopup, 5000);
     
       function openPopup() {
         var popup = document.getElementById('mentalHealthPopup');
