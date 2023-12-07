@@ -119,6 +119,7 @@ body {
 
 .navbar-dark .navbar-toggler-icon {
   background-color: #343a40; /* Dark color for the toggler icon */
+  border-color: transparent;
 }
 
 .navbar-dark .navbar-toggler {
@@ -181,4 +182,11 @@ body {
   bottom: 20px;
   right: 20px;
   z-index: 1000;
+}
+
+.footer {
+  background-color: #fff;
+  border-top: 1px solid #ddd;
+  padding: 20px 0;
+  text-align: center;
 }
