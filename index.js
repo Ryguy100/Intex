@@ -1,5 +1,5 @@
-// Provo Mental Health Survey Website 
-// by Alex Pesantez, Andrew Naumann, Caleb Reese, Ryan Hafen 
+// Provo Mental Health Survey Website
+// by Alex Pesantez, Andrew Naumann, Caleb Reese, Ryan Hafen
 // Section 001
 
 const express = require("express");
@@ -258,13 +258,13 @@ app.post("/register", (req, res) => {
     });
 });
 
-app.get("/data", (req, res) => {
+app.get("/data", async (req, res) => {
   try {
-    const data = await knex.select('*').from('responses');
-    res.render('index', { data: data, user: res.locals.user });
+    const data = await knex.select("*").from("responses");
+    res.render("data", { data: data, user: res.locals.user });
   } catch (error) {
-    console.error('Error fetching data:', error);
-    res.status(500).send('Internal Server Error');
+    console.error("Error fetching data:", error);
+    res.status(500).send("Internal Server Error");
   }
   // res.render("data", { user: res.locals.user });
 });
