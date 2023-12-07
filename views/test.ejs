@@ -55,16 +55,16 @@
         }
       }
       .popup-container {
-      position: fixed;
-      bottom: 5px;
-      right: 5px;
-      /* box-shadow: 0 0 10px rgba(0, 0, 0, 0.2); */
+      position: sticky;
+      bottom: 10px;
+      right: 10px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
       padding: 10px;
       /* border-radius: 5px; */
       display: block;
       max-width:320px;
       text-align: center;
-      transition: all 0.3s ease-in-out;
+      transition: all 0.2s ease-in-out;
     }
 
       .popup-content {
@@ -75,9 +75,9 @@
       .popup-button {
       position: absolute;
       top: -30px;
-      right: 20px;
-      width: 20px;
-      height: 20px;
+      right: 10px;
+      width: 30px;
+      height: 30px;
       background-color: #c2b8c9;
       color: #fff;
       border: none;
@@ -431,7 +431,7 @@ function togglePopup() {
       button.style.top = '-30px'; // Move button to the top
       isMinimized = false;
     } else {
-      popup.style.height = '30px'; // Set the desired minimized height
+      popup.style.height = '20px'; // Set the desired minimized height
       button.style.top = '10px'; // Move button back to its original position
       isMinimized = true;
     }
