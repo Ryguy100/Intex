@@ -162,10 +162,13 @@ app.post("/survey", async (req, res) => {
       organization_id: 0,
     });
   }
+
+  res.redirect("CompletedSurvey")
+
 });
 
 app.get("/CompletedSurvey", (req, res) => {
-  res.render("Completedsurvey", { user: res.locals.user });
+  res.render("CompletedSurvey", { user: res.locals.user });
 });
 
 app.get("/dashboard", (req, res) => {

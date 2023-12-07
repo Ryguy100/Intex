@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="/scss/custom.css" />
     <link rel="stylesheet" href="/css/styles.css" />
     <script src="/js/bootstrap.bundle.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <title>Survey</title>
   </head>
   <body>
@@ -176,7 +177,7 @@
         </div>
 
         <div class="form-group">
-          <label>What type of organizations are you affiliated with?</label>
+          <label>What type of organizations are you affiliated with? (if applicable)</label>
           <br>
           <input
             type="checkbox"
@@ -232,28 +233,28 @@
               class="form-check-input"
               type="radio"
               name="usesSocialMedia"
-              id="usesSocialMedia"
+              id="usesSocialMedia-yes"
               value="Yes"
               required
             />
-            <label class="form-check-label" for="usesSocialMedia">Yes</label>
+            <label class="form-check-label" for="usesSocialMedia-yes">Yes</label>
           </div>
           <div class="form-check">
             <input
               class="form-check-input"
               type="radio"
               name="usesSocialMedia"
-              id="usesSocialMedia"
+              id="usesSocialMedia-no"
               value="No"
             />
-            <label class="form-check-label" for="usesSocialMedia">No</label>
+            <label class="form-check-label" for="usesSocialMedia-no">No</label>
             <div class="invalid-feedback">
               You must answer this question before submitting.
             </div>
           </div>
         </div>
 
-        <div class="form-group">
+        <div class="form-group" id="followUpSocialMedia">
           <label
             >What social media platforms do you use? Select all that
             apply</label
@@ -1295,20 +1296,9 @@
             "submit",
             (event) => {
               if (!form.checkValidity()) {
-                let social_media_buttons = document.getElementsbyName("usesSocialMedia");
-                for (let i = 0; i < social_media_buttons.length; i++) {
-                  if (social_media_buttons[i].value == "Yes") {
-                    if ($(".checkbox-group:checked").length == 0) {
-                      
-                      event.preventDefault();
-                      event.stopPropagation();
-                    }
-                  } else {
                     event.preventDefault();
                     event.stopPropagation();
                   }
-                }
-              }
 
               form.classList.add("was-validated");
             },
@@ -1316,6 +1306,19 @@
           );
         });
       })();
+    </script>
+    <script>
+      $(document).ready(function() {
+        $('#followUpSocialMedia').hide()
+        $('input[type=radio][name=usesSocialMedia]').change(function() {
+        if (this.value == 'Yes') {
+          $('#followUpSocialMedia').show();
+        }
+        else if (this.value == 'No') {
+          $('#followUpSocialMedia').hide();
+        }
+      });
+    });
     </script>
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
