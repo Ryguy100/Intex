@@ -58,14 +58,13 @@
         position: fixed;
         bottom: 10px;
         right: 10px;
-        background-color: #fff;
         box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
         padding: 10px;
-        border-radius: 5px;
+        /* border-radius: 5px; */
         display: block;
-        max-width: 400px;
+        max-width: 270px;
         text-align: center;
-        transition: all 0.3s ease-in-out;
+        transition: all 0.2s ease-in-out;
       }
 
       .popup-content {
@@ -75,43 +74,19 @@
 
       .popup-button {
         position: absolute;
-        top: -20px;
+        top: -30px;
         right: 10px;
         width: 30px;
         height: 30px;
-        background-color: #9000ff;
+        background-color: #ae7fcf;
         color: #fff;
         border: none;
-        border-radius: 3px;
+        border-radius: 2px;
         cursor: pointer;
         text-align: center;
         line-height: 30px;
-        transition: all 0.3s ease-in-out;
+        transition: all 0.2s ease-in-out;
       }
-      /* .popup-icon {
-      position: absolute;
-      bottom: 0;
-      right: 0;
-      width: 30px;
-      height: 30px;
-      background-color: #007BFF;
-      color: #fff;
-      border: none;
-      border-radius: 3px 0 0 0;
-      cursor: pointer;
-      text-align: center;
-      line-height: 30px;
-      transition: all 0.3s ease-in-out;
-      transform: rotate(180deg);
-    }
-      /* .popup-icon.minimized {
-      top: -30px;
-      transform: rotate(0deg);
-    } */
-
-      /* .popup-icon:hover {
-      background-color: #0056b3;
-    } */
     </style>
   </head>
   <body>
@@ -462,6 +437,23 @@
             isMinimized = false;
           } else {
             popup.style.height = "30px"; // Set the desired minimized height
+            button.style.top = "10px"; // Move button back to its original position
+            isMinimized = true;
+          }
+        }
+      }
+
+      function togglePopup() {
+        var popup = document.getElementById("minimizablePopup");
+        var button = document.querySelector(".popup-button");
+
+        if (popup && button) {
+          if (isMinimized) {
+            popup.style.height = "auto"; // Reset height
+            button.style.top = "-30px"; // Move button to the top
+            isMinimized = false;
+          } else {
+            popup.style.height = "20px"; // Set the desired minimized height
             button.style.top = "10px"; // Move button back to its original position
             isMinimized = true;
           }
