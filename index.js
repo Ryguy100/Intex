@@ -163,8 +163,7 @@ app.post("/survey", async (req, res) => {
     });
   }
 
-  res.redirect("CompletedSurvey")
-
+  res.redirect("/CompletedSurvey");
 });
 
 app.get("/CompletedSurvey", (req, res) => {
@@ -194,7 +193,6 @@ app.get("/login", async (req, res) => {
       }
     });
 
-  console.log(aUsers);
   res.render("login", { user: res.locals.user });
 });
 
@@ -213,6 +211,7 @@ app.post("/login", (req, res) => {
     res.status(401).send("Authentication failed");
     // Alternatively, you can redirect to a login page with an error message
     // res.redirect('/login?error=Authentication failed');
+    res.redirect("/login");
   }
 });
 

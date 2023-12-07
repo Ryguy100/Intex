@@ -98,6 +98,8 @@
       <form
         class="form-floating col-md-5 mx-auto my-5 needs-validation"
         id="surveyForm"
+        method="post"
+        action="/survey"
         novalidate
       >
         <!-- Question 1 -->
@@ -177,8 +179,11 @@
         </div>
 
         <div class="form-group">
-          <label>What type of organizations are you affiliated with? (if applicable)</label>
-          <br>
+          <label
+            >What type of organizations are you affiliated with? (if
+            applicable)</label
+          >
+          <br />
           <input
             type="checkbox"
             id="university"
@@ -237,7 +242,9 @@
               value="Yes"
               required
             />
-            <label class="form-check-label" for="usesSocialMedia-yes">Yes</label>
+            <label class="form-check-label" for="usesSocialMedia-yes"
+              >Yes</label
+            >
           </div>
           <div class="form-check">
             <input
@@ -1296,9 +1303,9 @@
             "submit",
             (event) => {
               if (!form.checkValidity()) {
-                    event.preventDefault();
-                    event.stopPropagation();
-                  }
+                event.preventDefault();
+                event.stopPropagation();
+              }
 
               form.classList.add("was-validated");
             },
@@ -1308,17 +1315,16 @@
       })();
     </script>
     <script>
-      $(document).ready(function() {
-        $('#followUpSocialMedia').hide()
-        $('input[type=radio][name=usesSocialMedia]').change(function() {
-        if (this.value == 'Yes') {
-          $('#followUpSocialMedia').show();
-        }
-        else if (this.value == 'No') {
-          $('#followUpSocialMedia').hide();
-        }
+      $(document).ready(function () {
+        $("#followUpSocialMedia").hide();
+        $("input[type=radio][name=usesSocialMedia]").change(function () {
+          if (this.value == "Yes") {
+            $("#followUpSocialMedia").show();
+          } else if (this.value == "No") {
+            $("#followUpSocialMedia").hide();
+          }
+        });
       });
-    });
     </script>
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
