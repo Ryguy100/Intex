@@ -56,7 +56,7 @@
       display: block;
       margin-top: 10px;
       padding: 8px 16px;
-      background-color: #007BFF;
+      background-color: rgb(136, 0, 255);
       color: #fff;
       border: none;
       border-radius: 3px;
@@ -324,17 +324,17 @@
       </form>
     </div>
 
-    <div class="popup-container" id="mentalHealthPopup">
+    <div class="alert alert-secondary" role="alert" id="mentalHealthPopup">
       <div class="popup-content">
         <p>If you or someone you know is struggling, please reach out to the Mental Health Hotline.</p>
         <p>Hotline: 1-833-456-4566</p>
         <button class="popup-button" onclick="closePopup()">Close</button>
       </div>
     </div>
-
+    <!-- class="popup-container" id="mentalHealthPopup" -->
     <script>
       // Show the popup after a delay (e.g., 10 seconds)
-      setTimeout(openPopup, 10000);
+      setTimeout(openPopup, 2000);
     
       function openPopup() {
         var popup = document.getElementById('mentalHealthPopup');
