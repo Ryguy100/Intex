@@ -107,14 +107,20 @@ app.post("/survey", async (req, res) => {
   let survey_interest = req.body.interestFluctuation;
   let survey_issues = req.body.sleepIssues;
   let survey_origin = 2;
+  let aPlatforms = [];
+  let aOrgs = [];
 
   console.log(req.body.socialMediaPlatforms);
-  aPlatforms = req.body.socialMediaPlatforms;
+  if (req.body.aPlatforms) {
+    aPlatforms = req.body.socialMediaPlatforms;
+  }
 
   console.log(req.body.organizationAffiliations);
-  aOrgs = req.body.organizationAffiliations;
+  if (req.body.aOrgs) {
+    aOrgs = req.body.organizationAffiliations;
+  }
 
-  await knex("responses")
+  knex("responses")
     .insert({
       time_stamp: survey_time_stamp,
       age: survey_age,
@@ -134,7 +140,7 @@ app.post("/survey", async (req, res) => {
       depressed_or_down: survey_depressed,
       interest_in_daily_activities_fluctuate: survey_interest,
       issues_with_sleep: survey_issues,
-      origin: survey_origin,
+      location_id: survey_origin,
     })
     .then((results) => {
       res.redirect("/");
