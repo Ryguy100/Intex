@@ -98,10 +98,10 @@
       transition: all 0.3s ease-in-out;
       transform: rotate(180deg);
     }
-      .popup-icon.minimized {
+      /* .popup-icon.minimized {
       top: -30px;
       transform: rotate(0deg);
-    }
+    } */
 
     .popup-icon:hover {
       background-color: #0056b3;
@@ -430,10 +430,11 @@
         <b><p>Hotline: 1-833-456-4566</p></b>
         <button class="popup-buttton" onclick="togglePopup()"></button>
       </div>
+      <div class="popup-icon" onclick="restorePopup()">^</div>
     </div>
     <script>
-            // Show the popup after a delay
-            var isMinimized = false;
+    // Show the popup after a delay
+  var isMinimized = false;
 
 // Show the popup after a delay (e.g., 3 seconds)
 setTimeout(openPopup, 3000);
@@ -445,19 +446,25 @@ function openPopup() {
   }
 }
 
-function togglePopup() {
+function minimizePopup() {
   var popup = document.getElementById('mentalHealthPopup');
   var icon = document.querySelector('.popup-icon');
   if (popup && icon) {
-    if (isMinimized) {
-      popup.style.maxHeight = '300px'; // Adjust the max height as needed
-      icon.classList.remove('minimized');
-      isMinimized = false;
-    } else {
-      popup.style.maxHeight = '30px';
-      icon.classList.add('minimized');
-      isMinimized = true;
-    }
+    popup.style.maxHeight = '40px';
+    popup.style.overflow = 'hidden';
+    icon.style.bottom = '0';
+    isMinimized = true;
+  }
+}
+
+function restorePopup() {
+  var popup = document.getElementById('mentalHealthPopup');
+  var icon = document.querySelector('.popup-icon');
+  if (popup && icon) {
+    popup.style.maxHeight = '300px'; // Adjust the max height as needed
+    popup.style.overflow = 'visible';
+    icon.style.bottom = '-40px';
+    isMinimized = false;
   }
 }
     </script>
