@@ -104,7 +104,7 @@ app.post("/survey", async (req, res) => {
   let survey_depressed = req.body.feelDepressedOrDown;
   let survey_interest = req.body.interestFluctuation;
   let survey_issues = req.body.sleepIssues;
-  let survey_origin = "Provo";
+  let survey_origin = 2;
 
   console.log(req.body.socialMediaPlatforms);
   aPlatforms = req.body.socialMediaPlatforms;
