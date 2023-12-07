@@ -106,17 +106,17 @@ app.post("/survey", async (req, res) => {
   let survey_depressed = req.body.feelDepressedOrDown;
   let survey_interest = req.body.interestFluctuation;
   let survey_issues = req.body.sleepIssues;
-  let survey_origin = 99;
+  let survey_origin = 2;
   let aPlatforms = [];
   let aOrgs = [];
 
   console.log(req.body.socialMediaPlatforms);
-  if (req.body.aPlatforms) {
+  if (req.body.socialMediaPlatforms.length > 0) {
     aPlatforms = req.body.socialMediaPlatforms;
   }
 
   console.log(req.body.organizationAffiliations);
-  if (req.body.aOrgs) {
+  if (req.body.organizationAffiliations.length > 0) {
     aOrgs = req.body.organizationAffiliations;
   }
 
