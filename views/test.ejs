@@ -345,7 +345,7 @@
           Mental Health Hotline.
         </p>
         <b><p>Hotline: 1-833-456-4566</p></b>
-        <button class="popup-icon" onclick="restorePopup()">Close</button>
+        <button class="popup-icon" onclick="restorePopup()"></button>
       </div>
     </div>
   
@@ -367,7 +367,7 @@
     var popup = document.getElementById('mentalHealthPopup');
     var icon = document.querySelector('.popup-icon');
     if (popup && icon) {
-      popup.style.maxHeight = '30px';
+      popup.style.maxHeight = '20px';
       popup.style.overflow = 'hidden';
       icon.style.bottom = '0';
       isMinimized = true;
@@ -378,7 +378,7 @@
     var popup = document.getElementById('mentalHealthPopup');
     var icon = document.querySelector('.popup-icon');
     if (popup && icon) {
-      popup.style.maxHeight = '200px'; // Adjust the max height as needed
+      popup.style.maxHeight = '100px'; // Adjust the max height as needed
       popup.style.overflow = 'visible';
       icon.style.bottom = '-30px';
       isMinimized = false;
