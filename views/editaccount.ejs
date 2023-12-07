@@ -18,6 +18,7 @@
     <nav class="navbar navbar-expand-lg">
       <div style="padding-left: 1rem">
         <button
+          class="nav-link"
           class="navbar-toggler"
           type="button"
           data-toggle="collapse"
@@ -45,30 +46,30 @@
             <a class="nav-link" href="/data">See Data</a>
           </li>
           <% } } %>
-        </ul>
-        <% if(admin) { %>
+          <% if(admin) { %>
 
-          <div class="account-dropdown">
-            <button
-              class="btn btn-link dropdown-toggle"
-              type="button"
-              id="accountDropdown"
-              data-toggle="dropdown"
-              aria-haspopup="true"
-              aria-expanded="false"
-            >
-              My Account
-            </button>
-            <div class="dropdown-menu" aria-labelledby="accountDropdown">
-              <% if (admin.isadmin) { %>
-              <a class="dropdown-item" href="/users">Edit Users</a>
-              <div class="dropdown-divider"></div>
-              <% } %>
-              <a class="dropdown-item" href="/logout">Logout</a>
+            <div class="account-dropdown">
+              <button
+                class="nav-link"
+                class="btn btn-link dropdown-toggle"
+                type="button"
+                id="accountDropdown"
+                data-toggle="dropdown"
+                aria-haspopup="true"
+                aria-expanded="false"
+              >
+                My Account
+              </button>
+              <div class="dropdown-menu" aria-labelledby="accountDropdown">
+                <% if (admin.isadmin) { %>
+                <a class="dropdown-item" href="/users">Edit Users</a>
+                <div class="dropdown-divider"></div>
+                <% } %>
+                <a class="dropdown-item" href="/logout">Logout</a>
+              </div>
             </div>
-          </div>
-    
-          <% } else { %>
+            <% } else { %>
+        </ul>
       </div>
       <div class="account-dropdown">
         <button
