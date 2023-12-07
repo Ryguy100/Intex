@@ -98,7 +98,66 @@
       <% } %>
     </nav>
 
-    <h1>Embedded CSV Viewer</h1>
+    <h1 class="mt-4 mb-4">Data Table</h1>
+
+    <div class="table-responsive">
+      <table class="table table-bordered table-striped">
+        <thead class="thead-light">
+          <tr>
+            <th>Response ID</th>
+            <th>Time Stamp</th>
+            <th>Age</th>
+            <th>Gender</th>
+            <th>Relationship Status</th>
+            <th>Occupational Status</th>
+            <th>Time Spent</th>
+            <th>Non-Purposeful Social Media Usage</th>
+            <th>Frequency of Social Media Distractions</th>
+            <th>Restlessness Due to Social Media</th>
+            <th>Easily Distracted</th>
+            <th>Bothered by Worries</th>
+            <th>Difficult to Concentrate</th>
+            <th>Comparison to Successful People</th>
+            <th>Feel About Comparisons</th>
+            <th>Seek Validation</th>
+            <th>Depressed or Down</th>
+            <th>Interest in Daily Activities Fluctuate</th>
+            <th>Issues with Sleep</th>
+            <th>Location ID</th>
+            <
+            <!-- Add more table headers for each field -->
+          </tr>
+        </thead>
+        <tbody>
+          <% data.forEach(item => { %>
+          <tr>
+            <td><%= item.response_id %></td>
+            <td><%= item.time_stamp %></td>
+            <td><%= item.age %></td>
+            <td><%= item.gender %></td>
+            <td><%= item.relationship_status %></td>
+            <td><%= item.occupational_status %></td>
+            <td><%= item.time_spent %></td>
+            <td><%= item.non_purposeful_social_media_usage %></td>
+            <td><%= item.frequency_of_social_media_distractions %></td>
+            <td><%= item.restlessness_due_to_social_media %></td>
+            <td><%= item.easily_distracted %></td>
+            <td><%= item.bothered_by_worries %></td>
+            <td><%= item.difficult_to_concentrate %></td>
+            <td><%= item.comparison_to_successful_people %></td>
+            <td><%= item.feel_about_comparisons %></td>
+            <td><%= item.seek_validation %></td>
+            <td><%= item.depressed_or_down %></td>
+            <td><%= item.interest_in_daily_activities_fluctuate %></td>
+            <td><%= item.issues_with_sleep %></td>
+            <td><%= item.location_id %></td>
+          </tr>
+          <% }); %>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- <h1>Embedded CSV Viewer</h1>
 
     <div id="csv-container"></div>
 
@@ -144,7 +203,7 @@
           });
         })
         .catch((error) => console.error("Error fetching CSV:", error));
-    </script>
+    </script> -->
     <!--Scripts for the Bootstrap-->
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
