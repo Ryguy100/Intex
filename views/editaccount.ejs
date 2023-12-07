@@ -31,30 +31,29 @@
           </li>
           <% } } %>
         </ul>
-      </div>
-      <% if(user) { %>
+        <% if(user) { %>
 
-      <div class="account-dropdown">
-        <button
-          class="btn btn-link dropdown-toggle"
-          type="button"
-          id="accountDropdown"
-          data-toggle="dropdown"
-          aria-haspopup="true"
-          aria-expanded="false"
-        >
-          My Account
-        </button>
-        <div class="dropdown-menu" aria-labelledby="accountDropdown">
-          <% if (user.isadmin) { %>
-          <a class="dropdown-item" href="/users">Edit Users</a>
-          <div class="dropdown-divider"></div>
-          <% } %>
-          <a class="dropdown-item" href="/logout">Logout</a>
-        </div>
-      </div>
-
-      <% } else { %>
+          <div class="account-dropdown">
+            <button
+              class="btn btn-link dropdown-toggle"
+              type="button"
+              id="accountDropdown"
+              data-toggle="dropdown"
+              aria-haspopup="true"
+              aria-expanded="false"
+            >
+              My Account
+            </button>
+            <div class="dropdown-menu" aria-labelledby="accountDropdown">
+              <% if (user.isadmin) { %>
+              <a class="dropdown-item" href="/users">Edit Users</a>
+              <div class="dropdown-divider"></div>
+              <% } %>
+              <a class="dropdown-item" href="/logout">Logout</a>
+            </div>
+          </div>
+    
+          <% } else { %>
 
       <div class="account-dropdown">
         <button
