@@ -98,20 +98,7 @@
       <% } %>
     </nav>
 
-    <h1 class="mt-4 mb-4" style="padding-left: 2rem">Data Table</h1>
-
-
-    <form method="post" action="/datum">
-      <label for="dropdown">Select a sepcific survey response:</label>
-      <select id="dropdown" name="dropdown">
-        <% for(i=0;i<data.length;i++) { %> 
-        <option name='dropdown' value="<%= data[i].response_id%>"><%= data[i].response_id%></option>
-        <% } %>
-        <!-- Add more options as needed -->
-      </select>
-
-      <input type="submit" value="See Data" />
-    </form>
+    <h1 class="mt-4 mb-4" style="padding-left: 2rem">Record</h1>
 
     <div class="table-responsive">
       <table class="table table-bordered table-striped">

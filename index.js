@@ -269,6 +269,18 @@ app.get("/data", async (req, res) => {
   // res.render("data", { user: res.locals.user });
 });
 
+app.post("/datum", async (req, res) => {
+  let record_id = req.body.dropdown;
+
+  await knex
+    .select()
+    .from("responses")
+    .where("response_id", req.body.dropdown)
+    .then((result) => {
+      res.render("datum", { data: result, user: res.locals.user });
+    });
+});
+
 app.get("/users", (req, res) => {
   knex
     .select()
