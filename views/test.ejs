@@ -63,7 +63,7 @@
       padding: 10px;
       border-radius: 5px;
       display: block;
-      max-width: 200px;
+      max-width:400px;
       text-align: center;
       transition: all 0.3s ease-in-out;
     }
@@ -75,11 +75,11 @@
 
       .popup-button {
       position: absolute;
-      top: -30px;
+      top: -20px;
       right: 10px;
       width: 30px;
       height: 30px;
-      background-color: #007BFF;
+      background-color: #9000ff;
       color: #fff;
       border: none;
       border-radius: 3px;
@@ -432,7 +432,7 @@
       </form>
     </div>
 
-    <div class="popup-container" id="mentalHealthPopup">
+    <div class="popup-container" id="minimizablePopup">
       <div class="alert alert-secondary" role="alert" class="popup-content">
         <p>
           If you or someone you know is struggling, please reach out to the
@@ -457,7 +457,7 @@ function togglePopup() {
       button.style.top = '-30px'; // Move button to the top
       isMinimized = false;
     } else {
-      popup.style.height = '60px'; // Set the desired minimized height
+      popup.style.height = '30px'; // Set the desired minimized height
       button.style.top = '10px'; // Move button back to its original position
       isMinimized = true;
     }
