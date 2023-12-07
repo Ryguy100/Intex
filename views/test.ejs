@@ -351,21 +351,39 @@
   
     <script>
       // Show the popup after a delay 
-      setTimeout(openPopup, 3000);
-    
-      function openPopup() {
-        var popup = document.getElementById('mentalHealthPopup');
-        if (popup) {
-          popup.style.display = 'block';
-        }
-      }
-    
-      function closePopup() {
-        var popup = document.getElementById('mentalHealthPopup');
-        if (popup) {
-          popup.style.display = 'none';
-        }
-      }
+      var isMinimized = false;
+
+  // Show the popup after a delay (e.g., 3 seconds)
+  setTimeout(openPopup, 3000);
+
+  function openPopup() {
+    var popup = document.getElementById('mentalHealthPopup');
+    if (popup) {
+      popup.style.display = 'block';
+    }
+  }
+
+  function minimizePopup() {
+    var popup = document.getElementById('mentalHealthPopup');
+    var icon = document.querySelector('.popup-icon');
+    if (popup && icon) {
+      popup.style.maxHeight = '30px';
+      popup.style.overflow = 'hidden';
+      icon.style.bottom = '0';
+      isMinimized = true;
+    }
+  }
+
+  function restorePopup() {
+    var popup = document.getElementById('mentalHealthPopup');
+    var icon = document.querySelector('.popup-icon');
+    if (popup && icon) {
+      popup.style.maxHeight = '200px'; // Adjust the max height as needed
+      popup.style.overflow = 'visible';
+      icon.style.bottom = '-30px';
+      isMinimized = false;
+    }
+  }
     </script>
 
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
