@@ -106,7 +106,7 @@ app.post("/survey", async (req, res) => {
   let survey_depressed = req.body.feelDepressedOrDown;
   let survey_interest = req.body.interestFluctuation;
   let survey_issues = req.body.sleepIssues;
-  let survey_origin = 2;
+  let survey_origin = 99;
   let aPlatforms = [];
   let aOrgs = [];
 
@@ -120,31 +120,27 @@ app.post("/survey", async (req, res) => {
     aOrgs = req.body.organizationAffiliations;
   }
 
-  knex("responses")
-    .insert({
-      time_stamp: survey_time_stamp,
-      age: survey_age,
-      gender: survey_gender,
-      relationship_status: survey_relationship,
-      occupational_status: survey_occupation,
-      time_spent: survey_time_spent,
-      non_purposeful_social_media_usage: survey_non_purpose,
-      frequency_of_social_media_distractions: survey_frequency,
-      restlessness_due_to_social_media: survey_restlessness,
-      easily_distracted: survey_easily,
-      bothered_by_worries: survey_bothered,
-      difficult_to_concentrate: survey_difficult,
-      comparison_to_successful_people: survey_comparison,
-      feel_about_comparisons: survey_feelings,
-      seek_validation: survey_validation,
-      depressed_or_down: survey_depressed,
-      interest_in_daily_activities_fluctuate: survey_interest,
-      issues_with_sleep: survey_issues,
-      location_id: survey_origin,
-    })
-    .then((results) => {
-      res.redirect("/");
-    });
+  await knex("responses").insert({
+    time_stamp: survey_time_stamp,
+    age: survey_age,
+    gender: survey_gender,
+    relationship_status: survey_relationship,
+    occupational_status: survey_occupation,
+    time_spent: survey_time_spent,
+    non_purposeful_social_media_usage: survey_non_purpose,
+    frequency_of_social_media_distractions: survey_frequency,
+    restlessness_due_to_social_media: survey_restlessness,
+    easily_distracted: survey_easily,
+    bothered_by_worries: survey_bothered,
+    difficult_to_concentrate: survey_difficult,
+    comparison_to_successful_people: survey_comparison,
+    feel_about_comparisons: survey_feelings,
+    seek_validation: survey_validation,
+    depressed_or_down: survey_depressed,
+    interest_in_daily_activities_fluctuate: survey_interest,
+    issues_with_sleep: survey_issues,
+    location_id: survey_origin,
+  });
 
   iLatestID = 0;
 
