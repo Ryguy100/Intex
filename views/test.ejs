@@ -128,8 +128,13 @@
           <span class="navbar-toggler-icon"></span>
         </button>
       </div>
+
+      <div class="navbar-brand mx-auto">
+        <img src="/logo.png" alt="Brand Logo" style="max-height: 30px" />
+      </div>
+
       <div class="collapse navbar-collapse" id="navbarNav">
-        <ul class="navbar-nav">
+        <ul class="navbar-nav" style="padding-left: 1rem">
           <li class="nav-item">
             <a class="nav-link" href="/">Home</a>
           </li>
@@ -436,29 +441,29 @@
       <div class="popup-icon" onclick="togglePopup()">▼`</div>
     </div>
     <script>
-            // Show the popup after a delay
-            var isMinimized = false;
+      // Show the popup after a delay
+      var isMinimized = false;
 
-            // Show the popup after a delay (e.g., 3 seconds)
-            setTimeout(openPopup, 3000);
+      // Show the popup after a delay (e.g., 3 seconds)
+      setTimeout(openPopup, 3000);
 
-            function openPopup() {
-              var popup = document.getElementById("mentalHealthPopup");
-              if (popup) {
-                popup.style.display = "block";
-              }
-            }
+      function openPopup() {
+        var popup = document.getElementById("mentalHealthPopup");
+        if (popup) {
+          popup.style.display = "block";
+        }
+      }
       function togglePopup() {
-        var popup = document.getElementById('mentalHealthPopup');
-        var icon = document.querySelector('.popup-icon');
+        var popup = document.getElementById("mentalHealthPopup");
+        var icon = document.querySelector(".popup-icon");
         if (popup && icon) {
           if (isMinimized) {
-            popup.style.maxHeight = '300px'; // Adjust the max height as needed
-            icon.classList.remove('minimized');
+            popup.style.maxHeight = "300px"; // Adjust the max height as needed
+            icon.classList.remove("minimized");
             isMinimized = false;
           } else {
-            popup.style.maxHeight = '40px';
-            icon.classList.add('minimized');
+            popup.style.maxHeight = "40px";
+            icon.classList.add("minimized");
             isMinimized = true;
           }
         }

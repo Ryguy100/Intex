@@ -18,7 +18,6 @@
     <nav class="navbar navbar-expand-lg">
       <div style="padding-left: 1rem">
         <button
-          class="nav-link"
           class="navbar-toggler"
           type="button"
           data-toggle="collapse"
@@ -30,8 +29,13 @@
           <span class="navbar-toggler-icon"></span>
         </button>
       </div>
+
+      <div class="navbar-brand mx-auto">
+        <img src="/logo.png" alt="Brand Logo" style="max-height: 30px" />
+      </div>
+
       <div class="collapse navbar-collapse" id="navbarNav">
-        <ul class="navbar-nav ml-auto">
+        <ul class="navbar-nav ml-auto" style="padding-left: 1rem">
           <li class="nav-item active">
             <a class="nav-link" href="/">Home</a>
           </li>
@@ -48,27 +52,27 @@
           <% } } %>
         </ul>
         <% if(admin) { %>
-          <div class="account-dropdown">
-            <button
-              class="nav-link"
-              class="btn btn-link dropdown-toggle"
-              type="button"
-              id="accountDropdown"
-              data-toggle="dropdown"
-              aria-haspopup="true"
-              aria-expanded="false"
-            >
-              My Account
-            </button>
-            <div class="dropdown-menu" aria-labelledby="accountDropdown">
-              <% if (admin.isadmin) { %>
-              <a class="dropdown-item" href="/users">Edit Users</a>
-              <div class="dropdown-divider"></div>
-              <% } %>
-              <a class="dropdown-item" href="/logout">Logout</a>
-            </div>
+        <div class="account-dropdown">
+          <button
+            class="nav-link"
+            class="btn btn-link dropdown-toggle"
+            type="button"
+            id="accountDropdown"
+            data-toggle="dropdown"
+            aria-haspopup="true"
+            aria-expanded="false"
+          >
+            My Account
+          </button>
+          <div class="dropdown-menu" aria-labelledby="accountDropdown">
+            <% if (admin.isadmin) { %>
+            <a class="dropdown-item" href="/users">Edit Users</a>
+            <div class="dropdown-divider"></div>
+            <% } %>
+            <a class="dropdown-item" href="/logout">Logout</a>
           </div>
-          <% } else { %>
+        </div>
+        <% } else { %>
       </div>
       <div class="account-dropdown">
         <button
@@ -89,6 +93,8 @@
 
       <% } %>
     </nav>
+
+    <!--Navigation End-->
     <div class="sleek-header">
       <h1>Edit Account for <%= user[0].username %></h1>
     </div>

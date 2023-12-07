@@ -26,6 +26,11 @@
           <span class="navbar-toggler-icon"></span>
         </button>
       </div>
+
+      <div class="navbar-brand mx-auto">
+        <img src="/logo.png" alt="Brand Logo" style="max-height: 30px" />
+      </div>
+
       <div class="collapse navbar-collapse" id="navbarNav">
         <ul class="navbar-nav">
           <li class="nav-item">
@@ -44,6 +49,7 @@
           <% } } %>
         </ul>
       </div>
+
       <% if(user) { %>
 
       <div class="account-dropdown">
@@ -98,7 +104,14 @@
       <% } %>
     </nav>
 
-    <h1 class="mt-4 mb-4" style="padding-left: 2rem">Record</h1>
+    <div class="main">
+      <h1 class="mt-4 mb-4" style="padding-left: 2rem">
+        Response <%= data[0].response_id%>
+      </h1>
+
+      <h4 style="padding-left: 2rem"><a href="/data">Back</a></h4>
+      <br />
+    </div>
 
     <div class="table-responsive">
       <table class="table table-bordered table-striped">
