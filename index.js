@@ -32,7 +32,7 @@ app.use(
   session({
     secret: "Cheese", // Replace with a strong, random string
     resave: false,
-    saveUninitialized: true,
+    saveUninitialized: false,
   })
 );
 
@@ -40,10 +40,14 @@ const authenticateUser = (req, res, next) => {
   if (req.session && req.session.user) {
     // If the user is authenticated, pass the user data to the next middleware
     res.locals.user = req.session.user;
+  } else {
+    res.locals.user = undefined;
   }
   // Continue to the next middleware even if the user is not authenticated
   next();
 };
+
+app.use(authenticateUser);
 
 function generateTimestamp() {
   const currentDate = new Date();
@@ -60,8 +64,6 @@ function generateTimestamp() {
 
   return timestamp;
 }
-
-app.use(authenticateUser);
 
 let completion = "";
 
@@ -272,34 +274,53 @@ app.get("/logout", (req, res) => {
 // Edit a user
 
 app.get("/edit/:userid", (req, res) => {
+  editedID = req.params.userid;
+
   knex
     .select()
     .from("users")
-    .where("user_id", req.params.userid)
+    .where("user_id", editedID)
     .then((result) => {
-      console.log(result);
       res.render("editaccount", { user: result, admin: res.locals.user });
     });
 });
 
 app.post("/edit/:userid", async (req, res) => {
-  await knex("users").where("user_id", req.params.userid).update({
-    username: req.body.username.toLowerCase(),
-    email: req.body.email.toLowerCase(),
-    password: req.body.password,
-    is_admin: req.body.isadmin,
-  });
+  let editedID = req.params.userid;
+  let ownID = res.locals.user.id;
 
-  if (req.params.userid == res.locals.user.id) {
-    let updatedUser = await knex("users")
-      .where({ user_id: req.params.userid })
-      .first();
+  let newUsername = req.body.username.toLowerCase();
+  let newEmail = req.body.email.toLowerCase();
+  let newPassword = req.body.password;
+  let newisadmin = req.body.isadmin === true;
 
-    req.session.user = updatedUser;
-    req.session.user.name = updatedUser.username;
+  try {
+    // Update the user information
+    await knex("users").where("user_id", editedID).update({
+      username: newUsername,
+      email: newEmail,
+      password: newPassword,
+      is_admin: newisadmin,
+    });
+
+    // Fetch the updated user data after the update
+    // const updatedUser = await knex("users").where("user_id", editedID).first();
+
+    // console.log(updatedUser);
+
+    if (editedID == res.locals.user.id) {
+      // If the edited user is the logged-in user, update the session
+      req.session.user.name = newUsername;
+    }
+
+    console.log("logged on as " + req.session.user.id);
+
+    // Redirect only after the session is updated
+    res.redirect("/");
+  } catch (error) {
+    console.error("Error updating user:", error);
+    res.status(500).send("Internal Server Error");
   }
-
-  res.redirect("/");
 });
 
 // Delete a user
