@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="/scss/custom.css">
+    <link rel="stylesheet" href="/scss/custom.css" />
     <link rel="stylesheet" href="/css/styles.css" />
     <title>Test Page</title>
     <style>
@@ -40,40 +40,74 @@
       position: fixed;
       bottom: 10px;
       right: 10px;
-      /* background-color: #fff; */
+      background-color: #fff;
       box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
       padding: 10px;
       border-radius: 5px;
-      display: none;
-      max-width: 250px;
+      display: block;
+      max-width: 200px;
       text-align: center;
+      transition: all 0.3s ease-in-out;
     }
 
     .popup-content {
-      font-size: 16px;
+      font-size: 14px;
       color: #333;
-      
     }
 
     .popup-button {
       display: block;
       margin-top: 10px;
       padding: 8px 16px;
-      background-color: rgb(136, 0, 255);
+      background-color: #007BFF;
       color: #fff;
       border: none;
       border-radius: 3px;
       cursor: pointer;
     }
 
+    .popup-icon {
+      position: absolute;
+      bottom: 0;
+      right: 0;
+      width: 30px;
+      height: 30px;
+      background-color: #007BFF;
+      color: #fff;
+      border: none;
+      border-radius: 3px 0 0 0;
+      cursor: pointer;
+      text-align: center;
+      line-height: 30px;
+      transition: all 0.3s ease-in-out;
+      transform: rotate(180deg);
+    }
 
-    
+    .popup-icon.minimized {
+      transform: rotate(0deg);
+    }
+
+    .popup-icon:hover {
+      background-color: #0056b3;
+    }
     </style>
   </head>
   <body>
     <!-- Navigation Bar-->
-    <nav class="navbar navbar-expand-lg navbar-dark">
-      <a class="navbar-brand" href="#">White Navbar</a>
+    <nav class="navbar navbar-expand-lg">
+      <div style="padding-left: 1rem">
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-toggle="collapse"
+          data-target="#navbarNav"
+          aria-controls="navbarNav"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+      </div>
       <div class="collapse navbar-collapse" id="navbarNav">
         <ul class="navbar-nav">
           <li class="nav-item">
@@ -332,29 +366,44 @@
 
     <div class="popup-container" id="mentalHealthPopup">
       <div class="alert alert-secondary" role="alert" class="popup-content">
-        <p>If you or someone you know is struggling, please reach out to the Mental Health Hotline.</p>
+        <p>
+          If you or someone you know is struggling, please reach out to the
+          Mental Health Hotline.
+        </p>
         <b><p>Hotline: 1-833-456-4566</p></b>
-        <button class="popup-button" onclick="closePopup()">Close</button>
+        <button class="popup-icon" onclick="togglePopup()"></button>
+        <div class="popup-icon" onclick="togglePopup()">&#x25BC;</div>
       </div>
     </div>
-  
     <script>
       // Show the popup after a delay 
-      setTimeout(openPopup, 3000);
-    
-      function openPopup() {
-        var popup = document.getElementById('mentalHealthPopup');
-        if (popup) {
-          popup.style.display = 'block';
-        }
+      var isMinimized = false;
+
+  // Show the popup after a delay (e.g., 3 seconds)
+  setTimeout(openPopup, 3000);
+
+  function openPopup() {
+    var popup = document.getElementById('mentalHealthPopup');
+    if (popup) {
+      popup.style.display = 'block';
+    }
+  }
+
+  function togglePopup() {
+    var popup = document.getElementById('mentalHealthPopup');
+    var icon = document.querySelector('.popup-icon');
+    if (popup && icon) {
+      if (isMinimized) {
+        popup.style.maxHeight = '200px'; // Adjust the max height as needed
+        icon.classList.remove('minimized');
+        isMinimized = false;
+      } else {
+        popup.style.maxHeight = '30px';
+        icon.classList.add('minimized');
+        isMinimized = true;
       }
-    
-      function closePopup() {
-        var popup = document.getElementById('mentalHealthPopup');
-        if (popup) {
-          popup.style.display = 'none';
-        }
-      }
+    }
+  }
     </script>
 
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
