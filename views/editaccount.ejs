@@ -11,7 +11,7 @@
   <body>
     <style>
       .nav-link {
-        padding: 10px 15px;
+        padding: 20px 15px;
       }
     </style>
     <!-- Navigation Bar-->
@@ -42,34 +42,33 @@
             <a class="nav-link" href="/survey">Survey</a>
           </li>
           <% if (admin) { if (admin.isadmin) { %>
-          <li class="nav-item">
+          <li class="nav-link" class="nav-item">
             <a class="nav-link" href="/data">See Data</a>
           </li>
           <% } } %>
-          <% if(admin) { %>
-
-            <div class="account-dropdown">
-              <button
-                class="nav-link"
-                class="btn btn-link dropdown-toggle"
-                type="button"
-                id="accountDropdown"
-                data-toggle="dropdown"
-                aria-haspopup="true"
-                aria-expanded="false"
-              >
-                My Account
-              </button>
-              <div class="dropdown-menu" aria-labelledby="accountDropdown">
-                <% if (admin.isadmin) { %>
-                <a class="dropdown-item" href="/users">Edit Users</a>
-                <div class="dropdown-divider"></div>
-                <% } %>
-                <a class="dropdown-item" href="/logout">Logout</a>
-              </div>
-            </div>
-            <% } else { %>
         </ul>
+        <% if(admin) { %>
+          <div class="account-dropdown">
+            <button
+              class="nav-link"
+              class="btn btn-link dropdown-toggle"
+              type="button"
+              id="accountDropdown"
+              data-toggle="dropdown"
+              aria-haspopup="true"
+              aria-expanded="false"
+            >
+              My Account
+            </button>
+            <div class="dropdown-menu" aria-labelledby="accountDropdown">
+              <% if (admin.isadmin) { %>
+              <a class="dropdown-item" href="/users">Edit Users</a>
+              <div class="dropdown-divider"></div>
+              <% } %>
+              <a class="dropdown-item" href="/logout">Logout</a>
+            </div>
+          </div>
+          <% } else { %>
       </div>
       <div class="account-dropdown">
         <button
@@ -90,7 +89,6 @@
 
       <% } %>
     </nav>
-
     <div class="sleek-header">
       <h1>Edit Account for <%= user[0].username %></h1>
     </div>
