@@ -373,7 +373,6 @@
         </p>
         <b><p>Hotline: 1-833-456-4566</p></b>
         <button class="popup-buttton" onclick="togglePopup()"></button>
-        <div class="popup-icon" onclick="togglePopup()">&#x25BC;</div>
       </div>
     </div>
     <script>
@@ -395,11 +394,11 @@ function togglePopup() {
   var icon = document.querySelector('.popup-icon');
   if (popup && icon) {
     if (isMinimized) {
-      popup.style.maxHeight = '400px'; // Adjust the max height as needed
+      popup.style.maxHeight = '300px'; // Adjust the max height as needed
       icon.classList.remove('minimized');
       isMinimized = false;
     } else {
-      popup.style.maxHeight = '50px';
+      popup.style.maxHeight = '40px';
       icon.classList.add('minimized');
       isMinimized = true;
     }
