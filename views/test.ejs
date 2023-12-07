@@ -37,61 +37,79 @@
         }
       }
       .popup-container {
-      position: fixed;
-      bottom: 10px;
-      right: 10px;
-      background-color: #fff;
-      box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
-      padding: 10px;
-      border-radius: 5px;
-      display: block;
-      max-width: 200px;
-      text-align: center;
-      overflow: hidden;
-      transition: all 0.3s ease-in-out;
-    }
+        position: fixed;
+        bottom: 10px;
+        right: 10px;
+        background-color: #fff;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+        padding: 10px;
+        border-radius: 5px;
+        display: block;
+        max-width: 200px;
+        text-align: center;
+        overflow: hidden;
+        transition: all 0.3s ease-in-out;
+      }
 
-    .popup-content {
-      font-size: 14px;
-      color: #333;
-    }
+      .groovy-background {
+        background: linear-gradient(45deg, #ff00cc, #3333ff, #33cc33, #ff9933);
+        background-size: 400% 400%;
+        animation: gradientAnimation 10s ease infinite;
+      }
 
-    .popup-button {
-      display: block;
-      margin-top: 10px;
-      padding: 8px 16px;
-      background-color: #5f00b3;
-      color: #fff;
-      border: none;
-      border-radius: 3px;
-      cursor: pointer;
-    }
+      @keyframes gradientAnimation {
+        0% {
+          background-position: 0% 50%;
+        }
+        50% {
+          background-position: 100% 50%;
+        }
+        100% {
+          background-position: 0% 50%;
+        }
+      }
 
-    .popup-icon {
-      position: absolute;
-      top: 0;
-      right: 5px;
-      width: 20px;
-      height: 20px;
-      background-color: #5f00b3;
-      color: #fff;
-      border: none;
-      border-radius: 0 0 3px 3px;
-      cursor: pointer;
-      text-align: center;
-      line-height: 30px;
-      transition: all 0.3s ease-in-out;
-      transform: rotate(180deg);
-    }
+      .popup-content {
+        font-size: 14px;
+        color: #333;
+      }
 
-    .popup-icon.minimized {
-      top: -40px;
-      transform: rotate(0deg);
-    }
+      .popup-button {
+        display: block;
+        margin-top: 10px;
+        padding: 8px 16px;
+        background-color: #5f00b3;
+        color: #fff;
+        border: none;
+        border-radius: 3px;
+        cursor: pointer;
+      }
 
-    .popup-icon:hover {
-      background-color: #5f00b3;
-    }
+      .popup-icon {
+        position: absolute;
+        top: 0;
+        right: 5px;
+        width: 20px;
+        height: 20px;
+        background-color: #5f00b3;
+        color: #fff;
+        border: none;
+        border-radius: 0 0 3px 3px;
+        cursor: pointer;
+        text-align: center;
+        line-height: 30px;
+        transition: all 0.3s ease-in-out;
+        transform: rotate(180deg);
+      }
+
+      .popup-icon.minimized {
+        top: -40px;
+        transform: rotate(0deg);
+      }
+
+      .popup-icon:hover {
+        background-color: #5f00b3;
+      }
     </style>
   </head>
   <body>
@@ -190,6 +208,46 @@
         elements here to create your page layout.
       </p>
     </div>
+
+    <!-- CARDS-->
+
+    <div class="container mt-5">
+      <div class="row flex-nowrap">
+        <!-- Card with photo -->
+        <div class="col-md-10 mx-auto mb-4">
+          <div class="card">
+            <img src="/pic.jpg" class="card-img-top" alt="Photo 1" />
+            <div class="card-body">
+              <h5 class="card-title">Card 1</h5>
+              <p class="card-text">Some text for Card 1.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Card with photo -->
+        <div class="col-md-10 mx-auto mb-4">
+          <div class="card">
+            <img src="/pic.jpg" class="card-img-top" alt="Photo 2" />
+            <div class="card-body">
+              <h5 class="card-title">Card 2</h5>
+              <p class="card-text">Some text for Card 2.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Card with groovy background -->
+        <div class="col-md-10 mb-4">
+          <div class="card groovy-background text-white">
+            <div class="card-body">
+              <h5 class="card-title">Groovy Card</h5>
+              <p class="card-text">Some text for the groovy card.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- CARDS-->
 
     <div class="login-card">
       <h2>Login</h2>
@@ -378,34 +436,52 @@
       <div class="popup-icon" onclick="togglePopup()">▼`</div>
     </div>
     <script>
-      // Show the popup after a delay 
-      var isMinimized = false;
+            // Show the popup after a delay
+            var isMinimized = false;
 
-// Show the popup after a delay (e.g., 3 seconds)
-setTimeout(openPopup, 3000);
+            // Show the popup after a delay (e.g., 3 seconds)
+            setTimeout(openPopup, 3000);
 
-function openPopup() {
-  var popup = document.getElementById('mentalHealthPopup');
-  if (popup) {
-    popup.style.display = 'block';
-  }
-}
+            function openPopup() {
+              var popup = document.getElementById("mentalHealthPopup");
+              if (popup) {
+                popup.style.display = "block";
+              }
+            }
 
-function togglePopup() {
-  var popup = document.getElementById('mentalHealthPopup');
-  var icon = document.querySelector('.popup-icon');
-  if (popup && icon) {
-    if (isMinimized) {
-      popup.style.maxHeight = '300px'; // Adjust the max height as needed
-      icon.classList.remove('minimized');
-      isMinimized = false;
-    } else {
-      popup.style.maxHeight = '40px';
-      icon.classList.add('minimized');
-      isMinimized = true;
-    }
-  }
-}
+      <<<<<<< HEAD
+            function togglePopup() {
+              var popup = document.getElementById("mentalHealthPopup");
+              var icon = document.querySelector(".popup-icon");
+              if (popup && icon) {
+                if (isMinimized) {
+                  popup.style.maxHeight = "400px"; // Adjust the max height as needed
+                  icon.classList.remove("minimized");
+                  isMinimized = false;
+                } else {
+                  popup.style.maxHeight = "50px";
+                  icon.classList.add("minimized");
+                  isMinimized = true;
+                }
+              }
+            }
+      =======
+      function togglePopup() {
+        var popup = document.getElementById('mentalHealthPopup');
+        var icon = document.querySelector('.popup-icon');
+        if (popup && icon) {
+          if (isMinimized) {
+            popup.style.maxHeight = '300px'; // Adjust the max height as needed
+            icon.classList.remove('minimized');
+            isMinimized = false;
+          } else {
+            popup.style.maxHeight = '40px';
+            icon.classList.add('minimized');
+            isMinimized = true;
+          }
+        }
+      }
+      >>>>>>> a635450b914a96ca7bafc868f889a8e3f9f9b598
     </script>
 
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>

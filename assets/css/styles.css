@@ -32,6 +32,13 @@ body {
   animation: gradientAnimation 20s ease infinite;
 }
 
+.groovy-background {
+  background: linear-gradient(45deg, #ff00cc, #3333ff, #33cc33, #ff9933);
+  background-size: 400% 400%;
+  animation: gradientAnimation 10s ease infinite;
+  height: 100%;
+}
+
 .bg-wave-edit {
   top: 0;
   left: 0;
@@ -69,7 +76,7 @@ body {
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05); /* Soft shadow */
   padding: 20px; /* Adjust padding as needed */
   margin: 20px auto; /* Center the card */
-  width: 60%;
+  width: 80%;
 }
 
 .container {
@@ -79,6 +86,17 @@ body {
 .sample-text {
   text-align: center;
   padding: 50px 0; /* Adjust padding as needed */
+}
+
+.center-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 45vh; /* Adjust as needed */
+}
+.half-width {
+  width: 150%;
+  padding: 20px; /* Add padding for better readability */
 }
 
 .sleek-button {
