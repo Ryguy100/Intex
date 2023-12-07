@@ -294,7 +294,7 @@ app.post("/edit/:userid", async (req, res) => {
   let newUsername = req.body.username.toLowerCase();
   let newEmail = req.body.email.toLowerCase();
   let newPassword = req.body.password;
-  let newisadmin = req.body.isadmin === true;
+  let newisadmin = req.body.isadmin == "on";
 
   try {
     // Update the user information
