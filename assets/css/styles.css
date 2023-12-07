@@ -189,4 +189,6 @@ body {
   border-top: 1px solid #ddd;
   padding: 20px 0;
   text-align: center;
+  position: relative;
+  margin-top: auto;
 }
