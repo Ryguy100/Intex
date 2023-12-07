@@ -74,7 +74,7 @@
 
       .popup-button {
       position: absolute;
-      top: -10px;
+      top: -30px;
       right: 10px;
       width: 30px;
       height: 30px;
@@ -406,6 +406,12 @@
       </form>
     </div>
 
+    <footer class="footer">
+      <div class="container">
+        <p>&copy; 2023 City of Provo. All Rights Reserved.</p>
+      </div>
+    </footer>
+
     <div class="popup-container" id="minimizablePopup">
       <div class="alert alert-secondary" role="alert" class="popup-content">
         <p>
@@ -415,28 +421,44 @@
         <b><p>Hotline: 1-833-456-4566</p></b>
         <button class="popup-button" onclick="togglePopup()">▲</button>
       </div>
-
     </div>
     <script>
-    // Show the popup after a delay
-    var isMinimized = false;
+      // Show the popup after a delay
+      var isMinimized = false;
 
-function togglePopup() {
-  var popup = document.getElementById('minimizablePopup');
-  var button = document.querySelector('.popup-button');
-  
-  if (popup && button) {
-    if (isMinimized) {
-      popup.style.height = 'auto'; // Reset height
-      button.style.top = '-30px'; // Move button to the top
-      isMinimized = false;
-    } else {
-      popup.style.height = '20px'; // Set the desired minimized height
-      button.style.top = '10px'; // Move button back to its original position
-      isMinimized = true;
-    }
-  }
-}
+      function togglePopup() {
+        var popup = document.getElementById("minimizablePopup");
+        var button = document.querySelector(".popup-button");
+
+        if (popup && button) {
+          if (isMinimized) {
+            popup.style.height = "auto"; // Reset height
+            button.style.top = "-30px"; // Move button to the top
+            isMinimized = false;
+          } else {
+            popup.style.height = "30px"; // Set the desired minimized height
+            button.style.top = "10px"; // Move button back to its original position
+            isMinimized = true;
+          }
+        }
+      }
+
+      function togglePopup() {
+        var popup = document.getElementById("minimizablePopup");
+        var button = document.querySelector(".popup-button");
+
+        if (popup && button) {
+          if (isMinimized) {
+            popup.style.height = "auto"; // Reset height
+            button.style.top = "-30px"; // Move button to the top
+            isMinimized = false;
+          } else {
+            popup.style.height = "20px"; // Set the desired minimized height
+            button.style.top = "10px"; // Move button back to its original position
+            isMinimized = true;
+          }
+        }
+      }
     </script>
 
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
