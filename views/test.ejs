@@ -36,20 +36,6 @@
           background-position: 0% 50%;
         }
       }
-      .popup-container {
-        position: fixed;
-        bottom: 10px;
-        right: 10px;
-        background-color: #fff;
-        box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
-        padding: 10px;
-        border-radius: 5px;
-        display: block;
-        max-width: 200px;
-        text-align: center;
-        overflow: hidden;
-        transition: all 0.3s ease-in-out;
-      }
 
       .groovy-background {
         background: linear-gradient(45deg, #ff00cc, #3333ff, #33cc33, #ff9933);
@@ -68,6 +54,18 @@
           background-position: 0% 50%;
         }
       }
+      .popup-container {
+        position: fixed;
+        bottom: 10px;
+        right: 10px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+        padding: 10px;
+        border-radius: 5px;
+        display: block;
+        max-width: 200px;
+        text-align: center;
+        transition: all 0.3s ease-in-out;
+      }
 
       .popup-content {
         font-size: 14px;
@@ -84,31 +82,29 @@
         border-radius: 3px;
         cursor: pointer;
       }
-
       .popup-icon {
         position: absolute;
-        top: 0;
-        right: 5px;
-        width: 20px;
-        height: 20px;
-        background-color: #5f00b3;
+        bottom: 0;
+        right: 0;
+        width: 30px;
+        height: 30px;
+        background-color: #007bff;
         color: #fff;
         border: none;
-        border-radius: 0 0 3px 3px;
+        border-radius: 3px 0 0 0;
         cursor: pointer;
         text-align: center;
         line-height: 30px;
         transition: all 0.3s ease-in-out;
         transform: rotate(180deg);
       }
-
-      .popup-icon.minimized {
-        top: -40px;
-        transform: rotate(0deg);
-      }
+      /* .popup-icon.minimized {
+      top: -30px;
+      transform: rotate(0deg);
+    } */
 
       .popup-icon:hover {
-        background-color: #5f00b3;
+        background-color: #0056b3;
       }
     </style>
   </head>
@@ -438,7 +434,7 @@
         <b><p>Hotline: 1-833-456-4566</p></b>
         <button class="popup-buttton" onclick="togglePopup()"></button>
       </div>
-      <div class="popup-icon" onclick="togglePopup()">▼`</div>
+      <div class="popup-icon" onclick="restorePopup()">^</div>
     </div>
     <script>
       // Show the popup after a delay
@@ -453,19 +449,26 @@
           popup.style.display = "block";
         }
       }
-      function togglePopup() {
+
+      function minimizePopup() {
         var popup = document.getElementById("mentalHealthPopup");
         var icon = document.querySelector(".popup-icon");
         if (popup && icon) {
-          if (isMinimized) {
-            popup.style.maxHeight = "300px"; // Adjust the max height as needed
-            icon.classList.remove("minimized");
-            isMinimized = false;
-          } else {
-            popup.style.maxHeight = "40px";
-            icon.classList.add("minimized");
-            isMinimized = true;
-          }
+          popup.style.maxHeight = "40px";
+          popup.style.overflow = "hidden";
+          icon.style.bottom = "0";
+          isMinimized = true;
+        }
+      }
+
+      function restorePopup() {
+        var popup = document.getElementById("mentalHealthPopup");
+        var icon = document.querySelector(".popup-icon");
+        if (popup && icon) {
+          popup.style.maxHeight = "300px"; // Adjust the max height as needed
+          popup.style.overflow = "visible";
+          icon.style.bottom = "-40px";
+          isMinimized = false;
         }
       }
     </script>
