@@ -36,6 +36,32 @@
           background-position: 0% 50%;
         }
       }
+      .popup-container {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      background-color: #fff;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+      padding: 15px;
+      border-radius: 5px;
+      display: none;
+    }
+
+    .popup-content {
+      font-size: 16px;
+      color: #333;
+    }
+
+    .popup-button {
+      display: block;
+      margin-top: 10px;
+      padding: 8px 16px;
+      background-color: #007BFF;
+      color: #fff;
+      border: none;
+      border-radius: 3px;
+      cursor: pointer;
+    }
     </style>
   </head>
   <body>
@@ -297,6 +323,33 @@
         <button type="submit" class="btn btn-primary">Submit</button>
       </form>
     </div>
+
+    <div class="popup-container" id="mentalHealthPopup">
+      <div class="popup-content">
+        <p>If you or someone you know is struggling, please reach out to the Mental Health Hotline.</p>
+        <p>Hotline: 1-833-456-4566</p>
+        <button class="popup-button" onclick="closePopup()">Close</button>
+      </div>
+    </div>
+
+    <script>
+      // Show the popup after a delay (e.g., 10 seconds)
+      setTimeout(openPopup, 10000);
+    
+      function openPopup() {
+        var popup = document.getElementById('mentalHealthPopup');
+        if (popup) {
+          popup.style.display = 'block';
+        }
+      }
+    
+      function closePopup() {
+        var popup = document.getElementById('mentalHealthPopup');
+        if (popup) {
+          popup.style.display = 'none';
+        }
+      }
+    </script>
 
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
