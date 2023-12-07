@@ -102,27 +102,59 @@
     <!-- Main Area -->
 
     <div class="sleek-header">
-      <h1>Provo City Mental Health Survey</h1>
-      <p>Add your additional text or content here.</p>
+      <h1>Provo City Mental Health Awareness</h1>
+      <p>
+        We are gathering responses to find a link between social media usage and
+        mental health
+      </p>
       <a href="/survey" class="btn btn-primary sleek-button">Take the survey</a>
     </div>
 
-    <div class="sample-text">
-      <div class="main">
-        <% if (user) { %>
-        <h1>Welcome, <%= user.name %></h1>
-        <p>Your username is <%= user.name %></p>
-        <% } else { %>
-        <h1>Welcome, Guest</h1>
-        <p>Feel free to explore our website!</p>
-        <% } %>
+    <div class="container mt-5">
+      <div class="row flex-nowrap">
+        <div class="col-md-6 mb-4">
+          <div class="card">
+            <img src="pic.jpg" class="card-img-top" alt="Photo 2" />
+            <div class="card-body">
+              <h5 class="card-title">See Graphs</h5>
+              <p class="card-text">
+                Discover the link between social media usage and mental health
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Card with groovy background -->
+        <div class="col-md-6 mb-4">
+          <div class="card groovy-background text-white">
+            <div class="card-body">
+              <h5 class="card-title"></h5>
+              <p class="card-text">Some text for the groovy card.</p>
+              <button type="button" class="btn btn-light">See More</button>
+            </div>
+          </div>
+        </div>
       </div>
-      <h2>About the Survey</h2>
-      <p>
-        This is some sample text. You can add more content, images, or other
-        elements here to create your page layout. Survey!
-      </p>
     </div>
+
+    <div class="container center-container">
+      <div class="sample-text half-width bg-light">
+        <p>
+          The city of Provo is created this website aimed at raising awareness
+          about the intricate relationship between mental health and social
+          media usage. In an age dominated by digital connectivity, the impact
+          of social media on our mental well-being is a subject of growing
+          concern. The website seeks to provide valuable insights into the ways
+          in which social media can influence mental health, offering resources,
+          information, and support for individuals navigating the digital
+          landscape. By fostering awareness and understanding, the city of Provo
+          aims to empower its community to make informed choices about their
+          online interactions, promoting a healthier and more mindful approach
+          to social media use.
+        </p>
+      </div>
+    </div>
+
     <div class="sample-text">
       <p><%= chat%></p>
     </div>
