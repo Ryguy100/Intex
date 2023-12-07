@@ -47,6 +47,7 @@
         display: block;
         max-width: 200px;
         text-align: center;
+        overflow: hidden;
         transition: all 0.3s ease-in-out;
       }
 
@@ -431,38 +432,55 @@
         </p>
         <b><p>Hotline: 1-833-456-4566</p></b>
         <button class="popup-buttton" onclick="togglePopup()"></button>
-        <div class="popup-icon" onclick="togglePopup()">&#x25BC;</div>
       </div>
     </div>
     <script>
-      // Show the popup after a delay
-      var isMinimized = false;
+            // Show the popup after a delay
+            var isMinimized = false;
 
-      // Show the popup after a delay (e.g., 3 seconds)
-      setTimeout(openPopup, 3000);
+            // Show the popup after a delay (e.g., 3 seconds)
+            setTimeout(openPopup, 3000);
 
-      function openPopup() {
-        var popup = document.getElementById("mentalHealthPopup");
-        if (popup) {
-          popup.style.display = "block";
-        }
-      }
+            function openPopup() {
+              var popup = document.getElementById("mentalHealthPopup");
+              if (popup) {
+                popup.style.display = "block";
+              }
+            }
 
+      <<<<<<< HEAD
+            function togglePopup() {
+              var popup = document.getElementById("mentalHealthPopup");
+              var icon = document.querySelector(".popup-icon");
+              if (popup && icon) {
+                if (isMinimized) {
+                  popup.style.maxHeight = "400px"; // Adjust the max height as needed
+                  icon.classList.remove("minimized");
+                  isMinimized = false;
+                } else {
+                  popup.style.maxHeight = "50px";
+                  icon.classList.add("minimized");
+                  isMinimized = true;
+                }
+              }
+            }
+      =======
       function togglePopup() {
-        var popup = document.getElementById("mentalHealthPopup");
-        var icon = document.querySelector(".popup-icon");
+        var popup = document.getElementById('mentalHealthPopup');
+        var icon = document.querySelector('.popup-icon');
         if (popup && icon) {
           if (isMinimized) {
-            popup.style.maxHeight = "400px"; // Adjust the max height as needed
-            icon.classList.remove("minimized");
+            popup.style.maxHeight = '300px'; // Adjust the max height as needed
+            icon.classList.remove('minimized');
             isMinimized = false;
           } else {
-            popup.style.maxHeight = "50px";
-            icon.classList.add("minimized");
+            popup.style.maxHeight = '40px';
+            icon.classList.add('minimized');
             isMinimized = true;
           }
         }
       }
+      >>>>>>> a635450b914a96ca7bafc868f889a8e3f9f9b598
     </script>
 
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
