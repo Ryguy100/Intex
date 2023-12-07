@@ -82,6 +82,30 @@
         border-radius: 3px;
         cursor: pointer;
       }
+      .popup-icon {
+      position: absolute;
+      bottom: 0;
+      right: 0;
+      width: 30px;
+      height: 30px;
+      background-color: #007BFF;
+      color: #fff;
+      border: none;
+      border-radius: 3px 0 0 0;
+      cursor: pointer;
+      text-align: center;
+      line-height: 30px;
+      transition: all 0.3s ease-in-out;
+      transform: rotate(180deg);
+    }
+      .popup-icon.minimized {
+      top: -30px;
+      transform: rotate(0deg);
+    }
+
+    .popup-icon:hover {
+      background-color: #0056b3;
+    }
 
     </style>
   </head>
@@ -423,12 +447,15 @@ function openPopup() {
 
 function togglePopup() {
   var popup = document.getElementById('mentalHealthPopup');
-  if (popup) {
+  var icon = document.querySelector('.popup-icon');
+  if (popup && icon) {
     if (isMinimized) {
-      popup.style.height = 'auto'; // Reset height
+      popup.style.maxHeight = '300px'; // Adjust the max height as needed
+      icon.classList.remove('minimized');
       isMinimized = false;
     } else {
-      popup.style.height = '40px'; // Set the desired minimized height
+      popup.style.maxHeight = '30px';
+      icon.classList.add('minimized');
       isMinimized = true;
     }
   }
