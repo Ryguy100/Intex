@@ -103,9 +103,9 @@
       transform: rotate(0deg);
     } */
 
-    .popup-icon:hover {
+    /* .popup-icon:hover {
       background-color: #0056b3;
-    }
+    } */
 
     </style>
   </head>
@@ -439,37 +439,22 @@
     </div>
     <script>
     // Show the popup after a delay
-  var isMinimized = false;
+    var isMinimized = false;
 
-// Show the popup after a delay (e.g., 3 seconds)
-setTimeout(openPopup, 3000);
-
-function openPopup() {
-  var popup = document.getElementById('mentalHealthPopup');
-  if (popup) {
-    popup.style.display = 'block';
-  }
-}
-
-function minimizePopup() {
-  var popup = document.getElementById('mentalHealthPopup');
-  var icon = document.querySelector('.popup-icon');
-  if (popup && icon) {
-    popup.style.maxHeight = '40px';
-    popup.style.overflow = 'hidden';
-    icon.style.bottom = '0';
-    isMinimized = true;
-  }
-}
-
-function restorePopup() {
-  var popup = document.getElementById('mentalHealthPopup');
-  var icon = document.querySelector('.popup-icon');
-  if (popup && icon) {
-    popup.style.maxHeight = '300px'; // Adjust the max height as needed
-    popup.style.overflow = 'visible';
-    icon.style.bottom = '-40px';
-    isMinimized = false;
+function togglePopup() {
+  var popup = document.getElementById('minimizablePopup');
+  var button = document.querySelector('.popup-button');
+  
+  if (popup && button) {
+    if (isMinimized) {
+      popup.style.height = 'auto'; // Reset height
+      button.style.top = '-30px'; // Move button to the top
+      isMinimized = false;
+    } else {
+      popup.style.height = '60px'; // Set the desired minimized height
+      button.style.top = '10px'; // Move button back to its original position
+      isMinimized = true;
+    }
   }
 }
     </script>
