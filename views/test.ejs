@@ -59,7 +59,7 @@
       display: block;
       margin-top: 10px;
       padding: 8px 16px;
-      background-color: #007BFF;
+      background-color: #5f00b3;
       color: #fff;
       border: none;
       border-radius: 3px;
@@ -68,14 +68,14 @@
 
     .popup-icon {
       position: absolute;
-      bottom: 0;
-      right: 0;
+      top: 0;
+      right: 10px;
       width: 30px;
       height: 30px;
-      background-color: #007BFF;
+      background-color: #5f00b3;
       color: #fff;
       border: none;
-      border-radius: 3px 0 0 0;
+      border-radius: 0 0 3px 3px;
       cursor: pointer;
       text-align: center;
       line-height: 30px;
@@ -84,11 +84,12 @@
     }
 
     .popup-icon.minimized {
+      top: -30px;
       transform: rotate(0deg);
     }
 
     .popup-icon:hover {
-      background-color: #0056b3;
+      background-color: #5f00b3;
     }
     </style>
   </head>
@@ -379,31 +380,31 @@
       // Show the popup after a delay 
       var isMinimized = false;
 
-  // Show the popup after a delay (e.g., 3 seconds)
-  setTimeout(openPopup, 3000);
+// Show the popup after a delay (e.g., 3 seconds)
+setTimeout(openPopup, 3000);
 
-  function openPopup() {
-    var popup = document.getElementById('mentalHealthPopup');
-    if (popup) {
-      popup.style.display = 'block';
+function openPopup() {
+  var popup = document.getElementById('mentalHealthPopup');
+  if (popup) {
+    popup.style.display = 'block';
+  }
+}
+
+function togglePopup() {
+  var popup = document.getElementById('mentalHealthPopup');
+  var icon = document.querySelector('.popup-icon');
+  if (popup && icon) {
+    if (isMinimized) {
+      popup.style.maxHeight = '200px'; // Adjust the max height as needed
+      icon.classList.remove('minimized');
+      isMinimized = false;
+    } else {
+      popup.style.maxHeight = '30px';
+      icon.classList.add('minimized');
+      isMinimized = true;
     }
   }
-
-  function togglePopup() {
-    var popup = document.getElementById('mentalHealthPopup');
-    var icon = document.querySelector('.popup-icon');
-    if (popup && icon) {
-      if (isMinimized) {
-        popup.style.maxHeight = '200px'; // Adjust the max height as needed
-        icon.classList.remove('minimized');
-        isMinimized = false;
-      } else {
-        popup.style.maxHeight = '30px';
-        icon.classList.add('minimized');
-        isMinimized = true;
-      }
-    }
-  }
+}
     </script>
 
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
