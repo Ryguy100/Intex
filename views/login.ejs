@@ -83,7 +83,7 @@
     <div class="bg-wave">
       <div class="login-card">
         <h2>Login</h2>
-        <form method="post" action="/login">
+        <form method="post" action="/login" onsubmit="showErrorMessage()">
           <div class="form-group">
             <label for="username">Username:</label>
             <input
@@ -107,27 +107,15 @@
           </div>
           <button type="submit" class="btn btn-primary">Login</button>
         </form>
+        <% if (typeof query !== 'undefined' && typeof query.error !==
+        'undefined') { %>
+        <p style="color: red"><%= query.error %></p>
+        <% } %>
         <br />
         <p>No account? <a href="/register">Register</a></p>
       </div>
     </div>
 
-    <!-- <div class="main">
-      <form method="post" action="/login">
-        <label>Username</label>
-        <input
-          STYLE="text-transform:lowercase"
-          type="text"
-          name="username"
-          id="username"
-        /><br /><br />
-        <label>Password</label>
-        <input type="password" name="password" id="password" />
-        <button type="submit">Log In</button>
-      </form>
-      <p>No account? <a href="/register">register</a></p>
-    </div> -->
-    <!--Scripts for the Bootstrap-->
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>

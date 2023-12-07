@@ -69,7 +69,7 @@ body {
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05); /* Soft shadow */
   padding: 20px; /* Adjust padding as needed */
   margin: 20px auto; /* Center the card */
-  max-width: 400px; /* Set a maximum width for the card */
+  width: 60%;
 }
 
 .container {
