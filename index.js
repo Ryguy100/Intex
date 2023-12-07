@@ -134,7 +134,7 @@ app.post("/survey", async (req, res) => {
       depressed_or_down: survey_depressed,
       interest_in_daily_activities_fluctuate: survey_interest,
       issues_with_sleep: survey_issues,
-      origin: survey_origin,
+      location_id: survey_origin,
     })
     .then((results) => {
       res.redirect("/");
