@@ -315,11 +315,19 @@ app.get("/data", async (req, res) => {
 
 app.post("/datum", async (req, res) => {
   let record_id = req.body.dropdown;
+  let aOrgs = [
+    "This response told us they were not affiliated with any organization.",
+  ];
+  let aPlatforms = ["This response told us they were not on social media."];
 
   let social_responses = await knex
     .select()
     .from("social_media_responses")
     .where("response_id", req.body.dropdown);
+
+  if (social_responses) {
+    aPlatforms = social_responses;
+  }
 
   let result = await knex
     .select()
@@ -333,14 +341,18 @@ app.post("/datum", async (req, res) => {
     .from("organization_responses")
     .where("response_id", req.body.dropdown);
 
+  if (organization_responses.length) {
+    aOrgs = organization_responses;
+  }
+
   let organizations = await knex.select().from("organization_info");
 
   res.render("datum", {
     data: result,
-    sr: social_responses,
+    sr: aPlatforms,
     user: res.locals.user,
     sm: social_medias,
-    or: organization_responses,
+    or: aOrgs,
     os: organizations,
   });
 });

@@ -183,8 +183,8 @@
       </p>
 
       <p style="padding-left: 2rem">
-        <% for (let i = 0; i < or.length; i++) { %> <%= ([i + 1]) + '. ' +
-        os[or[i].organization_id - 1].organizational_affiliations %> <% } %>
+        <% for (let i = 0; i < or.length - 1; i++) { %> <%= ([i + 1]) + '. ' +
+        os[or[i].organization_id].organizational_affiliations %> <% } %>
       </p>
 
       <br />
