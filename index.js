@@ -146,12 +146,12 @@ app.post("/survey", async (req, res) => {
   let aOrgs = [];
 
   console.log(req.body.socialMediaPlatforms);
-  if (req.body.socialMediaPlatforms.length > 0) {
+  if (req.body.socialMediaPlatforms) {
     aPlatforms = req.body.socialMediaPlatforms;
   }
 
   console.log(req.body.organizationAffiliations);
-  if (req.body.organizationAffiliations.length > 0) {
+  if (req.body.organizationAffiliations) {
     aOrgs = req.body.organizationAffiliations;
   }
 
