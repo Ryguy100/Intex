@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+<!-- Edit Account Page-->
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
@@ -14,6 +15,7 @@
         padding: 20px 15px;
       }
     </style>
+
     <!-- Navigation Bar-->
     <nav class="navbar navbar-expand-lg">
       <div style="padding-left: 1rem">
@@ -93,12 +95,14 @@
 
       <% } %>
     </nav>
-
     <!--Navigation End-->
+
+    <!--Header-->
     <div class="sleek-header">
       <h1>Edit Account for <%= user[0].username %></h1>
     </div>
 
+    <!--Edit the account-->
     <div class="edit-card">
       <form method="post" action="/edit/<%= user[0].user_id %>">
         <div>
