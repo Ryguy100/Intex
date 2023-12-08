@@ -146,12 +146,12 @@ app.post("/survey", async (req, res) => {
   let aOrgs = [];
 
   console.log(req.body.socialMediaPlatforms);
-  if (req.body.socialMediaPlatforms.length > 0) {
+  if (req.body.socialMediaPlatforms) {
     aPlatforms = req.body.socialMediaPlatforms;
   }
 
   console.log(req.body.organizationAffiliations);
-  if (req.body.organizationAffiliations.length > 0) {
+  if (req.body.organizationAffiliations) {
     aOrgs = req.body.organizationAffiliations;
   }
 
@@ -316,13 +316,33 @@ app.get("/data", async (req, res) => {
 app.post("/datum", async (req, res) => {
   let record_id = req.body.dropdown;
 
-  await knex
+  let social_responses = await knex
+    .select()
+    .from("social_media_responses")
+    .where("response_id", req.body.dropdown);
+
+  let result = await knex
     .select()
     .from("responses")
-    .where("response_id", req.body.dropdown)
-    .then((result) => {
-      res.render("datum", { data: result, user: res.locals.user });
-    });
+    .where("response_id", req.body.dropdown);
+
+  let social_medias = await knex.select("*").from("social_media_info");
+
+  let organization_responses = await knex
+    .select()
+    .from("organization_responses")
+    .where("response_id", req.body.dropdown);
+
+  let organizations = await knex.select().from("organization_info");
+
+  res.render("datum", {
+    data: result,
+    sr: social_responses,
+    user: res.locals.user,
+    sm: social_medias,
+    or: organization_responses,
+    os: organizations,
+  });
 });
 
 app.get("/users", (req, res) => {
