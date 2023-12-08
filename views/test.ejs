@@ -442,23 +442,6 @@
           }
         }
       }
-
-      function togglePopup() {
-        var popup = document.getElementById("minimizablePopup");
-        var button = document.querySelector(".popup-button");
-
-        if (popup && button) {
-          if (isMinimized) {
-            popup.style.height = "auto"; // Reset height
-            button.style.top = "-30px"; // Move button to the top
-            isMinimized = false;
-          } else {
-            popup.style.height = "20px"; // Set the desired minimized height
-            button.style.top = "10px"; // Move button back to its original position
-            isMinimized = true;
-          }
-        }
-      }
     </script>
 
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
