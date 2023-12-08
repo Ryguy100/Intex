@@ -1,5 +1,3 @@
-<!--DISREGARD THIS PAGE, only for testing styles-->
-
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -57,17 +55,18 @@
         }
       }
       .popup-container {
-        position: fixed;
-        bottom: 10px;
-        right: 10px;
-        /* box-shadow: 0 0 10px rgba(0, 0, 0, 0.2); */
-        padding: 10px;
-        /* border-radius: 5px; */
-        display: block;
-        max-width: 270px;
-        text-align: center;
-        transition: all 0.2s ease-in-out;
-      }
+      position: fixed;
+      bottom: 10px;
+      right: 10px;
+      background-color: #fff;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+      padding: 10px;
+      border-radius: 5px;
+      display: block;
+      max-width:400px;
+      text-align: center;
+      transition: all 0.3s ease-in-out;
+    }
 
       .popup-content {
         font-size: 14px;
@@ -75,20 +74,45 @@
       }
 
       .popup-button {
-        position: absolute;
-        top: -20px;
-        right: 10px;
-        width: 20px;
-        height: 20px;
-        background-color: #ae7fcf;
-        color: #fff;
-        border: none;
-        border-radius: 2px;
-        cursor: pointer;
-        text-align: center;
-        line-height: 30px;
-        transition: all 0.2s ease-in-out;
-      }
+      position: absolute;
+      top: -20px;
+      right: 10px;
+      width: 30px;
+      height: 30px;
+      background-color: #9000ff;
+      color: #fff;
+      border: none;
+      border-radius: 3px;
+      cursor: pointer;
+      text-align: center;
+      line-height: 30px;
+      transition: all 0.3s ease-in-out;
+    }
+      /* .popup-icon {
+      position: absolute;
+      bottom: 0;
+      right: 0;
+      width: 30px;
+      height: 30px;
+      background-color: #007BFF;
+      color: #fff;
+      border: none;
+      border-radius: 3px 0 0 0;
+      cursor: pointer;
+      text-align: center;
+      line-height: 30px;
+      transition: all 0.3s ease-in-out;
+      transform: rotate(180deg);
+    }
+      /* .popup-icon.minimized {
+      top: -30px;
+      transform: rotate(0deg);
+    } */
+
+    /* .popup-icon:hover {
+      background-color: #0056b3;
+    } */
+
     </style>
   </head>
   <body>
@@ -408,12 +432,6 @@
       </form>
     </div>
 
-    <footer class="footer">
-      <div class="container">
-        <p>&copy; 2023 City of Provo. All Rights Reserved.</p>
-      </div>
-    </footer>
-
     <div class="popup-container" id="minimizablePopup">
       <div class="alert alert-secondary" role="alert" class="popup-content">
         <p>
@@ -421,29 +439,30 @@
           Mental Health Hotline.
         </p>
         <b><p>Hotline: 1-833-456-4566</p></b>
-        <button class="popup-button" onclick="togglePopup()">^</button>
+        <button class="popup-button" onclick="togglePopup()">▲</button>
       </div>
+
     </div>
     <script>
-      // Show the popup after a delay
-      var isMinimized = false;
+    // Show the popup after a delay
+    var isMinimized = false;
 
-      function togglePopup() {
-        var popup = document.getElementById("minimizablePopup");
-        var button = document.querySelector(".popup-button");
-
-        if (popup && button) {
-          if (isMinimized) {
-            popup.style.height = "auto"; // Reset height
-            button.style.top = "-30px"; // Move button to the top
-            isMinimized = false;
-          } else {
-            popup.style.height = "30px"; // Set the desired minimized height
-            button.style.top = "10px"; // Move button back to its original position
-            isMinimized = true;
-          }
-        }
-      }
+function togglePopup() {
+  var popup = document.getElementById('minimizablePopup');
+  var button = document.querySelector('.popup-button');
+  
+  if (popup && button) {
+    if (isMinimized) {
+      popup.style.height = 'auto'; // Reset height
+      button.style.top = '-30px'; // Move button to the top
+      isMinimized = false;
+    } else {
+      popup.style.height = '30px'; // Set the desired minimized height
+      button.style.top = '10px'; // Move button back to its original position
+      isMinimized = true;
+    }
+  }
+}
     </script>
 
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
