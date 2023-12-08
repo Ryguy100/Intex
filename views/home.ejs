@@ -206,24 +206,34 @@
   <br>
   <br>
   <br>
-  
   <div class="position-fixed bottom-0 end-0 p-3 z-3">
+    <button id="toggleButton" type="button" class="btn btn-primary">X</button>
     <div class="toast" role="alert" aria-live="assertive" aria-atomic="true" data-bs-autohide="false">
-      <div class="toast-header bg-primary">
-        <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
-      </div>
-      <div class="toast-body" class="text-secondary-emphasis">
+      <div class="toast-body text-secondary-emphasis">
         If you or someone you know is struggling, please reach out to the Mental Health Hotline.
         <br>
-          <b><p>Hotline: 1-833-456-4566</p></b>
+        <b><p>Hotline: 1-833-456-4566</p></b>
       </div>
     </div>
   </div>
+  
   <script>
-    $(document).ready(function(){
+    $(document).ready(function () {
+      // Show the toast initially
       $('.toast').toast('show');
+  
+      // Toggle button click event
+      $('#toggleButton').on('click', function () {
+        var toast = $('.toast');
+        if (toast.hasClass('show')) {
+          toast.toast('hide');
+        } else {
+          toast.toast('show');
+        }
+      });
     });
   </script>
+  
     <footer class="footer">
       <div class="container">
         <p>&copy; 2023 City of Provo. All Rights Reserved.</p>
