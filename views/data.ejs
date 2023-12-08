@@ -128,21 +128,28 @@
 
       <% } %>
     </nav>
-    <div class="main">
-      <h1 class="mt-4 mb-4" style="padding-left: 2rem">Data Table</h1>
+    <!-- Header -->
+
+    <div class="sleek-header">
+      <h1>All Records</h1>
+    </div>
+
+    <!--Select Data -->
+
+    <div class="main" style="padding-left: 3rem;">
       <form method="post" action="/datum">
-        <label for="dropdown">Select a sepcific survey response:</label>
+        <label for="dropdown">Select a specific survey response: </label>
         <select id="dropdown" name="dropdown">
           <% for(i=0;i<data.length;i++) { %> 
           <option name='dropdown' value="<%= data[i].response_id%>"><%= data[i].response_id%></option>
           <% } %>
           <!-- Add more options as needed -->
         </select>
-
         <input type="submit" value="See Data" />
       </form>
     </div>
-    
+
+    <!-- See Data -->
 
     <div class="table-responsive">
       <table class="table table-bordered table-striped">
@@ -168,8 +175,6 @@
             <th>Interest in Daily Activities Fluctuate</th>
             <th>Issues with Sleep</th>
             <th>Location ID</th>
-
-            <!-- Add more table headers for each field -->
           </tr>
         </thead>
         <tbody>
@@ -200,6 +205,8 @@
         </tbody>
       </table>
     </div>
+
+    <!-- Footer -->
 
     <footer class="footer">
       <div class="container">

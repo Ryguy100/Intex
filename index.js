@@ -102,7 +102,8 @@ app.get("/", async (req, res) => {
     messages: [
       {
         role: "user",
-        content: "Share a short motivational quote and who said it",
+        content:
+          "Share a positive quote that would benefit someone with poor mental health. Do not offer any other insight",
       },
     ],
   });
