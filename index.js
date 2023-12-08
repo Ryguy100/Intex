@@ -2,23 +2,40 @@
 // by Alex Pesantez, Andrew Naumann, Caleb Reese, Ryan Hafen
 // Section 001
 
+// Project Description: This project is a website made for the city of provo to collect data through
+// a survey about people's mental health. This data is fed into a database that is then used in a tableau dashboard
+// so that users of the website can view connections between social media usage and the quality of mental health
+// in provo and in plainsville.
+
+// Import Middlewares, APIs, and Libraries
+
 const express = require("express");
 let app = express();
 const session = require("express-session");
 const OpenAI = require("openai");
 let path = require("path");
 
+// Pull the port from an environment variable (RDS)
+
 const PORT = process.env.PORT || 5500;
 
+// Grab environment variables so that they can be accessed here
+
 require("dotenv").config();
+
+// Because the app uses EJS, apply middleware some middleware
 
 app.set("view engine", "ejs");
 app.use(express.urlencoded({ extended: true }));
 app.use(express.static("assets"));
 
+// Import the OpenAI API to generate quotes that boost mental health from famous people.
+
 const openai = new OpenAI({
   apiKey: process.env.OPENAI_API_KEY,
 });
+
+// Set up databse connection to AWS and RDS and use .env variables
 
 const knex = require("knex")({
   client: "pg",
@@ -32,6 +49,8 @@ const knex = require("knex")({
   },
 });
 
+// configure express session
+
 app.use(
   session({
     secret: "Cheese", // Replace with a strong, random string
@@ -39,6 +58,8 @@ app.use(
     saveUninitialized: false,
   })
 );
+
+// Design a middleware to check if a user is authenticated
 
 const authenticateUser = (req, res, next) => {
   if (req.session && req.session.user) {
@@ -52,6 +73,8 @@ const authenticateUser = (req, res, next) => {
 };
 
 app.use(authenticateUser);
+
+// generate a timestamp
 
 function generateTimestamp() {
   const currentDate = new Date();
@@ -68,6 +91,8 @@ function generateTimestamp() {
 
   return timestamp;
 }
+
+// On the "/" route, show a generated quote from chatgpt on the bottom of the home page.
 
 let completion = "";
 
@@ -87,9 +112,13 @@ app.get("/", async (req, res) => {
   res.render("home", { user: res.locals.user, chat: completion });
 });
 
+// Survey Route
+
 app.get("/survey", (req, res) => {
   res.render("survey", { user: res.locals.user });
 });
+
+// Get the results of the survey and feed them to the postgres database
 
 app.post("/survey", async (req, res) => {
   let survey_time_stamp = generateTimestamp();
@@ -110,6 +139,7 @@ app.post("/survey", async (req, res) => {
   let survey_depressed = req.body.feelDepressedOrDown;
   let survey_interest = req.body.interestFluctuation;
   let survey_issues = req.body.sleepIssues;
+  // Set location_id to 2 which is Provo
   let survey_origin = 2;
   let aPlatforms = [];
   let aOrgs = [];
@@ -148,6 +178,8 @@ app.post("/survey", async (req, res) => {
 
   iLatestID = 0;
 
+  // Get the response ID of the last person who filled out the survey
+
   await knex
     .select()
     .from("responses")
@@ -156,6 +188,8 @@ app.post("/survey", async (req, res) => {
     });
 
   console.log(iLatestID);
+
+  // Populate the social media responses and organization responses linking tables with the appropriate data.
 
   if (aPlatforms.length > 0) {
     for (let i = 0; i < aPlatforms.length; i++) {
@@ -190,13 +224,20 @@ app.post("/survey", async (req, res) => {
   res.redirect("/CompletedSurvey");
 });
 
+// Once the user completes the survey, take them to the completed survey page and redirect them to the homepage
+// This is to let the user know they have successfull submitted their survey and that they do not have to fill out again if they don't want to.
+
 app.get("/CompletedSurvey", (req, res) => {
   res.render("CompletedSurvey", { user: res.locals.user });
 });
 
+// This route shows the tableau dashboard
+
 app.get("/dashboard", (req, res) => {
   res.render("dashboard", { user: res.locals.user });
 });
+
+// When you try to log in, get a list of possible users from postgres (not very secure but this worked for us).
 
 let aUsers = [];
 
@@ -219,6 +260,8 @@ app.get("/login", async (req, res) => {
 
   res.render("login", { user: res.locals.user });
 });
+
+// When the user tries to login, they either pass through and go to the homepage or go back to the login page
 
 app.post("/login", async (req, res) => {
   const { username, password } = req.body;
@@ -296,7 +339,7 @@ app.get("/logout", (req, res) => {
   res.render("logout", { user: res.locals.user });
 });
 
-// Edit a user
+// Edit a user, could be your own account or the account of someone else if you are an administrator
 
 app.get("/edit/:userid", (req, res) => {
   editedID = req.params.userid;
@@ -309,6 +352,8 @@ app.get("/edit/:userid", (req, res) => {
       res.render("editaccount", { user: result, admin: res.locals.user });
     });
 });
+
+// Submit edits to the database
 
 app.post("/edit/:userid", async (req, res) => {
   let editedID = req.params.userid;
@@ -331,12 +376,12 @@ app.post("/edit/:userid", async (req, res) => {
     // Fetch the updated user data after the update
     // const updatedUser = await knex("users").where("user_id", editedID).first();
 
-    // console.log(updatedUser);
-
     if (editedID == res.locals.user.id) {
       // If the edited user is the logged-in user, update the session
       req.session.user.name = newUsername;
     }
+
+    // Some validation scripts to see who is the session user after someone edits their account.
 
     console.log("logged on as " + req.session.user.id);
 
@@ -360,8 +405,12 @@ app.get("/delete/:userid", (req, res) => {
     });
 });
 
+// This is a route to a test page where we could try out styling and functionality of modules
+
 app.get("/test", (req, res) => {
   res.render("test", { user: res.locals.user });
 });
+
+// Tell the server to start listening!
 
 app.listen(PORT, () => console.log("Application has started"));
