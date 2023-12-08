@@ -192,3 +192,37 @@ body {
   position: relative;
   margin-top: auto;
 }
+
+.popup-container {
+  position: fixed;
+  bottom: 10px;
+  right: 10px;
+  /* box-shadow: 0 0 10px rgba(0, 0, 0, 0.2); */
+  padding: 10px;
+  /* border-radius: 5px; */
+  display: block;
+  max-width: 270px;
+  text-align: center;
+  transition: all 0.2s ease-in-out;
+}
+
+  .popup-content {
+    font-size: 14px;
+    color: #333;
+  }
+
+  .popup-button {
+  position: absolute;
+  top: -10px;
+  right: 10px;
+  width: 20px;
+  height: 20px;
+  background-color: #ae7fcf;
+  color: #fff;
+  border: none;
+  border-radius: 2px;
+  cursor: pointer;
+  text-align: center;
+  line-height: 30px;
+  transition: all 0.2s ease-in-out;
+}
