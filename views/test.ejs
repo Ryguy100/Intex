@@ -55,17 +55,17 @@
         }
       }
       .popup-container {
-        position: fixed;
-        bottom: 10px;
-        right: 10px;
-        box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
-        padding: 10px;
-        /* border-radius: 5px; */
-        display: block;
-        max-width: 270px;
-        text-align: center;
-        transition: all 0.2s ease-in-out;
-      }
+      position: fixed;
+      bottom: 10px;
+      right: 10px;
+      /* box-shadow: 0 0 10px rgba(0, 0, 0, 0.2); */
+      padding: 10px;
+      /* border-radius: 5px; */
+      display: block;
+      max-width: 270px;
+      text-align: center;
+      transition: all 0.2s ease-in-out;
+    }
 
       .popup-content {
         font-size: 14px;
@@ -73,20 +73,20 @@
       }
 
       .popup-button {
-        position: absolute;
-        top: -30px;
-        right: 10px;
-        width: 30px;
-        height: 30px;
-        background-color: #ae7fcf;
-        color: #fff;
-        border: none;
-        border-radius: 2px;
-        cursor: pointer;
-        text-align: center;
-        line-height: 30px;
-        transition: all 0.2s ease-in-out;
-      }
+      position: absolute;
+      top: -20px;
+      right: 10px;
+      width: 20px;
+      height: 20px;
+      background-color: #ae7fcf;
+      color: #fff;
+      border: none;
+      border-radius: 2px;
+      cursor: pointer;
+      text-align: center;
+      line-height: 30px;
+      transition: all 0.2s ease-in-out;
+    }
     </style>
   </head>
   <body>
@@ -419,7 +419,7 @@
           Mental Health Hotline.
         </p>
         <b><p>Hotline: 1-833-456-4566</p></b>
-        <button class="popup-button" onclick="togglePopup()">▲</button>
+        <button class="popup-button" onclick="togglePopup()">^</button>
       </div>
     </div>
     <script>
@@ -437,23 +437,6 @@
             isMinimized = false;
           } else {
             popup.style.height = "30px"; // Set the desired minimized height
-            button.style.top = "10px"; // Move button back to its original position
-            isMinimized = true;
-          }
-        }
-      }
-
-      function togglePopup() {
-        var popup = document.getElementById("minimizablePopup");
-        var button = document.querySelector(".popup-button");
-
-        if (popup && button) {
-          if (isMinimized) {
-            popup.style.height = "auto"; // Reset height
-            button.style.top = "-30px"; // Move button to the top
-            isMinimized = false;
-          } else {
-            popup.style.height = "20px"; // Set the desired minimized height
             button.style.top = "10px"; // Move button back to its original position
             isMinimized = true;
           }
