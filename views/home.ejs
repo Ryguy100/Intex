@@ -15,8 +15,7 @@
       }
     </style>
   </head>
-  <style>
-  </style>
+  <style></style>
   <body>
     <!-- Navigation Bar -->
 
@@ -36,7 +35,9 @@
       </div>
 
       <div class="navbar-brand mx-auto">
-        <img src="/logo.png" alt="Brand Logo" style="max-height: 30px" />
+        <a href="https://www.provo.org/">
+          <img src="/logo.png" alt="Brand Logo" style="max-height: 30px" />
+        </a>
       </div>
 
       <div class="collapse navbar-collapse" id="navbarNav">
@@ -115,50 +116,72 @@
     <!-- Main Area -->
 
     <div class="sleek-header" style="height: 40rem">
-      <br>
-      <br>
+      <br />
+      <br />
       <h1 class="display-3">Provo City Mental Health Awareness</h1>
-      <br>
+      <br />
       <p class="col-sm-8 mx-auto">
-        A city-wide project to find a link between social media usage and
+        A city-wide project to explore the relationship between social media usage and
         mental health
       </p>
-      <br>
-      <br>
-      <br>
-      <a href="/survey" class="btn btn-lg btn-primary sleek-button">Take the survey</a>
+      <br />
+      <br />
+      <br />
+      <a href="/survey" class="btn btn-lg btn-primary sleek-button"
+        >Take the survey</a
+      >
     </div>
-    <br>
-    <br>
+    <br />
+    <br />
     <!-- BIG IDEA -->
-<div class="m-3">
-    <div class="text-center mx-auto py-3 mt-3">
-      <h5 style="color: rgb(91, 88, 88);">The results of our study shows that</h5>
-      <h3>Increased social media use leads to higher rates of depression</h3>
-    </div>
-    <br>
-    <div class="text-center col-sm-6 mx-auto py-3">
-      <p><%= chat%></p>
-    </div>
-    <br>
-    <br>
-    <!-- Entices the user to explore the site -->
-
-      <div style="text-align: center;">
-        <h4>Explore our site</h4><br>
+    <div class="m-3">
+      <div class="text-center mx-auto py-3 mt-3">
+        <!-- <h5 style="color: rgb(91, 88, 88)">
+          The results of our study shows that
+        </h5> -->
+        <h3>
+          <a
+            style="
+              text-decoration: none;
+              background-color: white;
+              box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+              color: rgb(83, 22, 141);
+              border: none;
+            "
+            class="btn btn-lg btn-primary sleek-button"
+            href="/dashboard"
+            >See the results of our study</a
+          >
+        </h3>
       </div>
-      
+      <br />
+      <div class="text-center col-sm-6 mx-auto py-3">
+        <p><%= chat%></p>
+      </div>
+      <br />
+      <br />
+      <!-- Entices the user to explore the site -->
+
+      <div style="text-align: center">
+        <h4>Explore our site</h4>
+        <br />
+      </div>
+
       <div class="row justify-content-center">
         <div class="col-sm-4 mb-4">
           <div class="card">
-            <a href="/dashboard" style="color: black; text-decoration: none;">
-            <img src="dashboard-line-icon-vector.jpg" class="card-img-top" alt="Photo 2" />
-            <div class="card-body">
+            <a href="/dashboard" style="color: black; text-decoration: none">
+              <img
+                src="dashboard-line-icon-vector.jpg"
+                class="card-img-top"
+                alt="Photo 2"
+              />
+              <div class="card-body">
                 <h5 class="card-title">See Graphs</h5>
                 <p class="card-text">
                   Discover the link between social media usage and mental health
                 </p>
-            </div>
+              </div>
             </a>
           </div>
         </div>
@@ -167,37 +190,79 @@
         <div class="col-sm-4 mb-4 text-center">
           <div class="card groovy-background text-white">
             <div class="card-body">
-              <h5 class="card-title" style="text-align: center; padding: 5px; font-weight: bold; ">Mental Health Resources</h5>
-              <p class="card-text">Check out the official website from the CDC about mental health</p>
-              <button type="button" onclick="window.location.href='https://www.cdc.gov/mentalhealth/index.htm'" 
-                  style="color: white; background-color: transparent; border: none; color: white; box-shadow: 
-                  0 4px 8px rgba(0, 0, 0, 0.1);" class="btn btn-light">Explore CDC Resources</button> <br>
-            <br>
-              <p class="card-text">See how much screen time is too much for adults</p>
-              <button type="button" onclick="window.location.href='https://blog.superhuman.com/screen-time-for-adults/'" 
-                  style="color: white; background-color: transparent; border: none; color: white; box-shadow: 0 4px 
-                  8px rgba(0, 0, 0, 0.1);" class="btn btn-light">Check Screen Time Guidelines</button>
-            <br><br>
-            <p class="card-text">Visit the national institute of mental health for help with mental illness</p>
-              <button type="button" onclick="window.location.href='https://www.nimh.nih.gov/health/find-help'" style="color:
-                   white; background-color: transparent; border: none; color: white; box-shadow: 0 4px 8px 
-                   rgba(0, 0, 0, 0.1);" class="btn btn-light">Get Help with Mental Illness</button>
-                   <br><br>
-                   <p class="card-text">Find new things to do instead of waste your time on social media </p>
-              <button type="button" onclick="window.location.href='https://www.makingsenseofcents.com/2020/02/things-to-do-instead-of-social-media.html'" style="color:
-                   white; background-color: transparent; border: none; color: white; box-shadow: 0 4px 8px 
-                   rgba(0, 0, 0, 0.1);" class="btn btn-light">Click here for new ideas</button>
+              <h5
+                class="card-title"
+                style="text-align: center; padding: 5px; font-weight: bold"
+              >
+                Mental Health Resources
+              </h5>
+              <p class="card-text">
+                Visit the official website from the CDC about mental health
+              </p>
+              <button
+                type="button"
+                onclick="window.location.href='https://www.cdc.gov/mentalhealth/index.htm'"
+                style="
+                  color: white;
+                  background-color: transparent;
+                  border: none;
+                  color: white;
+                  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+                "
+                class="btn btn-light"
+              >
+                See More
+              </button>
+              <br />
+              <br />
+              <p class="card-text">
+                Visit this blog to see how much screen time is too much for
+                adults
+              </p>
+              <button
+                type="button"
+                onclick="window.location.href='https://blog.superhuman.com/screen-time-for-adults/'"
+                style="
+                  color: white;
+                  background-color: transparent;
+                  border: none;
+                  color: white;
+                  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+                "
+                class="btn btn-light"
+              >
+                See More
+              </button>
+              <br /><br />
+              <p class="card-text">
+                Visit the national institute of mental health for help with
+                mental illness
+              </p>
+              <button
+                type="button"
+                onclick="window.location.href='https://www.nimh.nih.gov/health/find-help'"
+                style="
+                  color: white;
+                  background-color: transparent;
+                  border: none;
+                  color: white;
+                  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+                "
+                class="btn btn-light"
+              >
+                See More
+              </button>
             </div>
           </div>
         </div>
       </div>
-      <br>
-      <br>
-      <br>
-      <br>
+      <br />
+      <br />
+      <br />
+      <br />
 
-    <div class="col-sm-8 mx-auto text-center">
-        <p class= "fs-5 fw-light">
+      <div class="col-sm-8 mx-auto text-center">
+        <p class="fs-5 fw-light">
           The city of Provo has created this website aimed at raising awareness
           about the intricate relationship between mental health and social
           media usage. In an age dominated by digital connectivity, the impact
@@ -210,43 +275,52 @@
           online interactions, promoting a healthier and more mindful approach
           to social media use.
         </p>
+      </div>
+      <br /><br /><br />
     </div>
-    <br><br><br>
-  </div>
-  <br>
-  <br>
-  <br>
-  <br>
-  <div class="position-fixed bottom-0 end-0 p-3 z-3">
-    <button id="toggleButton" type="button" class="btn btn-primary">Close</button>
-    <div class="toast" role="alert" aria-live="assertive" aria-atomic="true" data-bs-autohide="false">
-      <div class="toast-body text-secondary-emphasis">
-        If you or someone you know is struggling, please reach out to the Mental Health Hotline.
-        <br>
-        <b><p>Hotline: 1-833-456-4566</p></b>
+    <br />
+    <br />
+    <br />
+    <br />
+    <div class="position-fixed bottom-0 end-0 p-3 z-3">
+      <button id="toggleButton" type="button" class="btn btn-primary">
+        Close
+      </button>
+      <div
+        class="toast"
+        role="alert"
+        aria-live="assertive"
+        aria-atomic="true"
+        data-bs-autohide="false"
+      >
+        <div class="toast-body text-secondary-emphasis">
+          If you or someone you know is struggling, please reach out to the
+          Mental Health Hotline.
+          <br />
+          <b><p>Hotline: 1-833-456-4566</p></b>
+        </div>
       </div>
     </div>
-  </div>
-  
-  <script>
-    $(document).ready(function () {
-      // Show the toast initially
-      $('.toast').toast('show');
-  
-      // Toggle button click event
-      $('#toggleButton').on('click', function () {
-        var toast = $('.toast');
-        if (toast.hasClass('show')) {
-          toast.toast('hide');
-          $('#toggleButton').html('View');
-        } else {
-          toast.toast('show');
-          $('#toggleButton').html('Close');
-        }
+
+    <script>
+      $(document).ready(function () {
+        // Show the toast initially
+        $(".toast").toast("show");
+
+        // Toggle button click event
+        $("#toggleButton").on("click", function () {
+          var toast = $(".toast");
+          if (toast.hasClass("show")) {
+            toast.toast("hide");
+            $("#toggleButton").html("View");
+          } else {
+            toast.toast("show");
+            $("#toggleButton").html("Close");
+          }
+        });
       });
-    });
-  </script>
-  
+    </script>
+
     <footer class="footer">
       <div class="container">
         <p>&copy; 2023 City of Provo. All Rights Reserved.</p>

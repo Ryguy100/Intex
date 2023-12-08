@@ -26,7 +26,9 @@
       </div>
 
       <div class="navbar-brand mx-auto">
-        <img src="/logo.png" alt="Brand Logo" style="max-height: 30px" />
+        <a href="https://www.provo.org/">
+          <img src="/logo.png" alt="Brand Logo" style="max-height: 30px" />
+        </a>
       </div>
 
       <div class="collapse navbar-collapse" id="navbarNav">
@@ -103,12 +105,11 @@
     </nav>
 
     <!--See one specific response-->
-    <div class="main">
-      <h3 class="mt-4 mb-4" style="padding-left: 2rem">
-        Response <%= data[0].response_id%>
-      </h3>
+    <div class="main" style="padding-left: 2rem">
+      <br />
+      <a class="btn btn-lg btn-primary sleek-button" href="/data">Back</a>
+      <h3 class="mt-4 mb-4">Response <%= data[0].response_id%></h3>
 
-      <p style="padding-left: 2rem"><a href="/data">Back</a></p>
       <br />
     </div>
 
@@ -171,7 +172,23 @@
       </table>
     </div>
 
-    <h3></h3>
+    <div class="main">
+      <h3 class="mt-4 mb-4" style="padding-left: 2rem">
+        Socials Medias Used and Organization Affiliations
+      </h3>
+
+      <p style="padding-left: 2rem">
+        <% for (let i = 0; i < sr.length; i++) { %> <%= ([i + 1]) + '. ' +
+        sm[sr[i].social_media_id].social_media_name%> <% } %>
+      </p>
+
+      <p style="padding-left: 2rem">
+        <% for (let i = 0; i < or.length; i++) { %> <%= ([i + 1]) + '. ' +
+        os[or[i].organization_id - 1].organizational_affiliations %> <% } %>
+      </p>
+
+      <br />
+    </div>
 
     <!--Scripts for the Bootstrap-->
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
